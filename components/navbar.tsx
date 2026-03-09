@@ -5,36 +5,50 @@ import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Menu, X } from 'lucide-react'
 import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
+
+// Pages where the hero directly underneath is light/white — navbar must be opaque from the start
+const LIGHT_HERO_PATHS = ['/solutions', '/contact']
 
 export function Navbar() {
+  const pathname = usePathname()
+  const forceOpaque = LIGHT_HERO_PATHS.includes(pathname ?? '')
+
   const [isOpen, setIsOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(forceOpaque)
 
   useEffect(() => {
+    if (forceOpaque) {
+      setIsScrolled(true)
+      return
+    }
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
     }
+    setIsScrolled(window.scrollY > 20)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [forceOpaque])
 
   return (
     <nav
       className={`fixed top-0 z-50 w-full transition-all duration-[350ms] ${isScrolled
-        ? 'bg-white/80 backdrop-blur-[10px] border-b border-black/5 py-4 shadow-[0_4px_20px_rgba(0,0,0,0.08)]'
-        : 'bg-transparent py-6 shadow-none'
+        ? 'bg-white/80 backdrop-blur-[10px] border-b border-black/5 py-2 shadow-[0_4px_20px_rgba(0,0,0,0.08)]'
+        : 'bg-transparent py-2 shadow-none'
         }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-20 md:h-24 lg:h-28">
           <Link href="/" className="flex items-center group transition-all duration-300">
             <div className="relative">
               <Image
                 src="/logo.png"
                 alt="Shivsarvam"
-                width={360}
+                width={260}
                 height={96}
-                className={`h-24 w-auto object-contain transition-all duration-300 ${isScrolled ? 'brightness-90' : 'brightness-110'} group-hover:scale-105`}
+                className={`h-16 md:h-20 lg:h-28 w-auto object-contain transition-all duration-300 ${
+                  isScrolled ? 'brightness-90' : 'brightness-110'
+                } group-hover:scale-105`}
                 priority
               />
             </div>
@@ -43,9 +57,9 @@ export function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-10">
             {[
-              { label: 'About', href: '#about' },
-              { label: 'Solutions', href: '#solutions' },
-              { label: 'Contact', href: '#contact' }
+              { label: 'About', href: '/about' },
+              { label: 'Solutions', href: '/solutions' },
+              { label: 'Contact', href: '/contact' }
             ].map((link) => (
               <Link
                 key={link.label}
@@ -66,7 +80,7 @@ export function Navbar() {
               asChild
               className="hidden sm:inline-flex bg-gradient-to-br from-[#2563EB] to-[#3B82F6] hover:-translate-y-0.5 hover:shadow-[0_10px_25px_rgba(37,99,235,0.35)] transform text-white transition-all duration-300 border-none px-8 py-6 text-base font-bold rounded-xl"
             >
-              <Link href="#contact">Get Quote</Link>
+              <Link href="/contact">Get Quote</Link>
             </Button>
 
             {/* Mobile Menu Button */}
@@ -84,9 +98,9 @@ export function Navbar() {
           <div className="md:hidden mt-4 pb-6 space-y-2 animate-in fade-in slide-in-from-top-4 duration-300">
             <div className={`rounded-3xl p-4 shadow-2xl border ${isScrolled ? 'bg-white border-slate-100' : 'bg-[#0f172a]/95 border-white/10'}`}>
               {[
-                { label: 'About', href: '#about' },
-                { label: 'Solutions', href: '#solutions' },
-                { label: 'Contact', href: '#contact' }
+                { label: 'About', href: '/about' },
+                { label: 'Solutions', href: '/solutions' },
+                { label: 'Contact', href: '/contact' }
               ].map((link) => (
                 <Link
                   key={link.label}

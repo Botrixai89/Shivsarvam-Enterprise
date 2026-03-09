@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import Image from 'next/image'
 
 export function Brands() {
   return (
@@ -32,12 +33,17 @@ export function Brands() {
           >
             <Card className="p-10 text-center hover:shadow-2xl transition-all duration-500 border-t-8 border-t-primary bg-white/50 backdrop-blur-sm group hover:-translate-y-2 h-full">
               <div className="mb-8">
-                <motion.div 
-                  whileHover={{ rotate: 360, scale: 1.1 }}
-                  transition={{ duration: 0.8 }}
-                  className="w-24 h-24 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-inner border border-primary/20"
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.4 }}
+                  className="w-48 h-20 relative mx-auto mb-6"
                 >
-                  <span className="text-4xl font-black text-primary">C</span>
+                  <Image
+                    src="/images/chemtex.png"
+                    alt="Chemtex Specialty"
+                    fill
+                    className="object-contain"
+                  />
                 </motion.div>
                 <h3 className="text-3xl font-bold text-slate-900 group-hover:text-primary transition-colors duration-300">Chemtex Specialty</h3>
               </div>
@@ -66,12 +72,17 @@ export function Brands() {
           >
             <Card className="p-10 text-center hover:shadow-2xl transition-all duration-500 border-t-8 border-t-accent bg-white/50 backdrop-blur-sm group hover:-translate-y-2 h-full">
               <div className="mb-8">
-                <motion.div 
-                  whileHover={{ rotate: -360, scale: 1.1 }}
-                  transition={{ duration: 0.8 }}
-                  className="w-24 h-24 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-inner border border-accent/20"
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.4 }}
+                  className="w-48 h-20 relative mx-auto mb-6"
                 >
-                  <span className="text-4xl font-black text-accent">I</span>
+                  <Image
+                    src="/images/indokem.png"
+                    alt="Indokem Limited"
+                    fill
+                    className="object-contain"
+                  />
                 </motion.div>
                 <h3 className="text-3xl font-bold text-slate-900 group-hover:text-accent transition-colors duration-300">Indokem Limited</h3>
               </div>

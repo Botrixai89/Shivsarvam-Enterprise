@@ -10,7 +10,11 @@ import { Phone, Mail, MapPin, Send } from 'lucide-react'
 import { useState } from 'react'
 import { useToast } from '@/hooks/use-toast'
 
-export function Contact() {
+type ContactProps = {
+  showHeading?: boolean
+}
+
+export function Contact({ showHeading = true }: ContactProps) {
   const { toast } = useToast()
   const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
@@ -60,20 +64,39 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 bg-gradient-to-b from-background via-secondary/5 to-background overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">Get in Touch</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Request a quote or contact us for more information about our solutions
-          </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mt-6"></div>
-        </motion.div>
+    <section
+      id="contact"
+      className="relative py-24 bg-gradient-to-b from-slate-950 via-slate-950/98 to-slate-900 overflow-hidden"
+    >
+      {/* Animated background orbs */}
+      <motion.div
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-40 -right-32 h-80 w-80 rounded-full bg-primary/25 blur-3xl"
+        animate={{ opacity: [0.3, 0.6, 0.3], y: [0, 30, 0] }}
+        transition={{ duration: 14, repeat: Infinity }}
+      />
+      <motion.div
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-52 -left-40 h-96 w-96 rounded-full bg-accent/25 blur-3xl"
+        animate={{ opacity: [0.25, 0.5, 0.25], y: [0, -25, 0] }}
+        transition={{ duration: 16, repeat: Infinity }}
+      />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {showHeading && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">Get in Touch</h2>
+            <p className="text-lg text-slate-300 max-w-2xl mx-auto">
+              Request a quote or contact us for more information about our solutions
+            </p>
+            <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mt-6 rounded-full" />
+          </motion.div>
+        )}
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
           {/* Contact Info Cards */}
@@ -83,8 +106,8 @@ export function Contact() {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            <Card className="p-8 h-full hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] hover:-translate-y-2 transition-all duration-500 group border-primary/10">
-              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary transition-all duration-500">
+            <Card className="p-8 h-full bg-white/10 border-white/10 backdrop-blur-xl hover:shadow-[0_20px_45px_rgba(15,23,42,0.6)] hover:-translate-y-2 transition-all duration-500 group">
+              <div className="w-16 h-16 bg-primary/15 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary transition-all duration-500">
                 <motion.div
                   animate={{ scale: [1, 1.1, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
@@ -92,8 +115,8 @@ export function Contact() {
                   <Phone className="w-8 h-8 text-primary group-hover:text-white transition-colors" />
                 </motion.div>
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-3">Phone</h3>
-              <p className="text-lg text-muted-foreground font-medium mb-1">
+              <h3 className="text-xl font-bold text-white mb-3">Phone</h3>
+              <p className="text-lg text-slate-200 font-medium mb-1">
                 <a href="tel:+919XXX" className="hover:text-primary transition">
                   +91-9XXX-XXX-XXX
                 </a>
@@ -108,8 +131,8 @@ export function Contact() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <Card className="p-8 h-full hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] hover:-translate-y-2 transition-all duration-500 group border-accent/10">
-              <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-accent transition-all duration-500">
+            <Card className="p-8 h-full bg-white/10 border-white/10 backdrop-blur-xl hover:shadow-[0_20px_45px_rgba(15,23,42,0.6)] hover:-translate-y-2 transition-all duration-500 group">
+              <div className="w-16 h-16 bg-accent/15 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-accent transition-all duration-500">
                 <motion.div
                   animate={{ rotate: [0, 10, -10, 0] }}
                   transition={{ duration: 4, repeat: Infinity }}
@@ -117,8 +140,8 @@ export function Contact() {
                   <Mail className="w-8 h-8 text-accent group-hover:text-white transition-colors" />
                 </motion.div>
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-3">Email</h3>
-              <p className="text-lg text-muted-foreground font-medium mb-1">
+              <h3 className="text-xl font-bold text-white mb-3">Email</h3>
+              <p className="text-lg text-slate-200 font-medium mb-1">
                 <a href="mailto:info@shivsarvam.com" className="hover:text-accent transition">
                   info@shivsarvam.com
                 </a>
@@ -133,8 +156,8 @@ export function Contact() {
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
           >
-            <Card className="p-8 h-full hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] hover:-translate-y-2 transition-all duration-500 group border-emerald-500/10">
-              <div className="w-16 h-16 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-emerald-500 transition-all duration-500">
+            <Card className="p-8 h-full bg-white/10 border-white/10 backdrop-blur-xl hover:shadow-[0_20px_45px_rgba(15,23,42,0.6)] hover:-translate-y-2 transition-all duration-500 group">
+              <div className="w-16 h-16 bg-emerald-500/15 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-emerald-500 transition-all duration-500">
                 <motion.div
                   animate={{ y: [0, -5, 0] }}
                   transition={{ duration: 2, repeat: Infinity }}
@@ -142,11 +165,11 @@ export function Contact() {
                   <MapPin className="w-8 h-8 text-emerald-500 group-hover:text-white transition-colors" />
                 </motion.div>
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-3">Location</h3>
-              <p className="text-lg text-muted-foreground font-medium mb-1">
-                Chhattisgarh, India
+              <h3 className="text-xl font-bold text-white mb-3">Location</h3>
+              <p className="text-lg text-slate-200 font-medium mb-1">Chhattisgarh, India</p>
+              <p className="text-sm text-emerald-400 font-semibold uppercase tracking-wider">
+                Serving Chhattisgarh region
               </p>
-              <p className="text-sm text-emerald-500 font-semibold uppercase tracking-wider">Serving Chhattisgarh region</p>
             </Card>
           </motion.div>
         </div>
@@ -158,11 +181,18 @@ export function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <Card className="p-10 max-w-3xl mx-auto shadow-2xl border-white/5 bg-white/50 backdrop-blur-sm">
+          <Card className="relative p-10 max-w-3xl mx-auto shadow-[0_30px_80px_rgba(15,23,42,0.9)] border-white/10 bg-slate-950/70 backdrop-blur-2xl overflow-hidden">
+            {/* Animated top border shimmer */}
+            <motion.div
+              aria-hidden="true"
+              className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-70"
+              animate={{ opacity: [0.3, 1, 0.3] }}
+              transition={{ duration: 4, repeat: Infinity }}
+            />
             <form onSubmit={handleSubmit} className="space-y-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               <div className="space-y-3">
-                <Label htmlFor="name" className="text-sm font-bold text-slate-700">Full Name *</Label>
+                <Label htmlFor="name" className="text-sm font-bold text-slate-100">Full Name *</Label>
                 <Input
                   id="name"
                   name="name"
@@ -170,11 +200,11 @@ export function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="h-12 bg-white/50 border-slate-200 focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all duration-300 rounded-xl"
+                  className="h-12 bg-white/80 text-slate-900 placeholder:text-slate-400 border-slate-200 focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all duration-300 rounded-xl"
                 />
               </div>
               <div className="space-y-3">
-                <Label htmlFor="company" className="text-sm font-bold text-slate-700">Company Name *</Label>
+                <Label htmlFor="company" className="text-sm font-bold text-slate-100">Company Name *</Label>
                 <Input
                   id="company"
                   name="company"
@@ -182,14 +212,14 @@ export function Contact() {
                   value={formData.company}
                   onChange={handleChange}
                   required
-                  className="h-12 bg-white/50 border-slate-200 focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all duration-300 rounded-xl"
+                  className="h-12 bg-white/80 text-slate-900 placeholder:text-slate-400 border-slate-200 focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all duration-300 rounded-xl"
                 />
               </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               <div className="space-y-3">
-                <Label htmlFor="phone" className="text-sm font-bold text-slate-700">Phone *</Label>
+                <Label htmlFor="phone" className="text-sm font-bold text-slate-100">Phone *</Label>
                 <Input
                   id="phone"
                   name="phone"
@@ -197,11 +227,11 @@ export function Contact() {
                   value={formData.phone}
                   onChange={handleChange}
                   required
-                  className="h-12 bg-white/50 border-slate-200 focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all duration-300 rounded-xl"
+                  className="h-12 bg-white/80 text-slate-900 placeholder:text-slate-400 border-slate-200 focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all duration-300 rounded-xl"
                 />
               </div>
               <div className="space-y-3">
-                <Label htmlFor="email" className="text-sm font-bold text-slate-700">Email *</Label>
+                <Label htmlFor="email" className="text-sm font-bold text-slate-100">Email *</Label>
                 <Input
                   id="email"
                   name="email"
@@ -210,13 +240,13 @@ export function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="h-12 bg-white/50 border-slate-200 focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all duration-300 rounded-xl"
+                  className="h-12 bg-white/80 text-slate-900 placeholder:text-slate-400 border-slate-200 focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all duration-300 rounded-xl"
                 />
               </div>
             </div>
 
             <div className="space-y-3">
-              <Label htmlFor="message" className="text-sm font-bold text-slate-700">Message</Label>
+              <Label htmlFor="message" className="text-sm font-bold text-slate-100">Message</Label>
               <Textarea
                 id="message"
                 name="message"
@@ -224,7 +254,7 @@ export function Contact() {
                 rows={5}
                 value={formData.message}
                 onChange={handleChange}
-                className="bg-white/50 border-slate-200 focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all duration-300 rounded-2xl resize-none"
+                className="bg-white/80 text-slate-900 placeholder:text-slate-400 border-slate-200 focus:ring-4 focus:ring-primary/20 focus:border-primary transition-all duration-300 rounded-2xl resize-none"
               />
             </div>
 

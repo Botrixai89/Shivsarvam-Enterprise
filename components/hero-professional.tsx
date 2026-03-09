@@ -9,7 +9,7 @@ import { MolecularBackground } from './molecular-background'
 
 export function HeroProfessional() {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-slate-950 pt-20">
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-slate-950 pt-24 md:pt-28">
       <MolecularBackground />
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
@@ -23,45 +23,89 @@ export function HeroProfessional() {
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-950/40" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-20 md:py-32">
-        <div className="max-w-3xl">
+      <div className="max-w-7xl mx-auto px-5 md:px-20 relative z-10 w-full py-12 md:py-32">
+        <div className="max-w-xl md:max-w-3xl mx-auto md:mx-0 text-center md:text-left space-y-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 border border-primary/30 text-primary-foreground text-xs font-bold tracking-wider uppercase mb-6 backdrop-blur-md">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-              </span>
-              Authorized Distributor
+            {/* Authorized Distributor badge with partner logos */}
+            <div className="inline-flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 px-4 py-2 rounded-2xl bg-white/8 border border-white/15 backdrop-blur-md mb-2 max-w-full flex-wrap scale-90 md:scale-100 origin-left">
+              <div className="flex items-center gap-2">
+                {/* Pulsing dot */}
+                <span className="relative flex h-2 w-2 shrink-0">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
+                </span>
+                <span className="text-white/70 text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase">
+                  Authorized Distributor
+                </span>
+              </div>
+
+              {/* Divider (hidden on very small screens to avoid crowding) */}
+              <span className="hidden sm:inline-block w-px h-4 bg-white/20 shrink-0" />
+
+              <div className="flex items-center gap-2 sm:gap-3">
+                {/* Chemtex logo chip */}
+                <div className="flex items-center justify-center px-3 sm:px-4 py-1.5 rounded-full bg-white/95 shadow-sm shrink-0">
+                  <div className="relative h-7 w-24 sm:h-9 sm:w-28">
+                    <Image
+                      src="/images/chemtex.png"
+                      alt="Chemtex Specialty"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
+
+                {/* Separator dot */}
+                <span className="w-1 h-1 rounded-full bg-white/30 shrink-0" />
+
+                {/* Indokem logo chip */}
+                <div className="flex items-center justify-center px-3 sm:px-4 py-1.5 rounded-full bg-white/95 shadow-sm shrink-0">
+                  <div className="relative h-7 w-26 sm:h-9 sm:w-32">
+                    <Image
+                      src="/images/indokem.png"
+                      alt="Indokem Limited"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.div>
 
-          <div className="overflow-hidden mb-4">
+          <div className="overflow-hidden">
             <motion.h1
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5, ease: [0.215, 0.61, 0.355, 1] }}
-              className="text-5xl md:text-7xl font-bold text-white leading-[1.1]"
+              className="text-3xl md:text-6xl font-bold text-white leading-tight"
             >
               Precision Chemicals for
             </motion.h1>
           </div>
           
-          <div className="overflow-hidden mb-8">
+          <div>
             <motion.h1
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.7, ease: [0.215, 0.61, 0.355, 1] }}
-              className="text-5xl md:text-7xl font-bold leading-[1.1]"
+              className="text-3xl md:text-6xl font-bold leading-tight"
             >
-              <motion.span 
+              {/* 
+                Using display:block + em-based paddingBottom so the bg-clip region
+                always scales with the font size — this prevents the italic "y"
+                descender from being cut off at any viewport width.
+              */}
+              <motion.span
                 initial={{ backgroundPosition: "0% 50%" }}
                 animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-                className="italic text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_auto] drop-shadow-[0_0_15px_rgba(30,64,175,0.3)]"
+                className="italic block text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_auto]"
+                style={{ paddingBottom: '0.35em' }}
               >
                 Every Industry
               </motion.span>
@@ -72,7 +116,7 @@ export function HeroProfessional() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed max-w-2xl"
+            className="text-sm md:text-lg text-gray-300 leading-relaxed max-w-md md:max-w-xl mx-auto md:mx-0"
           >
             Your trusted regional partner for premium solutions from <span className="text-white font-bold">Chemtex Specialty</span> & <span className="text-white font-bold">Indokem Limited</span>. Delivering safety, hygiene, and efficiency for 19+ years.
           </motion.p>
@@ -81,7 +125,7 @@ export function HeroProfessional() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 1.2 }}
-            className="flex flex-wrap gap-4 mb-12"
+            className="flex flex-col sm:flex-row gap-4"
           >
             <motion.div
               whileHover={{ scale: 1.05 }}
@@ -91,8 +135,8 @@ export function HeroProfessional() {
               }}
               transition={{ duration: 3, repeat: Infinity }}
               className="rounded-full"
-            >
-              <Button size="lg" className="px-8 py-7 text-lg rounded-full h-auto" asChild>
+              >
+              <Button size="lg" className="px-6 py-3 text-base rounded-full h-auto w-full md:w-auto" asChild>
                 <Link href="/solutions">Explore Solutions</Link>
               </Button>
             </motion.div>
@@ -105,8 +149,13 @@ export function HeroProfessional() {
               }}
               transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}
               className="rounded-full"
-            >
-              <Button size="lg" variant="outline" className="px-8 py-7 text-lg rounded-full h-auto bg-transparent border-white/40 text-white hover:bg-white hover:text-slate-950 transition-all duration-300" asChild>
+              >
+              <Button
+                size="lg"
+                variant="outline"
+                className="px-6 py-3 text-base rounded-full h-auto bg-transparent border-white/40 text-white hover:bg-white hover:text-slate-950 transition-all duration-300 w-full md:w-auto"
+                asChild
+              >
                 <Link href="/contact">Book Consultation</Link>
               </Button>
             </motion.div>
