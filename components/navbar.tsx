@@ -38,15 +38,15 @@ export function Navbar() {
         }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20 md:h-24 lg:h-28">
-          <Link href="/" className="flex items-center group transition-all duration-300">
-            <div className="relative">
+        <div className="flex justify-between items-center h-24 md:h-32 lg:h-36 xl:h-40">
+          <Link href="/" className="flex items-center group transition-all duration-300 shrink-0">
+            <div className="relative flex items-center">
               <Image
                 src="/logo.png"
                 alt="Shivsarvam"
-                width={260}
-                height={96}
-                className={`h-16 md:h-20 lg:h-28 w-auto object-contain transition-all duration-300 ${
+                width={400}
+                height={160}
+                className={`h-20 md:h-28 lg:h-36 xl:h-40 w-auto object-contain transition-all duration-300 ${
                   isScrolled ? 'brightness-90' : 'brightness-110'
                 } group-hover:scale-105`}
                 priority
