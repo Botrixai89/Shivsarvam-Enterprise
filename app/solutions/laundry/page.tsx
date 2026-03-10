@@ -3,8 +3,8 @@ import { Footer } from '@/components/footer'
 import Link from 'next/link'
 import Image from 'next/image'
 import {
-  ChevronLeft, Droplets, Zap, Settings, Sparkles,
-  TrendingDown, ShieldCheck, Building2, HeartPulse, Hotel,
+  ChevronLeft, Droplets, Settings, TrendingDown, ShieldCheck,
+  Building2, HeartPulse, Hotel, Sparkles,
 } from 'lucide-react'
 import { ProductCard } from '@/components/cards/product-card'
 import { BenefitCard } from '@/components/cards/benefit-card'
@@ -21,51 +21,20 @@ const SectionHeading = ({ children }: { children: React.ReactNode }) => (
 const products = [
   {
     icon: Droplets,
-    title: 'Laundrex Detergent Range',
+    title: 'Laundry Chemicals for Commercial Laundries & Dry Cleaners',
     description:
-      'Premium detergent powders and liquids formulated for all types of industrial laundry loads including heavily soiled items.',
-    features: ['Removes heavy stains', 'Maintains fabric softness', 'Industrial-grade formula', 'Optimised for high-volume machines'],
+      'Laundry chemicals for commercial laundries and dry cleaners. Detergents, additives and speciality chemicals for professional fabric care operations.',
+    features: ['Commercial laundry chemicals', 'Dry cleaning solutions', 'Stain removal', 'Fabric care'],
     downloadLinks: [
-      { label: 'Indokem Laundry Brochure', href: '/pdfs/Indokem Limited Laundry Corporate Brochure.pdf' },
-    ],
-  },
-  {
-    icon: Zap,
-    title: 'Specialized Additives',
-    description:
-      'Bleaches, Neutra series and high-quality fabric softeners for achieving consistent results across commercial laundry operations.',
-    features: ['Optical brighteners', 'Neutra pH balancers', 'Fabric softeners', 'Colour-safe bleaches'],
-    downloadLinks: [
-      { label: 'Indokem Laundry Brochure', href: '/pdfs/Indokem Limited Laundry Corporate Brochure.pdf' },
+      { label: 'Download Brochure', href: '/pdfs/Indokem Limited Laundry Corporate Brochure.pdf' },
     ],
   },
   {
     icon: Settings,
-    title: 'Advanced Stain Spotters',
+    title: 'Laundry Machines Supplier / Support',
     description:
-      'Specialised stain removal treatments targeting ink, grease, rust and medical stains for professional laundry facilities.',
-    features: ['Ink & rust removal', 'Grease stain treatment', 'Medical stain removal', 'Pre-treatment application'],
-  },
-  {
-    icon: Sparkles,
-    title: 'Liquid Range for Auto Dosing',
-    description:
-      'Ready-to-use liquid formulations compatible with automatic dosing systems for consistent, measured chemical use.',
-    features: ['Auto-dosing compatible', 'Precise measurement', 'Reduced wastage', 'Consistent results'],
-  },
-  {
-    icon: HeartPulse,
-    title: 'Hospital Laundry Specialties',
-    description:
-      'Dedicated laundry chemicals formulated for healthcare linen processing with disinfection and hygiene compliance.',
-    features: ['Healthcare linen safe', 'Disinfection integrated', 'Compliance-ready', 'Colour-preserving'],
-  },
-  {
-    icon: Droplets,
-    title: 'Dry Cleaning Chemicals',
-    description:
-      'Solvent-based and aqueous dry cleaning formulations for delicate fabrics and specialist garment care operations.',
-    features: ['Delicate fabric safe', 'Low residue', 'Spot cleaning', 'Professional grade'],
+      'Support for laundry machines and dosing systems. Equipment supply and technical support for commercial and institutional laundry operations.',
+    features: ['Machine support', 'Dosing system support', 'Technical assistance', 'Equipment supply'],
   },
 ]
 
@@ -73,17 +42,20 @@ const benefits = [
   {
     icon: Sparkles,
     title: 'Increased Cleaning Efficiency',
-    description: 'Removes deep stains and ensures brighter fabrics with industrial-strength formulations optimised for commercial machines.',
+    description:
+      'Professional formulations remove deep stains and ensure brighter fabrics optimised for commercial machines.',
   },
   {
     icon: TrendingDown,
     title: 'Optimised Chemical Usage',
-    description: 'Advanced concentrations reduce chemical consumption per cycle, lowering operational costs and waste.',
+    description:
+      'Advanced concentrations reduce chemical consumption per cycle, lowering operational costs and waste.',
   },
   {
     icon: ShieldCheck,
     title: 'Fabric Protection',
-    description: 'Maintains fabric softness, colour integrity and durability even after repeated high-temperature wash cycles.',
+    description:
+      'Maintains fabric softness, colour integrity and durability even after repeated high-temperature wash cycles.',
   },
 ]
 
@@ -93,7 +65,7 @@ const applications = [
   { icon: Building2, label: 'Commercial Laundries' },
   { icon: Settings, label: 'Textile Processing Units' },
   { icon: Droplets, label: 'Dry Cleaners' },
-  { icon: Zap, label: 'Industrial Facilities' },
+  { icon: Sparkles, label: 'Industrial Facilities' },
 ]
 
 export default function LaundrySolutions() {
@@ -103,7 +75,7 @@ export default function LaundrySolutions() {
 
       {/* 1. Hero */}
       <section className="relative min-h-[420px] md:min-h-[520px] flex flex-col pt-28 overflow-hidden">
-        <Image src="/images/laundry-hero.png" alt="Laundry Systems" fill priority className="object-cover" />
+        <Image src="/images/laundry-hero.png" alt="Commercial Laundry Systems" fill priority className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20" />
         <div className="relative z-10 px-4 sm:px-6 lg:px-8 pt-4 shrink-0">
           <div className="max-w-6xl mx-auto">
@@ -117,7 +89,7 @@ export default function LaundrySolutions() {
           <div className="max-w-6xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Commercial Laundry Systems</h1>
             <p className="text-base md:text-lg text-slate-200 max-w-2xl leading-relaxed">
-              Professional chemicals and fabric care solutions designed for commercial and institutional laundry operations.
+              Laundry chemicals for commercial laundries &amp; dry cleaners. Support for laundry machines and dosing systems.
             </p>
           </div>
         </div>
@@ -128,10 +100,9 @@ export default function LaundrySolutions() {
         <div className="max-w-3xl">
           <SectionHeading>Laundry Solutions</SectionHeading>
           <p className="text-base text-gray-600 leading-relaxed">
-            Our laundry chemical systems are designed for commercial laundries, hotels, hospitals and industrial fabric care
-            facilities. As an authorized Indokem distributor, we supply a complete range of detergents, additives and
-            speciality chemicals that ensure powerful stain removal, fabric protection and optimised washing performance
-            across all machine types and load volumes.
+            Our laundry solutions cover laundry chemicals for commercial laundries and dry cleaners, plus support for
+            laundry machines and dosing systems. Designed for hotels, hospitals, commercial laundries and industrial
+            fabric care facilities to deliver powerful stain removal, fabric protection and optimised washing performance.
           </p>
         </div>
       </SectionContainer>
@@ -160,7 +131,7 @@ export default function LaundrySolutions() {
       <SectionContainer>
         <SectionHeading>Applications</SectionHeading>
         <p className="text-base text-gray-600 leading-relaxed mb-8 max-w-2xl">
-          Trusted across hospitality, healthcare and commercial laundry operations in Chhattisgarh.
+          Trusted across hospitality, healthcare and commercial laundry operations.
         </p>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {applications.map((a) => (
@@ -172,7 +143,7 @@ export default function LaundrySolutions() {
       {/* 6. CTA */}
       <CTASection
         title="Need Laundry Chemical Solutions for Your Facility?"
-        description="Our team will recommend the right Indokem laundry chemical program for your machine types, load volumes and fabric requirements."
+        description="Our team will recommend the right laundry chemical program for your machine types, load volumes and fabric requirements."
       />
 
       <Footer />

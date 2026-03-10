@@ -3,8 +3,8 @@ import { Footer } from '@/components/footer'
 import Link from 'next/link'
 import Image from 'next/image'
 import {
-  ChevronLeft, ShieldCheck, Droplets, Sparkles, HeartPulse,
-  CheckCircle2, Leaf, Building2, FlaskConical, Stethoscope,
+  ChevronLeft, ShieldCheck, Sparkles, CheckCircle2, Leaf,
+  Building2, FlaskConical, Stethoscope, HeartPulse,
 } from 'lucide-react'
 import { ProductCard } from '@/components/cards/product-card'
 import { BenefitCard } from '@/components/cards/benefit-card'
@@ -18,79 +18,28 @@ const SectionHeading = ({ children }: { children: React.ReactNode }) => (
   </h2>
 )
 
-const disinfectionProducts = [
+const products = [
   {
     icon: ShieldCheck,
-    title: 'Alstasan Silvox 150',
-    description: 'Silver Hydrogen Peroxide based disinfectant for critical areas including OT and ICU environments.',
-    features: ['Broad-spectrum efficacy', 'Silver-synergised formula', 'Safe for surfaces & air', 'Approved for critical zones'],
+    title: 'Hospital-Grade Disinfection Chemicals',
+    description:
+      'Hospital-grade disinfection chemicals for critical areas including OT, ICU and general ward environments. Formulated to meet infection control protocols.',
+    features: ['Critical area disinfection', 'Surface & air disinfection', 'Broad-spectrum efficacy', 'Healthcare compliant'],
     downloadLinks: [
       { label: 'Hospital Disinfectants Brochure', href: '/pdfs/Hospital Disinfectants Brochure_modified.pdf' },
-    ],
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Alstasan LF 125',
-    description: '4th Generation QAC based high-efficacy disinfectant with refreshing fragrance for general hospital areas.',
-    features: ['4th Gen QAC formula', 'Refreshing scent', 'Surface safe', 'Broad application'],
-    downloadLinks: [
       { label: 'Hospital Solutions Portfolio', href: '/pdfs/Hospital- Brochure 12.09.2024-2.pdf' },
     ],
   },
   {
-    icon: ShieldCheck,
-    title: 'Alstasan QC5 / QC7',
-    description: 'Indoor use disinfectant and biocide for comprehensive protection in wards and clinical areas.',
-    features: ['Indoor biocide', 'Comprehensive coverage', 'Easy application', 'Residual protection'],
-  },
-  {
-    icon: HeartPulse,
-    title: 'Alstasan Handrub',
-    description: 'Professional alcohol-based hand disinfectant formulated for medical personnel use.',
-    features: ['Alcohol-based', 'Fast acting', 'Skin-friendly formula', 'WHO-compliant'],
-  },
-  {
-    icon: HeartPulse,
-    title: 'Alstasan Mecerub',
-    description: 'Ready-to-use skin antiseptic for pre-operative skin preparation and general clinical use.',
-    features: ['Pre-operative use', 'Ready-to-use', 'Antiseptic action', 'Gentle on skin'],
-  },
-  {
-    icon: HeartPulse,
-    title: 'Alstasan Handwash',
-    description: 'Surgical scrub providing superior antimicrobial protection during surgical procedures.',
-    features: ['Surgical scrub grade', 'Superior antimicrobial', 'Moisturising formula', 'Non-irritating'],
-  },
-]
-
-const hygieneProducts = [
-  {
     icon: Sparkles,
-    title: 'HSC-C2 (Hard Surface Cleaner)',
-    description: 'Deep cleaning and sanitization chemical for hard surfaces in clinical and hospital environments.',
-    features: ['Powerful degreasing', 'Sparkling finish', 'Lemon scented', 'Professional grade'],
+    title: 'Cleaning & Hygiene Solutions',
+    description:
+      'Cleaning and hygiene chemicals tailored for healthcare workflows. Hard surface cleaners, glass cleaners and hygiene solutions for clinical environments.',
+    features: ['Hard surface cleaning', 'Glass & mirror care', 'Hygiene solutions', 'Clinical environment safe'],
     downloadLinks: [
       { label: 'Cleaning & Hygiene Catalogue', href: '/pdfs/CLEANING & HYGIENE CHEMICALS (Regular Products Catalogue).pdf' },
       { label: 'Chemtex Hygiene Brochure', href: '/pdfs/Chemtex Cleaning & Hygiene Chemicals_Brochure-1.pdf' },
     ],
-  },
-  {
-    icon: Sparkles,
-    title: 'GC-C3 (Glass Cleaner)',
-    description: 'Streak-free glass cleaning solution for windows, partitions and mirrors in healthcare environments.',
-    features: ['Ammonia-free', 'Fast drying', 'Streak-free', 'Highly concentrated'],
-  },
-  {
-    icon: Droplets,
-    title: 'AF-C5 (Air Freshener)',
-    description: 'Refreshing air freshener that eliminates malodours across hospital corridors and ward areas.',
-    features: ['Long-lasting fragrance', 'Odour eliminating', 'Non-staining', 'Eco-friendly'],
-  },
-  {
-    icon: Droplets,
-    title: 'Soft-Shield Personal Care',
-    description: 'Gentle pH-balanced hand wash designed for frequent use by healthcare staff.',
-    features: ['pH balanced', 'Food & Pharma safe', 'Rose & Lemon variants', 'Moisturising'],
   },
 ]
 
@@ -98,17 +47,20 @@ const benefits = [
   {
     icon: ShieldCheck,
     title: 'Infection Control Assurance',
-    description: 'Hospital-grade disinfectants destroy pathogens in OT, ICU and general wards to ensure a safe patient environment.',
+    description:
+      'Hospital-grade disinfectants destroy pathogens in OT, ICU and general wards to ensure a safe patient environment.',
   },
   {
     icon: CheckCircle2,
     title: 'Regulatory Compliance',
-    description: 'Products meet healthcare standards and infection control protocols required by hospital accreditation bodies.',
+    description:
+      'Products meet healthcare standards and infection control protocols required by hospital accreditation bodies.',
   },
   {
     icon: Leaf,
     title: 'Staff & Patient Safety',
-    description: 'Formulations designed to be effective against pathogens while remaining safe for regular staff use.',
+    description:
+      'Formulations designed to be effective against pathogens while remaining safe for regular staff use.',
   },
 ]
 
@@ -128,7 +80,7 @@ export default function HospitalSolutions() {
 
       {/* 1. Hero */}
       <section className="relative min-h-[420px] md:min-h-[520px] flex flex-col pt-28 overflow-hidden">
-        <Image src="/images/hospital-hero.png" alt="Hospital Disinfection" fill priority className="object-cover" />
+        <Image src="/images/hospital-hero.png" alt="Hospital Grade Disinfection" fill priority className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20" />
         <div className="relative z-10 px-4 sm:px-6 lg:px-8 pt-4 shrink-0">
           <div className="max-w-6xl mx-auto">
@@ -153,28 +105,18 @@ export default function HospitalSolutions() {
         <div className="max-w-3xl">
           <SectionHeading>Hospital Segment</SectionHeading>
           <p className="text-base text-gray-600 leading-relaxed">
-            Our hospital chemical solutions cover hospital-grade disinfection for critical areas alongside comprehensive
-            cleaning and hygiene chemicals tailored for healthcare workflows. Products are formulated to meet infection
-            control protocols and maintain the high standards of cleanliness required in clinical environments.
+            Our hospital chemical solutions cover hospital-grade disinfection chemicals for critical areas alongside
+            comprehensive cleaning and hygiene solutions tailored for healthcare workflows. Products are formulated to
+            meet infection control protocols and maintain the high standards of cleanliness required in clinical environments.
           </p>
         </div>
       </SectionContainer>
 
-      {/* 3a. Products – Disinfection */}
+      {/* 3. Products */}
       <SectionContainer>
-        <SectionHeading>Air &amp; Surface Disinfection</SectionHeading>
+        <SectionHeading>Products in This Category</SectionHeading>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {disinfectionProducts.map((p) => (
-            <ProductCard key={p.title} {...p} buttonText="Request Quote" />
-          ))}
-        </div>
-      </SectionContainer>
-
-      {/* 3b. Products – Cleaning & Hygiene */}
-      <SectionContainer>
-        <SectionHeading>Cleaning &amp; Hygiene Solutions</SectionHeading>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {hygieneProducts.map((p) => (
+          {products.map((p) => (
             <ProductCard key={p.title} {...p} buttonText="Request Quote" />
           ))}
         </div>

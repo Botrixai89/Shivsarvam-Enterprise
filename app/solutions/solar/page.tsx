@@ -3,8 +3,8 @@ import { Footer } from '@/components/footer'
 import Link from 'next/link'
 import Image from 'next/image'
 import {
-  ChevronLeft, Sun, Droplets, ShieldCheck, Leaf,
-  TrendingUp, CheckCircle2, Factory, Building2, Zap,
+  ChevronLeft, Sun, TrendingUp, Leaf, CheckCircle2,
+  Factory, Building2, Zap, Droplets, ShieldCheck,
 } from 'lucide-react'
 import { ProductCard } from '@/components/cards/product-card'
 import { BenefitCard } from '@/components/cards/benefit-card'
@@ -21,31 +21,13 @@ const SectionHeading = ({ children }: { children: React.ReactNode }) => (
 const products = [
   {
     icon: Sun,
-    title: 'Detpol SPC – Neutral pH Cleaner',
+    title: 'Solar Panel Cleaning Chemicals',
     description:
-      'Specially formulated neutral pH solar panel cleaner that removes dust, bird droppings and soiling without scratching or damaging panel surfaces.',
-    features: ['Neutral pH (6.5–7.5)', 'Non-corrosive formula', 'Streak-free finish', 'Safe for all panel types'],
+      'Solar panel cleaning chemicals designed for photovoltaic installations. Neutral pH formulations that remove dust and soiling without scratching or damaging panel surfaces.',
+    features: ['Neutral pH formula', 'Non-corrosive', 'Streak-free finish', 'Safe for all panels'],
     downloadLinks: [
-      { label: 'Solar Panel Cleaning Brochure', href: '/pdfs/Brochure - Solar Panel Cleaning Chemical.pdf' },
-      { label: 'Chemtex Portfolio 2024', href: '/pdfs/Portfolio 2024.pdf' },
+      { label: 'Download Brochure', href: '/pdfs/Brochure - Solar Panel Cleaning Chemical.pdf' },
     ],
-  },
-  {
-    icon: Droplets,
-    title: 'Detpol SPC Concentrate',
-    description:
-      'Concentrated variant of the Detpol SPC range designed for high-volume applications such as utility-scale solar farms.',
-    features: ['High concentration ratio', 'Cost-effective dosing', 'Low foam formula', 'Compatible with spray systems'],
-    downloadLinks: [
-      { label: 'Solar Panel Cleaning Brochure', href: '/pdfs/Brochure - Solar Panel Cleaning Chemical.pdf' },
-    ],
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Anti-Static Coating Additive',
-    description:
-      'Post-cleaning anti-static treatment that reduces dust re-adhesion on photovoltaic panels, extending the time between cleaning cycles.',
-    features: ['Reduces dust adhesion', 'Extends cleaning intervals', 'UV stable', 'Compatible with SPC cleaners'],
   },
 ]
 
@@ -53,17 +35,20 @@ const benefits = [
   {
     icon: TrendingUp,
     title: 'Maximise Energy Output',
-    description: 'Clean panels restore light absorption efficiency, directly improving energy generation and ROI of the solar installation.',
+    description:
+      'Clean panels restore light absorption efficiency, directly improving energy generation and ROI of the solar installation.',
   },
   {
     icon: Leaf,
     title: 'Protect Panel Investment',
-    description: 'Neutral pH, non-abrasive formula prevents micro-scratches and chemical corrosion that can degrade panel performance over time.',
+    description:
+      'Neutral pH, non-abrasive formula prevents micro-scratches and chemical corrosion that can degrade panel performance over time.',
   },
   {
     icon: CheckCircle2,
     title: 'Reduce Maintenance Costs',
-    description: 'Anti-static additives reduce dust re-accumulation, cutting cleaning frequency and long-term operational maintenance costs.',
+    description:
+      'Effective cleaning reduces dust re-accumulation, cutting cleaning frequency and long-term operational maintenance costs.',
   },
 ]
 
@@ -97,7 +82,7 @@ export default function SolarMaintenance() {
           <div className="max-w-6xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Solar Panel Maintenance</h1>
             <p className="text-base md:text-lg text-slate-200 max-w-2xl leading-relaxed">
-              Neutral pH solar panel cleaning chemicals that maximise energy output and protect your installation from damage.
+              Solar panel cleaning chemicals that help maintain output and protect installations.
             </p>
           </div>
         </div>
@@ -108,9 +93,9 @@ export default function SolarMaintenance() {
         <div className="max-w-3xl">
           <SectionHeading>Solar Panel Cleaning Solutions</SectionHeading>
           <p className="text-base text-gray-600 leading-relaxed">
-            Dust, bird droppings and environmental soiling can reduce solar panel efficiency by up to 30%. Our Detpol SPC
-            range provides safe, effective and residue-free cleaning for all types of photovoltaic panels — from rooftop
-            installations to large utility-scale solar farms — without risking surface damage or voiding panel warranties.
+            Dust, bird droppings and environmental soiling can reduce solar panel efficiency. Our solar panel cleaning
+            chemicals provide safe, effective and residue-free cleaning for all types of photovoltaic panels — from
+            rooftop installations to large utility-scale solar farms — without risking surface damage or voiding panel warranties.
           </p>
         </div>
       </SectionContainer>
@@ -151,7 +136,7 @@ export default function SolarMaintenance() {
       {/* 6. CTA */}
       <CTASection
         title="Need Solar Panel Cleaning Chemicals for Your Installation?"
-        description="Tell us about your panel type, installation size and cleaning frequency and we will recommend the right Detpol SPC product and dosing plan."
+        description="Tell us about your panel type, installation size and cleaning frequency and we will recommend the right product and dosing plan."
       />
 
       <Footer />

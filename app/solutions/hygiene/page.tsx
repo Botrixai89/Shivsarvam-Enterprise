@@ -1,8 +1,8 @@
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import Link from 'next/link'
-import { ChevronLeft, Factory, Flame, Sun, TrendingDown, ShieldCheck, Leaf, Building2, Zap, Droplets } from 'lucide-react'
 import Image from 'next/image'
+import { ChevronLeft, Factory, Flame, Sun, TrendingDown, ShieldCheck, Leaf, Building2, Zap, Droplets } from 'lucide-react'
 import { ProductCard } from '@/components/cards/product-card'
 import { BenefitCard } from '@/components/cards/benefit-card'
 import { ApplicationCard } from '@/components/cards/application-card'
@@ -18,33 +18,32 @@ const SectionHeading = ({ children }: { children: React.ReactNode }) => (
 const products = [
   {
     icon: Factory,
-    title: 'Utility Chemicals – Boilers & Cooling Towers',
+    title: 'Utility Chemicals – Boilers, Cooling Towers, Chillers, RO & Waste Water',
     description:
-      'Chemtex utility chemicals for boilers, cooling towers, chillers, RO systems and waste water management. Prevents scale, corrosion and bio-fouling.',
-    features: ['Scale inhibitors', 'Corrosion inhibitors', 'Bio-dispersants', 'RO antiscalants'],
+      'Utility chemicals for boilers, cooling towers, chillers, RO systems and waste water management. Designed to control scale, corrosion and microbiological growth.',
+    features: ['Boiler treatment', 'Cooling tower treatment', 'RO system treatment', 'Waste water management'],
     downloadLinks: [
-      { label: 'Utility Chemicals Catalogue', href: '/pdfs/Utility Chemicals D2 (24.03.2025).pdf' },
+      { label: 'Download Brochure', href: '/pdfs/Utility Chemicals D2 (24.03.2025).pdf' },
     ],
   },
   {
     icon: Flame,
     title: 'Oil & Gas Industry Chemicals',
     description:
-      'Specialised chemical treatments for oil & gas pipelines, process equipment and production facilities.',
-    features: ['Demulsifiers', 'Corrosion inhibitors', 'H₂S scavengers', 'Flow assurance'],
+      'Specialised chemical treatments for oil and gas pipelines, process equipment and production facilities.',
+    features: ['Pipeline protection', 'Process treatment', 'Production support', 'Flow assurance'],
     downloadLinks: [
-      { label: 'Oil & Gas Chemicals Brochure', href: '/pdfs/Brochure - Chemicals for Oil and Gas Industry.pdf' },
-      { label: 'Chemtex Portfolio 2024', href: '/pdfs/Portfolio 2024.pdf' },
+      { label: 'Download Brochure', href: '/pdfs/Brochure - Chemicals for Oil and Gas Industry.pdf' },
     ],
   },
   {
     icon: Sun,
     title: 'Solar Panel Cleaning Chemicals',
     description:
-      'Neutral pH Detpol SPC range designed for photovoltaic panel cleaning without scratching or damage.',
-    features: ['Neutral pH', 'Non-corrosive', 'Streak-free finish', 'Safe for all panels'],
+      'Neutral pH solar panel cleaning chemicals designed for photovoltaic installations without scratching or damaging surfaces.',
+    features: ['Neutral pH formula', 'Non-corrosive', 'Streak-free finish', 'Safe for all panels'],
     downloadLinks: [
-      { label: 'Solar Panel Cleaning Brochure', href: '/pdfs/Brochure - Solar Panel Cleaning Chemical.pdf' },
+      { label: 'Download Brochure', href: '/pdfs/Brochure - Solar Panel Cleaning Chemical.pdf' },
     ],
   },
 ]
@@ -100,7 +99,7 @@ export default function IndustrialSegment() {
           <div className="max-w-6xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Industrial Segment</h1>
             <p className="text-base md:text-lg text-slate-200 max-w-2xl leading-relaxed">
-              Utility, process and protection chemicals for boilers, cooling towers, RO systems, oil &amp; gas and solar installations.
+              Utility chemicals for boilers, cooling towers, chillers, RO systems &amp; waste water management. Oil &amp; gas and solar panel cleaning solutions.
             </p>
           </div>
         </div>
@@ -111,9 +110,9 @@ export default function IndustrialSegment() {
         <div className="max-w-3xl">
           <SectionHeading>Industrial Water &amp; Process Treatment</SectionHeading>
           <p className="text-base text-gray-600 leading-relaxed">
-            Our industrial chemical programs are designed for power plants, process industries and commercial infrastructure.
-            The range covers boiler, cooling water, RO, waste water and solar cleaning chemicals to maximise asset life,
-            efficiency and reliability while meeting operational and environmental compliance standards.
+            Our industrial chemical programs cover utility chemicals for boilers, cooling towers, chillers, RO systems
+            and waste water management, oil &amp; gas industry chemicals, and solar panel cleaning chemicals. Designed for
+            power plants, process industries and commercial infrastructure to maximise asset life, efficiency and reliability.
           </p>
         </div>
       </SectionContainer>

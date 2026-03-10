@@ -16,31 +16,31 @@ const solutionCategories = [
     title: 'Industrial Segment',
     href: '/solutions/hygiene',
     image: '/images/hygiene-hero.png',
-    desc: 'Utility chemicals for boilers, cooling towers, RO systems, oil & gas, and solar panel maintenance.'
+    desc: 'Utility chemicals for boilers, cooling towers, chillers, RO systems & waste water management. Oil & gas and solar panel cleaning solutions.'
   },
   {
     title: 'Hospital Grade Disinfection',
     href: '/solutions/hospital',
     image: '/images/hospital-hero.png',
-    desc: 'Medical-grade solutions for the highest standards of safety and hygiene in healthcare.'
+    desc: 'Medical-grade disinfection and cleaning & hygiene chemicals for the highest standards of safety in healthcare environments.'
   },
   {
     title: 'Commercial Laundry Systems',
     href: '/solutions/laundry',
     image: '/images/laundry-hero.png',
-    desc: 'Professional chemicals and fabric care solutions for commercial and institutional laundries.'
+    desc: 'Laundry chemicals for commercial laundries & dry cleaners. Support for laundry machines and dosing systems.'
   },
   {
     title: 'Swimming Pool & Water Treatment',
     href: '/solutions/water',
     image: '/images/water-hero.png',
-    desc: 'High-performance chemicals for sparkling clean and safe pool water maintenance.'
+    desc: 'Water park and swimming pool cleaning chemicals for sparkling clean, safe and well-maintained water facilities.'
   },
   {
     title: 'Solar Panel Maintenance',
     href: '/solutions/solar',
     image: '/images/solar-hero.png',
-    desc: 'Neutral pH solar panel cleaning chemicals that help maintain output and protect installations.'
+    desc: 'Solar panel cleaning chemicals that help maintain output and protect installations.'
   }
 ]
 
