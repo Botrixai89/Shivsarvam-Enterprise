@@ -3,6 +3,7 @@ import { HeroClient } from '@/components/hero-client'
 import { About } from '@/components/about'
 import { SolutionsAdvanced } from '@/components/solutions-advanced'
 import { Brands } from '@/components/brands'
+import { Testimonials } from '@/components/testimonials'
 import { Footer } from '@/components/footer'
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <About />
       <SolutionsAdvanced />
       <Brands />
+      <Testimonials />
       <Footer />
     </main>
   )

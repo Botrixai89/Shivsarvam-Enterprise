@@ -7,40 +7,45 @@ import { ArrowRight } from 'lucide-react'
 
 const solutions = [
   {
-    title: "Industrial Hygiene",
+    title: "Industrial & Hygiene",
     href: "/solutions/hygiene",
     image: "/images/hygiene-hero.png",
-    accent: "bg-blue-600"
+    accent: "bg-blue-600",
+    description: "Utility and cleaning chemicals for boilers, cooling towers, RO systems, and oil & gas."
   },
   {
     title: "Hospital Care",
     href: "/solutions/hospital",
     image: "/images/hospital-hero.png",
-    accent: "bg-red-600"
+    accent: "bg-red-600",
+    description: "Hospital-grade disinfection and hygiene for OT, ICU, and clinical environments."
   },
   {
     title: "Laundry Systems",
     href: "/solutions/laundry",
     image: "/images/laundry-hero.png",
-    accent: "bg-emerald-600"
+    accent: "bg-emerald-600",
+    description: "Commercial laundry chemicals and dosing support for institutional laundries."
   },
   {
     title: "Water Treatment",
     href: "/solutions/water",
     image: "/images/water-hero.png",
-    accent: "bg-cyan-600"
+    accent: "bg-cyan-600",
+    description: "Pool, water park, and industrial water treatment chemicals and programs."
   },
-    {
+  {
     title: "Solar Maintenance",
     href: "/solutions/solar",
     image: "/images/solar-hero.png",
-    accent: "bg-yellow-600"
+    accent: "bg-amber-500",
+    description: "Solar panel cleaning and maintenance chemicals for maximum efficiency."
   }
 ]
 
 export function SolutionsAdvanced() {
   return (
-    <section id="solutions" className="py-24 bg-white">
+    <section id="solutions" className="py-24 bg-white scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div className="max-w-2xl">
@@ -79,9 +84,10 @@ export function SolutionsAdvanced() {
                   <motion.div 
                     initial={{ width: "32px" }}
                     whileHover={{ width: "64px" }}
-                    className={`h-1 mb-6 rounded-full ${sol.accent} transition-all duration-500`} 
+                    className={`h-1 mb-4 rounded-full ${sol.accent} transition-all duration-500`} 
                   />
-                  <h3 className="text-3xl font-bold text-white mb-4 leading-tight group-hover:text-primary transition-colors duration-300">{sol.title}</h3>
+                  <h3 className="text-3xl font-bold text-white mb-2 leading-tight group-hover:text-primary transition-colors duration-300">{sol.title}</h3>
+                  <p className="text-slate-300 text-sm mb-4 line-clamp-2">{sol.description}</p>
                   <div className="flex items-center gap-3 text-white/70 text-sm font-bold uppercase tracking-widest">
                     <span>View More</span>
                     <motion.div

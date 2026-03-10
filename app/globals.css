@@ -13,13 +13,13 @@ html {
   --card-foreground: #0f172a;
   --popover: #ffffff;
   --popover-foreground: #0f172a;
-  --primary: #1e40af;
+  --primary: #1a2744;
   --primary-foreground: #ffffff;
-  --secondary: #e0e7ff;
-  --secondary-foreground: #1e40af;
+  --secondary: #e8eaf0;
+  --secondary-foreground: #1a2744;
   --muted: #e2e8f0;
   --muted-foreground: #64748b;
-  --accent: #0ea5e9;
+  --accent: #f59e0b;
   --accent-foreground: #ffffff;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
@@ -31,7 +31,7 @@ html {
   --chart-3: #06b6d4;
   --chart-4: #3b82f6;
   --chart-5: #60a5fa;
-  --radius: 0.625rem;
+  --radius: 0.75rem;
   --sidebar: #ffffff;
   --sidebar-foreground: #0f172a;
   --sidebar-primary: #1e40af;

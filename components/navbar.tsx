@@ -2,8 +2,8 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { Button } from '@/components/ui/button'
 import { Menu, X } from 'lucide-react'
+import { OpenQuoteButton } from '@/components/open-quote-button'
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 
@@ -66,22 +66,21 @@ export function Navbar() {
                 href={link.href}
                 className={`relative text-base font-bold transition-all duration-300 group py-2 ${isScrolled ? 'text-slate-900' : 'text-white'}`}
               >
-                <span className={`group-hover:text-[#2563EB] transition-colors duration-300`}>
+                <span className="group-hover:text-primary transition-colors duration-300">
                   {link.label}
                 </span>
-                <span className="absolute bottom-1 left-0 w-0 h-0.5 bg-[#2563EB] transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
               </Link>
             ))}
           </div>
 
           {/* CTA Buttons */}
           <div className="flex items-center gap-4">
-            <Button
-              asChild
-              className="hidden sm:inline-flex bg-gradient-to-br from-[#2563EB] to-[#3B82F6] hover:-translate-y-0.5 hover:shadow-[0_10px_25px_rgba(37,99,235,0.35)] transform text-white transition-all duration-300 border-none px-8 py-6 text-base font-bold rounded-xl"
+            <OpenQuoteButton
+              className="hidden sm:inline-flex bg-primary hover:bg-primary/90 hover:-translate-y-0.5 hover:shadow-lg transform text-primary-foreground transition-all duration-300 border-none px-8 py-6 text-base font-bold rounded-xl"
             >
-              <Link href="/contact">Get Quote</Link>
-            </Button>
+              Get Quote
+            </OpenQuoteButton>
 
             {/* Mobile Menu Button */}
             <button
@@ -96,7 +95,7 @@ export function Navbar() {
         {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden mt-4 pb-6 space-y-2 animate-in fade-in slide-in-from-top-4 duration-300">
-            <div className={`rounded-3xl p-4 shadow-2xl border ${isScrolled ? 'bg-white border-slate-100' : 'bg-[#0f172a]/95 border-white/10'}`}>
+            <div className={`rounded-xl p-4 shadow-2xl border ${isScrolled ? 'bg-white border-slate-100' : 'bg-slate-950/95 border-white/10'}`}>
               {[
                 { label: 'About', href: '/about' },
                 { label: 'Solutions', href: '/solutions' },
@@ -112,9 +111,9 @@ export function Navbar() {
                 </Link>
               ))}
               <div className="pt-4 px-2">
-                <Button className="w-full py-7 rounded-2xl text-lg font-bold shadow-xl shadow-blue-600/20" asChild>
-                  <Link href="/contact">Get Quote</Link>
-                </Button>
+                <OpenQuoteButton className="w-full py-7 rounded-2xl text-lg font-bold bg-[#1a2744] hover:bg-[#1a2744]/90 text-white shadow-xl">
+                  Get Quote
+                </OpenQuoteButton>
               </div>
             </div>
           </div>

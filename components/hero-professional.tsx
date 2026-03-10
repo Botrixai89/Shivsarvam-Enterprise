@@ -77,113 +77,71 @@ export function HeroProfessional() {
             </div>
           </motion.div>
 
-          <div className="overflow-hidden">
-            <motion.h1
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5, ease: [0.215, 0.61, 0.355, 1] }}
-              className="text-3xl md:text-6xl font-bold text-white leading-tight"
-            >
-              Precision Chemicals for
-            </motion.h1>
-          </div>
-          
-          <div>
-            <motion.h1
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.7, ease: [0.215, 0.61, 0.355, 1] }}
-              className="text-3xl md:text-6xl font-bold leading-tight"
-            >
-              {/* 
-                Using display:block + em-based paddingBottom so the bg-clip region
-                always scales with the font size — this prevents the italic "y"
-                descender from being cut off at any viewport width.
-              */}
-              <motion.span
-                initial={{ backgroundPosition: "0% 50%" }}
-                animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-                className="italic block text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_auto]"
-                style={{ paddingBottom: '0.35em' }}
-              >
-                Every Industry
-              </motion.span>
-            </motion.h1>
-          </div>
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5, ease: [0.215, 0.61, 0.355, 1] }}
+            className="text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
+          >
+            19 Years of Trusted Chemical Excellence
+          </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
             className="text-sm md:text-lg text-gray-300 leading-relaxed max-w-md md:max-w-xl mx-auto md:mx-0"
           >
-            Your trusted regional partner for premium solutions from <span className="text-white font-bold">Chemtex Specialty</span> & <span className="text-white font-bold">Indokem Limited</span>. Delivering safety, hygiene, and efficiency for 19+ years.
+            Authorized Distributor of Chemtex &amp; Indokem — Serving Industrial, Healthcare &amp; Commercial sectors across Chhattisgarh
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 1.2 }}
+            transition={{ duration: 0.6, delay: 1 }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              animate={{ 
-                boxShadow: ["0 0 0px 0px rgba(30, 64, 175, 0)", "0 0 20px 2px rgba(30, 64, 175, 0.4)", "0 0 0px 0px rgba(30, 64, 175, 0)"] 
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
-              className="rounded-full"
-              >
-              <Button size="lg" className="px-6 py-3 text-base rounded-full h-auto w-full md:w-auto" asChild>
-                <Link href="/solutions">Explore Solutions</Link>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="rounded-xl">
+              <Button size="lg" className="px-6 py-3 text-base rounded-xl h-auto w-full sm:w-auto bg-[#1a2744] hover:bg-[#1a2744]/90 text-white border-0 shadow-lg" asChild>
+                <Link href="/contact">Get a Quote</Link>
               </Button>
             </motion.div>
-
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              animate={{ 
-                boxShadow: ["0 0 0px 0px rgba(255, 255, 255, 0)", "0 0 20px 2px rgba(255, 255, 255, 0.1)", "0 0 0px 0px rgba(255, 255, 255, 0)"] 
-              }}
-              transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}
-              className="rounded-full"
-              >
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="rounded-xl">
               <Button
                 size="lg"
                 variant="outline"
-                className="px-6 py-3 text-base rounded-full h-auto bg-transparent border-white/40 text-white hover:bg-white hover:text-slate-950 transition-all duration-300 w-full md:w-auto"
+                className="px-6 py-3 text-base rounded-xl h-auto bg-transparent border-white/40 text-white hover:bg-white hover:text-slate-950 transition-all duration-300 w-full sm:w-auto"
                 asChild
               >
-                <Link href="/contact">Book Consultation</Link>
+                <Link href="/solutions">View Solutions</Link>
               </Button>
             </motion.div>
           </motion.div>
         </div>
       </div>
 
-      {/* Stats Bottom Bar */}
-      <motion.div 
+      {/* Stats Bar */}
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.8 }}
-        className="absolute bottom-0 left-0 w-full border-t border-white/10 bg-slate-950/80 backdrop-blur-xl py-8 hidden lg:block z-20"
+        className="absolute bottom-0 left-0 w-full border-t border-white/10 bg-slate-950/90 backdrop-blur-xl py-6 md:py-8 z-20"
       >
-        <div className="max-w-7xl mx-auto px-8 flex justify-between items-center">
-            {[
-              { label: 'Authorized Distribution', value: 100, suffix: '%' },
-              { label: 'Industry Expertise', value: 19, suffix: '+ Yrs' },
-              { label: 'Regional Hubs', value: 7, suffix: '+' }
-            ].map((stat, i) => (
-              <div key={i} className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
-                <span className="text-4xl font-bold text-white flex items-baseline">
-                  <Counter value={stat.value} />
-                  <span>{stat.suffix}</span>
-                </span>
-                <span className="text-primary-foreground/60 text-[10px] uppercase tracking-[0.2em] font-bold">{stat.label}</span>
-              </div>
-            ))}
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 flex flex-wrap justify-center md:justify-between items-center gap-6 md:gap-4">
+          {[
+            { label: 'Years Experience', value: 19, suffix: '+' },
+            { label: 'Clients Served', value: 500, suffix: '+' },
+            { label: 'Industry Sectors', value: 6, suffix: '' },
+            { label: 'Authorized Brands', value: 2, suffix: '' }
+          ].map((stat, i) => (
+            <div key={i} className="flex flex-col md:flex-row md:items-center gap-1 md:gap-3 text-center md:text-left">
+              <span className="text-2xl md:text-4xl font-bold text-white flex items-baseline justify-center md:justify-start">
+                <Counter value={stat.value} />
+                <span>{stat.suffix}</span>
+              </span>
+              <span className="text-white/70 text-xs md:text-[10px] uppercase tracking-[0.15em] font-bold">{stat.label}</span>
+            </div>
+          ))}
         </div>
       </motion.div>
     </section>

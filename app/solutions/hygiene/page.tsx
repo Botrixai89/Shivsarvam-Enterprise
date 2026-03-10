@@ -2,8 +2,8 @@ import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import Image from 'next/image'
 import Link from 'next/link'
-import { CheckCircle2, ChevronLeft } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { CheckCircle2, ChevronLeft, Download } from 'lucide-react'
+import { OpenQuoteButton } from '@/components/open-quote-button'
 
 const products = [
   {
@@ -66,9 +66,6 @@ export default function HygieneSolutions() {
         {/* Hero Text */}
         <div className="relative z-10 px-4 sm:px-6 lg:px-8 pb-12 shrink-0">
           <div className="max-w-7xl mx-auto">
-            <span className="inline-block px-3 py-1 rounded-full bg-primary/80 text-white text-xs font-bold tracking-wider uppercase mb-4">
-              Most Popular
-            </span>
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
               Cleaning & Hygiene Solutions
             </h1>
@@ -79,14 +76,38 @@ export default function HygieneSolutions() {
         </div>
       </section>
 
-      {/* Product Grid */}
+      {/* Industrial Segment overview */}
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white border-b border-slate-100">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 border-l-4 border-primary pl-4">
+            Industrial Segment
+          </h2>
+          <ul className="grid grid-cols-1 md:grid-cols-3 gap-4 text-slate-700">
+            <li className="flex items-start gap-3">
+              <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+              <span>Utility chemicals for boilers, cooling towers, chillers and RO systems.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+              <span>Oil &amp; gas industry process and protection chemicals.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+              <span>Solar panel cleaning and maintenance chemicals for plants.</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      {/* Products in This Category */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-10 border-l-4 border-primary pl-4">Products in This Category</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {products.map((product, idx) => (
               <div
                 key={idx}
-                className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
+                className="bg-white p-8 rounded-xl shadow-sm border border-slate-200 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
               >
                 <div className="flex flex-col h-full">
                   <h3 className="text-2xl font-bold text-slate-900 mb-2">{product.name}</h3>
@@ -100,23 +121,40 @@ export default function HygieneSolutions() {
                       </li>
                     ))}
                   </ul>
-                  <Button asChild className="w-full">
-                    <Link href="/contact">Request Quote</Link>
-                  </Button>
+                  <OpenQuoteButton className="w-full rounded-xl bg-[#1a2744] hover:bg-[#1a2744]/90 text-white">
+                    Request Quote
+                  </OpenQuoteButton>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* CTA */}
-          <div className="mt-16 bg-gradient-to-br from-primary to-blue-700 rounded-3xl p-12 text-center text-white">
-            <h2 className="text-3xl font-bold mb-4">Bulk Supply Available</h2>
-            <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
-              All products are available for bulk procurement with technical support included.
-            </p>
-            <Button size="lg" variant="secondary" asChild>
-              <Link href="/contact">Inquire Now</Link>
-            </Button>
+          {/* Download Brochures — same UI as /solutions */}
+          <div className="mt-20">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3 border-l-4 border-primary pl-4">Download Brochures</h2>
+            <p className="text-slate-600 mb-8 max-w-2xl">Product catalogues and technical information for this segment.</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="rounded-xl border border-slate-200 bg-white p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5">
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-2">Cleaning &amp; Hygiene</h3>
+                  <p className="text-sm text-slate-600 mb-4 leading-relaxed">Regular and premium cleaning &amp; hygiene chemicals for all sectors.</p>
+                </div>
+                <ul className="space-y-2">
+                  <li>
+                    <a href="/pdfs/CLEANING & HYGIENE CHEMICALS (Regular Products Catalogue).pdf" download target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80">
+                      <Download className="w-4 h-4" />
+                      Cleaning &amp; Hygiene Chemicals – Catalogue
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/pdfs/Chemtex Cleaning & Hygiene Chemicals_Brochure-1.pdf" download target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80">
+                      <Download className="w-4 h-4" />
+                      Chemtex Cleaning &amp; Hygiene Brochure
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>

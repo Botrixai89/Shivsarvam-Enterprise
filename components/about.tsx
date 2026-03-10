@@ -29,7 +29,7 @@ export function About() {
   ]
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-b from-background via-secondary/5 to-background overflow-hidden">
+    <section id="about" className="py-24 bg-gradient-to-b from-background via-secondary/5 to-background overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}

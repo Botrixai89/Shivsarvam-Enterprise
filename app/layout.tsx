@@ -8,7 +8,11 @@ const _geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono
 
 export const metadata: Metadata = {
   title: 'Shivsarvam Enterprises | Industrial & Chemical Solutions',
-  description: 'Authorized distributor of Chemtex & Indochem. Premium industrial utility, cleaning, hygiene & disinfection chemical solutions in Chhattisgarh.',
+  description: 'Authorized distributor of Chemtex & Indokem. Premium industrial utility, cleaning, hygiene & disinfection chemical solutions in Chhattisgarh.',
+  openGraph: {
+    title: 'Shivsarvam Enterprises | Industrial & Chemical Solutions',
+    description: 'Authorized distributor of Chemtex & Indokem. Premium industrial utility, cleaning, hygiene & disinfection chemical solutions in Chhattisgarh.',
+  },
   generator: 'v0.app',
   icons: {
     icon: [
@@ -30,6 +34,9 @@ export const metadata: Metadata = {
 }
 
 import { ScrollProgress } from '@/components/ui/scroll-progress'
+import { WhatsAppButton } from '@/components/whatsapp-button'
+import { QuoteModalProvider } from '@/components/quote-modal-provider'
+import { Toaster } from '@/components/ui/toaster'
 
 export default function RootLayout({
   children,
@@ -40,7 +47,11 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={`${_geist.className} ${_geistMono.variable} font-sans antialiased`}>
         <ScrollProgress />
-        {children}
+        <QuoteModalProvider>
+          {children}
+          <WhatsAppButton />
+        </QuoteModalProvider>
+        <Toaster />
         <Analytics />
       </body>
     </html>

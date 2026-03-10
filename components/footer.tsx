@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Mail, Phone, MapPin, Facebook, Linkedin, Twitter } from 'lucide-react'
+import { Mail, Phone, MapPin, Linkedin, Globe } from 'lucide-react'
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -84,11 +84,12 @@ export function Footer() {
               Pioneering chemical excellence with industrial utility, clinical grade hygiene, and advanced disinfection solutions.
             </p>
             <div className="flex gap-4">
-              {[Facebook, Linkedin, Twitter].map((Icon, i) => (
-                <a key={i} href="#" className="w-10 h-10 bg-white/5 hover:bg-primary hover:text-white rounded-xl flex items-center justify-center transition-all duration-300 border border-white/10">
-                  <Icon className="w-5 h-5" />
-                </a>
-              ))}
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 hover:bg-primary hover:text-white rounded-xl flex items-center justify-center transition-all duration-300 border border-white/10" aria-label="LinkedIn">
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a href="#" className="w-10 h-10 bg-white/5 hover:bg-primary hover:text-white rounded-xl flex items-center justify-center transition-all duration-300 border border-white/10" aria-label="Website">
+                <Globe className="w-5 h-5" />
+              </a>
             </div>
           </motion.div>
 
@@ -150,9 +151,9 @@ export function Footer() {
             <h4 className="text-lg font-bold mb-8 text-white">Get In Touch</h4>
             <div className="space-y-6">
               {[
-                { Icon: Phone, text: '+91-9XXX-XXX-XXX', sub: '24/7 Support' },
+                { Icon: Phone, text: '+91-XXXXXXXXXX', sub: '24/7 Support' },
                 { Icon: Mail, text: 'info@shivsarvam.com', sub: 'Online Inquiry' },
-                { Icon: MapPin, text: 'Chhattisgarh, India', sub: 'Regional Headquarters' }
+                { Icon: MapPin, text: 'Raipur, Chhattisgarh, India', sub: 'Regional Headquarters' }
               ].map(({ Icon, text, sub }, i) => (
                 <div key={i} className="flex gap-4">
                   <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center shrink-0 border border-primary/20">
