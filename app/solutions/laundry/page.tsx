@@ -1,26 +1,99 @@
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
-import Image from 'next/image'
 import Link from 'next/link'
-import { Settings, Droplets, Zap, ChevronLeft, Download } from 'lucide-react'
-import { OpenQuoteButton } from '@/components/open-quote-button'
+import Image from 'next/image'
+import {
+  ChevronLeft, Droplets, Zap, Settings, Sparkles,
+  TrendingDown, ShieldCheck, Building2, HeartPulse, Hotel,
+} from 'lucide-react'
+import { ProductCard } from '@/components/cards/product-card'
+import { BenefitCard } from '@/components/cards/benefit-card'
+import { ApplicationCard } from '@/components/cards/application-card'
+import { CTASection } from '@/components/sections/cta-section'
+import { SectionContainer } from '@/components/sections/section-container'
 
-const systems = [
+const SectionHeading = ({ children }: { children: React.ReactNode }) => (
+  <h2 className="text-2xl md:text-3xl font-semibold text-slate-900 mb-12 border-l-4 border-primary pl-4">
+    {children}
+  </h2>
+)
+
+const products = [
   {
-    title: "Laundrex Detergent Range",
-    desc: "Premium detergent powders and liquids for all types of industrial loads.",
-    icon: Droplets
+    icon: Droplets,
+    title: 'Laundrex Detergent Range',
+    description:
+      'Premium detergent powders and liquids formulated for all types of industrial laundry loads including heavily soiled items.',
+    features: ['Removes heavy stains', 'Maintains fabric softness', 'Industrial-grade formula', 'Optimised for high-volume machines'],
+    downloadLinks: [
+      { label: 'Indokem Laundry Brochure', href: '/pdfs/Indokem Limited Laundry Corporate Brochure.pdf' },
+    ],
   },
   {
-    title: "Specialized Additives",
-    desc: "Bleaches, Neutra series, and high-quality fabric softeners for perfect results.",
-    icon: Zap
+    icon: Zap,
+    title: 'Specialized Additives',
+    description:
+      'Bleaches, Neutra series and high-quality fabric softeners for achieving consistent results across commercial laundry operations.',
+    features: ['Optical brighteners', 'Neutra pH balancers', 'Fabric softeners', 'Colour-safe bleaches'],
+    downloadLinks: [
+      { label: 'Indokem Laundry Brochure', href: '/pdfs/Indokem Limited Laundry Corporate Brochure.pdf' },
+    ],
   },
   {
-    title: "Advanced Stain Spotters",
-    desc: "Specialized removals for Ink, Grease, Rust, and Medical stains.",
-    icon: Settings
-  }
+    icon: Settings,
+    title: 'Advanced Stain Spotters',
+    description:
+      'Specialised stain removal treatments targeting ink, grease, rust and medical stains for professional laundry facilities.',
+    features: ['Ink & rust removal', 'Grease stain treatment', 'Medical stain removal', 'Pre-treatment application'],
+  },
+  {
+    icon: Sparkles,
+    title: 'Liquid Range for Auto Dosing',
+    description:
+      'Ready-to-use liquid formulations compatible with automatic dosing systems for consistent, measured chemical use.',
+    features: ['Auto-dosing compatible', 'Precise measurement', 'Reduced wastage', 'Consistent results'],
+  },
+  {
+    icon: HeartPulse,
+    title: 'Hospital Laundry Specialties',
+    description:
+      'Dedicated laundry chemicals formulated for healthcare linen processing with disinfection and hygiene compliance.',
+    features: ['Healthcare linen safe', 'Disinfection integrated', 'Compliance-ready', 'Colour-preserving'],
+  },
+  {
+    icon: Droplets,
+    title: 'Dry Cleaning Chemicals',
+    description:
+      'Solvent-based and aqueous dry cleaning formulations for delicate fabrics and specialist garment care operations.',
+    features: ['Delicate fabric safe', 'Low residue', 'Spot cleaning', 'Professional grade'],
+  },
+]
+
+const benefits = [
+  {
+    icon: Sparkles,
+    title: 'Increased Cleaning Efficiency',
+    description: 'Removes deep stains and ensures brighter fabrics with industrial-strength formulations optimised for commercial machines.',
+  },
+  {
+    icon: TrendingDown,
+    title: 'Optimised Chemical Usage',
+    description: 'Advanced concentrations reduce chemical consumption per cycle, lowering operational costs and waste.',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Fabric Protection',
+    description: 'Maintains fabric softness, colour integrity and durability even after repeated high-temperature wash cycles.',
+  },
+]
+
+const applications = [
+  { icon: Hotel, label: 'Hotels & Resorts' },
+  { icon: HeartPulse, label: 'Hospitals' },
+  { icon: Building2, label: 'Commercial Laundries' },
+  { icon: Settings, label: 'Textile Processing Units' },
+  { icon: Droplets, label: 'Dry Cleaners' },
+  { icon: Zap, label: 'Industrial Facilities' },
 ]
 
 export default function LaundrySolutions() {
@@ -28,137 +101,79 @@ export default function LaundrySolutions() {
     <main className="min-h-screen bg-slate-50">
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="relative min-h-[500px] h-[65vh] flex flex-col pt-28">
-        <Image
-          src="/images/laundry-hero.png"
-          alt="Laundry Systems"
-          fill
-          className="object-cover"
-          priority
-        />
+      {/* 1. Hero */}
+      <section className="relative min-h-[420px] md:min-h-[520px] flex flex-col pt-28 overflow-hidden">
+        <Image src="/images/laundry-hero.png" alt="Laundry Systems" fill priority className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20" />
-
-        {/* Breadcrumb */}
         <div className="relative z-10 px-4 sm:px-6 lg:px-8 pt-4 shrink-0">
-          <div className="max-w-7xl mx-auto">
-            <Link
-              href="/solutions"
-              className="inline-flex items-center gap-1.5 text-white/70 hover:text-white text-sm font-medium transition-colors duration-200"
-            >
-              <ChevronLeft className="w-4 h-4" />
-              Back to Solutions
+          <div className="max-w-6xl mx-auto">
+            <Link href="/solutions" className="inline-flex items-center gap-1.5 text-white/70 hover:text-white text-sm font-medium">
+              <ChevronLeft className="w-4 h-4" /> Back to Solutions
             </Link>
           </div>
         </div>
-
         <div className="flex-1" />
-
-        {/* Hero Text */}
         <div className="relative z-10 px-4 sm:px-6 lg:px-8 pb-12 shrink-0">
-          <div className="max-w-7xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-              Commercial Laundry Systems
-            </h1>
-            <p className="text-lg md:text-xl text-slate-300 max-w-2xl">
-              Professional chemicals and fabric care solutions for commercial and institutional
-              laundries.
+          <div className="max-w-6xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Commercial Laundry Systems</h1>
+            <p className="text-base md:text-lg text-slate-200 max-w-2xl leading-relaxed">
+              Professional chemicals and fabric care solutions designed for commercial and institutional laundry operations.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Laundry Solutions overview */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white border-b border-slate-100">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 border-l-4 border-primary pl-4">
-            Laundry Solutions
-          </h2>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-slate-700">
-            <li className="flex items-start gap-3">
-              <Droplets className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-              <span>Laundry chemicals for commercial laundries and dry cleaners.</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <Droplets className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-              <span>Support for laundry machines and dosing systems.</span>
-            </li>
-          </ul>
+      {/* 2. Segment Introduction */}
+      <SectionContainer>
+        <div className="max-w-3xl">
+          <SectionHeading>Laundry Solutions</SectionHeading>
+          <p className="text-base text-gray-600 leading-relaxed">
+            Our laundry chemical systems are designed for commercial laundries, hotels, hospitals and industrial fabric care
+            facilities. As an authorized Indokem distributor, we supply a complete range of detergents, additives and
+            speciality chemicals that ensure powerful stain removal, fabric protection and optimised washing performance
+            across all machine types and load volumes.
+          </p>
         </div>
-      </section>
+      </SectionContainer>
 
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-10 border-l-4 border-primary pl-4">Products in This Category</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-            {systems.map((system, idx) => (
-              <div
-                key={idx}
-                className="bg-white p-10 rounded-xl shadow-sm border border-slate-200 flex flex-col items-center text-center hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
-              >
-                <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
-                  <system.icon className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">{system.title}</h3>
-                <p className="text-slate-600 mb-6 leading-relaxed">{system.desc}</p>
-                <OpenQuoteButton className="mt-auto w-full rounded-xl bg-[#1a2744] hover:bg-[#1a2744]/90 text-white">
-                  Request Quote
-                </OpenQuoteButton>
-              </div>
-            ))}
-          </div>
-
-          {/* Download Brochures — same UI as /solutions */}
-          <div className="mb-20">
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3 border-l-4 border-primary pl-4">Download Brochures</h2>
-            <p className="text-slate-600 mb-8 max-w-2xl">Product catalogues and technical information for this segment.</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="rounded-xl border border-slate-200 bg-white p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5">
-                <div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-2">Laundry Solutions</h3>
-                  <p className="text-sm text-slate-600 mb-4 leading-relaxed">Indokem laundry chemicals for commercial laundries and dry cleaners.</p>
-                </div>
-                <ul className="space-y-2">
-                  <li>
-                    <a href="/pdfs/Indokem Limited Laundry Corporate Brochure.pdf" download target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80">
-                      <Download className="w-4 h-4" />
-                      Indokem Laundry Corporate Brochure
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* Feature Strip — text only to avoid repeating hero image */}
-          <div className="bg-white rounded-xl p-10 md:p-12 shadow-sm border border-slate-200 max-w-3xl">
-            <span className="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">
-              Indokem Authorized
-            </span>
-            <h2 className="text-3xl font-bold mb-6 text-slate-900 leading-tight">
-              Expert Solutions for Textiles
-            </h2>
-            <p className="text-slate-600 mb-8 leading-relaxed">
-              As an authorized distributor for Indokem Limited, we provide a complete range of
-              chemicals designed for hospitality, industrial, and healthcare laundry environments.
-              Our products deliver superior wetting, detergency, and soil removal.
-            </p>
-            <ul className="space-y-4">
-              {['Powder & Liquid Detergents', 'Liquid Range for Auto Dosing', 'Hospital Laundry Specialties'].map(
-                (item) => (
-                  <li key={item} className="flex items-center gap-3 text-slate-700">
-                    <div className="w-2 h-2 bg-primary rounded-full shrink-0" />
-                    {item}
-                  </li>
-                )
-              )}
-            </ul>
-            <OpenQuoteButton className="mt-8 rounded-xl bg-[#1a2744] hover:bg-[#1a2744]/90 text-white">
-              Request Quote for This Solution
-            </OpenQuoteButton>
-          </div>
+      {/* 3. Products */}
+      <SectionContainer>
+        <SectionHeading>Products in This Category</SectionHeading>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {products.map((p) => (
+            <ProductCard key={p.title} {...p} buttonText="Request Quote" />
+          ))}
         </div>
-      </section>
+      </SectionContainer>
+
+      {/* 4. Key Benefits */}
+      <SectionContainer>
+        <SectionHeading>Key Benefits</SectionHeading>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {benefits.map((b) => (
+            <BenefitCard key={b.title} icon={b.icon} title={b.title} description={b.description} />
+          ))}
+        </div>
+      </SectionContainer>
+
+      {/* 5. Applications */}
+      <SectionContainer>
+        <SectionHeading>Applications</SectionHeading>
+        <p className="text-base text-gray-600 leading-relaxed mb-8 max-w-2xl">
+          Trusted across hospitality, healthcare and commercial laundry operations in Chhattisgarh.
+        </p>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {applications.map((a) => (
+            <ApplicationCard key={a.label} icon={a.icon} label={a.label} />
+          ))}
+        </div>
+      </SectionContainer>
+
+      {/* 6. CTA */}
+      <CTASection
+        title="Need Laundry Chemical Solutions for Your Facility?"
+        description="Our team will recommend the right Indokem laundry chemical program for your machine types, load volumes and fabric requirements."
+      />
 
       <Footer />
     </main>

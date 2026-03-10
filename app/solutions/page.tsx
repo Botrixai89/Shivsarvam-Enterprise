@@ -13,34 +13,34 @@ export const metadata: Metadata = {
 
 const solutionCategories = [
   {
-    title: "Industrial & Hygiene",
-    href: "/solutions/hygiene",
-    image: "/images/hygiene-hero.png",
-    desc: "Utility and cleaning chemicals for boilers, cooling towers, chillers, RO systems, waste water management and oil & gas applications."
+    title: 'Industrial Segment',
+    href: '/solutions/hygiene',
+    image: '/images/hygiene-hero.png',
+    desc: 'Utility chemicals for boilers, cooling towers, RO systems, oil & gas, and solar panel maintenance.'
   },
   {
-    title: "Hospital Care",
-    href: "/solutions/hospital",
-    image: "/images/hospital-hero.png",
-    desc: "Hospital‑grade disinfection and hygiene chemicals designed for OT, ICU and clinical environments."
+    title: 'Hospital Grade Disinfection',
+    href: '/solutions/hospital',
+    image: '/images/hospital-hero.png',
+    desc: 'Medical-grade solutions for the highest standards of safety and hygiene in healthcare.'
   },
   {
-    title: "Laundry Systems",
-    href: "/solutions/laundry",
-    image: "/images/laundry-hero.png",
-    desc: "Laundry chemicals for commercial laundries and dry cleaners, along with specialized support for laundry machines."
+    title: 'Commercial Laundry Systems',
+    href: '/solutions/laundry',
+    image: '/images/laundry-hero.png',
+    desc: 'Professional chemicals and fabric care solutions for commercial and institutional laundries.'
   },
   {
-    title: "Water Treatment",
-    href: "/solutions/water",
-    image: "/images/water-hero.png",
-    desc: "Water park and swimming pool cleaning chemicals plus water treatment support for safe, crystal clear water."
+    title: 'Swimming Pool & Water Treatment',
+    href: '/solutions/water',
+    image: '/images/water-hero.png',
+    desc: 'High-performance chemicals for sparkling clean and safe pool water maintenance.'
   },
   {
-    title: "Solar Maintenance",
-    href: "/solutions/solar",
-    image: "/images/solar-hero.png",
-    desc: "Solar panel cleaning chemicals that help maintain output and protect installations from deposits."
+    title: 'Solar Panel Maintenance',
+    href: '/solutions/solar',
+    image: '/images/solar-hero.png',
+    desc: 'Neutral pH solar panel cleaning chemicals that help maintain output and protect installations.'
   }
 ]
 
@@ -78,6 +78,62 @@ export default function SolutionsLanding() {
             Comprehensive industrial, healthcare, and commercial chemical solutions tailored for
             Chhattisgarh region — backed by 19+ years of expertise.
           </p>
+        </div>
+      </section>
+
+      {/* Core solutions text overview – aligned with brochure */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8 text-center">
+            Our Core Solutions
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 text-slate-700">
+            {/* Industrial Segment */}
+            <div>
+              <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-3">
+                Industrial Segment
+              </h3>
+              <ul className="space-y-2">
+                <li>Utility chemicals for boilers, cooling towers, chillers, RO systems &amp; waste water management.</li>
+                <li>Oil &amp; gas industry chemicals.</li>
+                <li>Solar panel cleaning chemicals.</li>
+              </ul>
+            </div>
+
+            {/* Hospital Segment */}
+            <div>
+              <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-3">
+                Hospital Segment
+              </h3>
+              <ul className="space-y-2">
+                <li>Hospital‑grade disinfection chemicals.</li>
+                <li>Cleaning &amp; hygiene solutions.</li>
+              </ul>
+            </div>
+
+            {/* Hotels & Resorts Segment */}
+            <div>
+              <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-3">
+                Hotels &amp; Resorts Segment
+              </h3>
+              <ul className="space-y-2">
+                <li>Cleaning &amp; hygiene chemicals.</li>
+                <li>Kitchen care chemical solutions.</li>
+                <li>Water park &amp; swimming pool cleaning chemicals.</li>
+              </ul>
+            </div>
+
+            {/* Laundry Solutions */}
+            <div>
+              <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-3">
+                Laundry Solutions
+              </h3>
+              <ul className="space-y-2">
+                <li>Laundry chemicals for commercial laundries &amp; dry cleaners.</li>
+                <li>Laundry machines supplier / support for laundry machines and dosing systems.</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 

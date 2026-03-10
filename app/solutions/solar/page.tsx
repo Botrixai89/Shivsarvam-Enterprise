@@ -1,151 +1,158 @@
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
-import Image from 'next/image'
 import Link from 'next/link'
-import { Sun, Battery, Gauge, ChevronLeft, Download } from 'lucide-react'
-import { OpenQuoteButton } from '@/components/open-quote-button'
+import Image from 'next/image'
+import {
+  ChevronLeft, Sun, Droplets, ShieldCheck, Leaf,
+  TrendingUp, CheckCircle2, Factory, Building2, Zap,
+} from 'lucide-react'
+import { ProductCard } from '@/components/cards/product-card'
+import { BenefitCard } from '@/components/cards/benefit-card'
+import { ApplicationCard } from '@/components/cards/application-card'
+import { CTASection } from '@/components/sections/cta-section'
+import { SectionContainer } from '@/components/sections/section-container'
+
+const SectionHeading = ({ children }: { children: React.ReactNode }) => (
+  <h2 className="text-2xl md:text-3xl font-semibold text-slate-900 mb-12 border-l-4 border-primary pl-4">
+    {children}
+  </h2>
+)
+
+const products = [
+  {
+    icon: Sun,
+    title: 'Detpol SPC – Neutral pH Cleaner',
+    description:
+      'Specially formulated neutral pH solar panel cleaner that removes dust, bird droppings and soiling without scratching or damaging panel surfaces.',
+    features: ['Neutral pH (6.5–7.5)', 'Non-corrosive formula', 'Streak-free finish', 'Safe for all panel types'],
+    downloadLinks: [
+      { label: 'Solar Panel Cleaning Brochure', href: '/pdfs/Brochure - Solar Panel Cleaning Chemical.pdf' },
+      { label: 'Chemtex Portfolio 2024', href: '/pdfs/Portfolio 2024.pdf' },
+    ],
+  },
+  {
+    icon: Droplets,
+    title: 'Detpol SPC Concentrate',
+    description:
+      'Concentrated variant of the Detpol SPC range designed for high-volume applications such as utility-scale solar farms.',
+    features: ['High concentration ratio', 'Cost-effective dosing', 'Low foam formula', 'Compatible with spray systems'],
+    downloadLinks: [
+      { label: 'Solar Panel Cleaning Brochure', href: '/pdfs/Brochure - Solar Panel Cleaning Chemical.pdf' },
+    ],
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Anti-Static Coating Additive',
+    description:
+      'Post-cleaning anti-static treatment that reduces dust re-adhesion on photovoltaic panels, extending the time between cleaning cycles.',
+    features: ['Reduces dust adhesion', 'Extends cleaning intervals', 'UV stable', 'Compatible with SPC cleaners'],
+  },
+]
 
 const benefits = [
   {
-    title: "Increased Electrical Output",
-    desc: "Cleaner panels can maintain or restore solar efficiency by up to 30%.",
-    icon: Battery
+    icon: TrendingUp,
+    title: 'Maximise Energy Output',
+    description: 'Clean panels restore light absorption efficiency, directly improving energy generation and ROI of the solar installation.',
   },
   {
-    title: "Prevention of Mineral Build-up",
-    desc: "Specialized chemicals prevent scale and deposits that block sunlight.",
-    icon: Sun
+    icon: Leaf,
+    title: 'Protect Panel Investment',
+    description: 'Neutral pH, non-abrasive formula prevents micro-scratches and chemical corrosion that can degrade panel performance over time.',
   },
   {
-    title: "Enhanced Performance",
-    desc: "Regular use helps maintain optimal performance and longevity of panels.",
-    icon: Gauge
-  }
+    icon: CheckCircle2,
+    title: 'Reduce Maintenance Costs',
+    description: 'Anti-static additives reduce dust re-accumulation, cutting cleaning frequency and long-term operational maintenance costs.',
+  },
+]
+
+const applications = [
+  { icon: Sun, label: 'Rooftop Solar Panels' },
+  { icon: Zap, label: 'Utility-Scale Solar Farms' },
+  { icon: Factory, label: 'Industrial Solar Plants' },
+  { icon: Building2, label: 'Commercial Buildings' },
+  { icon: Droplets, label: 'Solar Water Heaters' },
+  { icon: ShieldCheck, label: 'Government Solar Projects' },
 ]
 
 export default function SolarMaintenance() {
   return (
-    <main className="min-h-screen bg-slate-50 text-slate-900">
+    <main className="min-h-screen bg-slate-50">
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="relative min-h-[500px] h-[65vh] flex flex-col pt-28">
-        <Image
-          src="/images/solar-hero.png"
-          alt="Solar Maintenance"
-          fill
-          className="object-cover"
-          priority
-        />
+      {/* 1. Hero */}
+      <section className="relative min-h-[420px] md:min-h-[520px] flex flex-col pt-28 overflow-hidden">
+        <Image src="/images/solar-hero.png" alt="Solar Panel Maintenance" fill priority className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20" />
-
-        {/* Breadcrumb */}
         <div className="relative z-10 px-4 sm:px-6 lg:px-8 pt-4 shrink-0">
-          <div className="max-w-7xl mx-auto">
-            <Link
-              href="/solutions"
-              className="inline-flex items-center gap-1.5 text-white/70 hover:text-white text-sm font-medium transition-colors duration-200"
-            >
-              <ChevronLeft className="w-4 h-4" />
-              Back to Solutions
+          <div className="max-w-6xl mx-auto">
+            <Link href="/solutions" className="inline-flex items-center gap-1.5 text-white/70 hover:text-white text-sm font-medium">
+              <ChevronLeft className="w-4 h-4" /> Back to Solutions
             </Link>
           </div>
         </div>
-
         <div className="flex-1" />
-
-        {/* Hero Text */}
         <div className="relative z-10 px-4 sm:px-6 lg:px-8 pb-12 shrink-0">
-          <div className="max-w-7xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-              Solar Panel Maintenance
-            </h1>
-            <p className="text-lg md:text-xl text-slate-300 max-w-2xl">
-              Maximize your energy efficiency with specialized neutral pH panel cleaning solutions.
+          <div className="max-w-6xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Solar Panel Maintenance</h1>
+            <p className="text-base md:text-lg text-slate-200 max-w-2xl leading-relaxed">
+              Neutral pH solar panel cleaning chemicals that maximise energy output and protect your installation from damage.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Overview */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-10 border-l-4 border-primary pl-4">Products in This Category</h2>
-          {/* Main Feature — text and product cards only to avoid repeating hero image */}
-          <div className="mb-24 max-w-3xl">
-            <span className="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">
-              Detpol SPC Range
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
-              Maximize ROI of Your Solar Installation
-            </h2>
-            <p className="text-slate-600 mb-8 text-lg leading-relaxed">
-              Solar panels can lose 15–25% efficiency due to dirt, dust, and residues. Traditional
-              water-only cleaning often falls short, especially with mineral deposits from hard
-              water. Our Detpol SPC range provides neutral pH, non-corrosive cleaning that ensures
-              maximum power generation.
-            </p>
-            <div className="space-y-4">
-              {[
-                { name: "Detpol SPC", desc: "Neutral pH solution for optimal cleaning of PV panels." },
-                { name: "Detpol SPC 2", desc: "Heavy-duty liquid & gel for carbonaceous and cement deposits." }
-              ].map((product) => (
-                <div
-                  key={product.name}
-                  className="flex gap-4 p-5 bg-white rounded-xl shadow-sm border border-slate-200 hover:border-primary/30 transition-colors duration-200"
-                >
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
-                    <Sun className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900">{product.name}</h4>
-                    <p className="text-sm text-slate-500 mt-1">{product.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <OpenQuoteButton className="mt-8 rounded-xl bg-[#1a2744] hover:bg-[#1a2744]/90 text-white">
-              Get a Quote
-            </OpenQuoteButton>
-          </div>
-
-          {/* Benefits Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {benefits.map((benefit, idx) => (
-              <div
-                key={idx}
-                className="bg-white p-10 rounded-xl border border-slate-200 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
-              >
-                <benefit.icon className="w-10 h-10 text-primary mb-6" />
-                <h3 className="text-xl font-bold mb-4 text-slate-900">{benefit.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{benefit.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Download Brochures — same UI as /solutions */}
-          <div className="mt-20">
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3 border-l-4 border-primary pl-4">Download Brochures</h2>
-            <p className="text-slate-600 mb-8 max-w-2xl">Product catalogues and technical information for this segment.</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="rounded-xl border border-slate-200 bg-white p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5">
-                <div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-2">Solar Panel Cleaning</h3>
-                  <p className="text-sm text-slate-600 mb-4 leading-relaxed">Neutral pH solar panel cleaning solutions.</p>
-                </div>
-                <ul className="space-y-2">
-                  <li>
-                    <a href="/pdfs/Brochure - Solar Panel Cleaning Chemical.pdf" download target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80">
-                      <Download className="w-4 h-4" />
-                      Solar Panel Cleaning Chemical
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+      {/* 2. Segment Introduction */}
+      <SectionContainer>
+        <div className="max-w-3xl">
+          <SectionHeading>Solar Panel Cleaning Solutions</SectionHeading>
+          <p className="text-base text-gray-600 leading-relaxed">
+            Dust, bird droppings and environmental soiling can reduce solar panel efficiency by up to 30%. Our Detpol SPC
+            range provides safe, effective and residue-free cleaning for all types of photovoltaic panels — from rooftop
+            installations to large utility-scale solar farms — without risking surface damage or voiding panel warranties.
+          </p>
         </div>
-      </section>
+      </SectionContainer>
+
+      {/* 3. Products */}
+      <SectionContainer>
+        <SectionHeading>Products in This Category</SectionHeading>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {products.map((p) => (
+            <ProductCard key={p.title} {...p} buttonText="Request Quote" />
+          ))}
+        </div>
+      </SectionContainer>
+
+      {/* 4. Key Benefits */}
+      <SectionContainer>
+        <SectionHeading>Key Benefits</SectionHeading>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {benefits.map((b) => (
+            <BenefitCard key={b.title} icon={b.icon} title={b.title} description={b.description} />
+          ))}
+        </div>
+      </SectionContainer>
+
+      {/* 5. Applications */}
+      <SectionContainer>
+        <SectionHeading>Applications</SectionHeading>
+        <p className="text-base text-gray-600 leading-relaxed mb-8 max-w-2xl">
+          Our solar cleaning chemicals are used across residential, commercial and industrial solar installations.
+        </p>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {applications.map((a) => (
+            <ApplicationCard key={a.label} icon={a.icon} label={a.label} />
+          ))}
+        </div>
+      </SectionContainer>
+
+      {/* 6. CTA */}
+      <CTASection
+        title="Need Solar Panel Cleaning Chemicals for Your Installation?"
+        description="Tell us about your panel type, installation size and cleaning frequency and we will recommend the right Detpol SPC product and dosing plan."
+      />
 
       <Footer />
     </main>

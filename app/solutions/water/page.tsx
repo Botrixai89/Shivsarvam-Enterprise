@@ -1,26 +1,96 @@
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
-import Image from 'next/image'
 import Link from 'next/link'
-import { Waves, Thermometer, CloudRain, ChevronLeft, Download } from 'lucide-react'
-import { OpenQuoteButton } from '@/components/open-quote-button'
+import Image from 'next/image'
+import {
+  ChevronLeft, Droplets, ShieldCheck, Leaf, FlaskConical,
+  TrendingDown, CheckCircle2, Building2, Hotel, Waves,
+} from 'lucide-react'
+import { ProductCard } from '@/components/cards/product-card'
+import { BenefitCard } from '@/components/cards/benefit-card'
+import { ApplicationCard } from '@/components/cards/application-card'
+import { CTASection } from '@/components/sections/cta-section'
+import { SectionContainer } from '@/components/sections/section-container'
 
-const poolProducts = [
+const SectionHeading = ({ children }: { children: React.ReactNode }) => (
+  <h2 className="text-2xl md:text-3xl font-semibold text-slate-900 mb-12 border-l-4 border-primary pl-4">
+    {children}
+  </h2>
+)
+
+const products = [
   {
-    title: "Pool Disinfectants",
-    desc: "Chlorine granules for ponds and swimming pools to eliminate microorganisms.",
-    icon: Waves
+    icon: Droplets,
+    title: 'Chlorine & Algaecide Treatments',
+    description:
+      'Stabilised chlorine compounds and algaecides for maintaining safe, crystal-clear pool water.',
+    features: ['Stabilised chlorine tablets', 'Granular chlorine', 'Fast-dissolving algaecides', 'Effective at low doses'],
+    downloadLinks: [
+      { label: 'Chemtex Portfolio 2024', href: '/pdfs/Portfolio 2024.pdf' },
+    ],
   },
   {
-    title: "Water Purification",
-    desc: "Pool water clarifiers and algaestats for sparkling clean water.",
-    icon: CloudRain
+    icon: FlaskConical,
+    title: 'pH Balancers & Correction',
+    description:
+      'pH increaser, decreaser and alkalinity adjustment chemicals to maintain optimal water balance at all times.',
+    features: ['pH increaser / decreaser', 'Alkalinity control', 'Total hardness management', 'Reduces eye & skin irritation'],
   },
   {
-    title: "pH Regulation",
-    desc: "pH builders and reducers for maintaining optimal water balance.",
-    icon: Thermometer
-  }
+    icon: ShieldCheck,
+    title: 'Flocculants & Clarifiers',
+    description:
+      'Coagulants and clarifiers that remove suspended particles and turbidity for sparkling clean pool water.',
+    features: ['Fast-acting clarifiers', 'Flocculant pads', 'Removes fine particles', 'Compatible with filters'],
+  },
+  {
+    icon: Waves,
+    title: 'Saltwater Pool Chemicals',
+    description:
+      'Speciality salt-compatible treatments for saltwater pools and water parks ensuring consistent water quality.',
+    features: ['Salt-compatible formula', 'Reduces scale build-up', 'Maintains salt levels', 'Non-corrosive to equipment'],
+  },
+  {
+    icon: Leaf,
+    title: 'Water Treatment Enzymes',
+    description:
+      'Bio-enzymatic water treatments that naturally break down organic waste and reduce chemical demand.',
+    features: ['Bio-enzymatic action', 'Reduces chlorine demand', 'Organic waste breakdown', 'Eco-friendly formula'],
+  },
+  {
+    icon: Droplets,
+    title: 'Equipment & Filter Cleaners',
+    description:
+      'Chemical treatments for filter media, pump seals and pool surfaces to extend equipment life.',
+    features: ['Filter backwash aid', 'Scale remover', 'Tile & surface cleaner', 'Equipment safe'],
+  },
+]
+
+const benefits = [
+  {
+    icon: ShieldCheck,
+    title: 'Safe & Hygienic Water',
+    description: 'Maintain WHO-safe disinfection levels that protect swimmers from pathogens and waterborne illness.',
+  },
+  {
+    icon: TrendingDown,
+    title: 'Cost-Efficient Dosing',
+    description: 'Highly concentrated formulations reduce chemical consumption and operational costs per litre of pool water.',
+  },
+  {
+    icon: CheckCircle2,
+    title: 'Equipment Longevity',
+    description: 'Balanced water chemistry prevents corrosion, scaling and staining that damage pool surfaces and equipment.',
+  },
+]
+
+const applications = [
+  { icon: Waves, label: 'Swimming Pools' },
+  { icon: Hotel, label: 'Water Parks' },
+  { icon: Building2, label: 'Hotels & Resorts' },
+  { icon: ShieldCheck, label: 'Sports Facilities' },
+  { icon: Droplets, label: 'Apartment Complexes' },
+  { icon: FlaskConical, label: 'Industrial Pools' },
 ]
 
 export default function WaterTreatment() {
@@ -28,130 +98,78 @@ export default function WaterTreatment() {
     <main className="min-h-screen bg-slate-50">
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="relative min-h-[500px] h-[65vh] flex flex-col pt-28">
-        <Image
-          src="/images/water-hero.png"
-          alt="Water Treatment"
-          fill
-          className="object-cover"
-          priority
-        />
+      {/* 1. Hero */}
+      <section className="relative min-h-[420px] md:min-h-[520px] flex flex-col pt-28 overflow-hidden">
+        <Image src="/images/water-hero.png" alt="Water Treatment" fill priority className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20" />
-
-        {/* Breadcrumb */}
         <div className="relative z-10 px-4 sm:px-6 lg:px-8 pt-4 shrink-0">
-          <div className="max-w-7xl mx-auto">
-            <Link
-              href="/solutions"
-              className="inline-flex items-center gap-1.5 text-white/70 hover:text-white text-sm font-medium transition-colors duration-200"
-            >
-              <ChevronLeft className="w-4 h-4" />
-              Back to Solutions
+          <div className="max-w-6xl mx-auto">
+            <Link href="/solutions" className="inline-flex items-center gap-1.5 text-white/70 hover:text-white text-sm font-medium">
+              <ChevronLeft className="w-4 h-4" /> Back to Solutions
             </Link>
           </div>
         </div>
-
         <div className="flex-1" />
-
-        {/* Hero Text */}
         <div className="relative z-10 px-4 sm:px-6 lg:px-8 pb-12 shrink-0">
-          <div className="max-w-7xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-              Swimming Pool & Water Treatment
-            </h1>
-            <p className="text-lg md:text-xl text-slate-300 max-w-2xl">
-              High-performance chemicals for sparkling clean and safe pool water maintenance.
+          <div className="max-w-6xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Swimming Pool &amp; Water Treatment</h1>
+            <p className="text-base md:text-lg text-slate-200 max-w-2xl leading-relaxed">
+              High-performance chemicals for sparkling clean, safe and well-maintained swimming pools and water parks.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Hotels & Resorts Segment overview */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white border-b border-slate-100">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 border-l-4 border-primary pl-4">
-            Hotels &amp; Resorts Segment
-          </h2>
-          <ul className="grid grid-cols-1 md:grid-cols-3 gap-4 text-slate-700">
-            <li className="flex items-start gap-3">
-              <Waves className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-              <span>Cleaning and hygiene chemicals for guest areas and back‑of‑house.</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <Waves className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-              <span>Kitchen care and food‑area compatible chemicals.</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <Waves className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-              <span>Water park &amp; swimming pool cleaning and treatment programs.</span>
-            </li>
-          </ul>
+      {/* 2. Segment Introduction */}
+      <SectionContainer>
+        <div className="max-w-3xl">
+          <SectionHeading>Pool &amp; Water Treatment Solutions</SectionHeading>
+          <p className="text-base text-gray-600 leading-relaxed">
+            We supply a complete range of swimming pool and water treatment chemicals for hotels, resorts, water parks and
+            residential complexes. From disinfection and pH correction to algae control and equipment care, our programs keep
+            pool water crystal clear, compliant and safe for swimmers throughout the year.
+          </p>
         </div>
-      </section>
+      </SectionContainer>
 
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-10 border-l-4 border-primary pl-4">Products in This Category</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-            {poolProducts.map((p, idx) => (
-              <div
-                key={idx}
-                className="p-8 bg-white rounded-xl border border-slate-200 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 text-center flex flex-col"
-              >
-                <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-6">
-                  <p.icon className="w-7 h-7 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-slate-900">{p.title}</h3>
-                <p className="text-slate-600 mb-6 leading-relaxed flex-grow">{p.desc}</p>
-                <OpenQuoteButton className="w-full rounded-xl bg-[#1a2744] hover:bg-[#1a2744]/90 text-white mt-auto">
-                  Request Quote
-                </OpenQuoteButton>
-              </div>
-            ))}
-          </div>
-
-          {/* Download Brochures */}
-          <div className="mb-20">
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3 border-l-4 border-primary pl-4">Download Brochures</h2>
-            <p className="text-slate-600 mb-8 max-w-2xl">Product catalogues and technical information for this segment.</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="rounded-xl border border-slate-200 bg-white p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5">
-                <div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-2">Swimming Pools &amp; Water</h3>
-                  <p className="text-sm text-slate-600 mb-4 leading-relaxed">Swimming pool care and water treatment programs.</p>
-                </div>
-                <ul className="space-y-2">
-                  <li>
-                    <a href="/pdfs/Swiming pool brochure_compressed.pdf" download target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80">
-                      <Download className="w-4 h-4" />
-                      Swimming Pool Chemicals Brochure
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* Feature Section — text only to avoid repeating hero image */}
-          <div className="bg-white rounded-xl p-10 md:p-12 shadow-sm border border-slate-200 max-w-3xl">
-            <span className="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">
-              Chemtex Authorized
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900 leading-tight">
-              Professional Solutions for Commercial Pools
-            </h2>
-            <p className="text-slate-600 mb-8 leading-relaxed text-lg">
-              We distribute Chemtex&apos;s premium range of swimming pool chemicals designed for
-              clubs, hotels, fitness centers, and educational institutions. From algaestats to pH
-              regulators, our solutions ensure crystal clear, safe water for all swimmers.
-            </p>
-            <OpenQuoteButton size="lg" className="rounded-xl bg-[#1a2744] hover:bg-[#1a2744]/90 text-white">
-              Request Quote for This Solution
-            </OpenQuoteButton>
-          </div>
+      {/* 3. Products */}
+      <SectionContainer>
+        <SectionHeading>Products in This Category</SectionHeading>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {products.map((p) => (
+            <ProductCard key={p.title} {...p} buttonText="Request Quote" />
+          ))}
         </div>
-      </section>
+      </SectionContainer>
+
+      {/* 4. Key Benefits */}
+      <SectionContainer>
+        <SectionHeading>Key Benefits</SectionHeading>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {benefits.map((b) => (
+            <BenefitCard key={b.title} icon={b.icon} title={b.title} description={b.description} />
+          ))}
+        </div>
+      </SectionContainer>
+
+      {/* 5. Applications */}
+      <SectionContainer>
+        <SectionHeading>Applications</SectionHeading>
+        <p className="text-base text-gray-600 leading-relaxed mb-8 max-w-2xl">
+          Serving pools and water facilities across the hospitality, sports and residential sectors.
+        </p>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {applications.map((a) => (
+            <ApplicationCard key={a.label} icon={a.icon} label={a.label} />
+          ))}
+        </div>
+      </SectionContainer>
+
+      {/* 6. CTA */}
+      <CTASection
+        title="Need a Complete Pool Chemical Management Program?"
+        description="Share your pool specifications and we will recommend the right chemicals, dosing schedule and maintenance plan to keep your water safe and clear."
+      />
 
       <Footer />
     </main>
