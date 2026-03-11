@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import {
   ChevronLeft, Droplets, ShieldCheck, Leaf, Building2,
-  Hotel, Waves, TrendingDown, CheckCircle2,
+  Hotel, Waves, TrendingDown, CheckCircle2, Sparkles, ChefHat,
 } from 'lucide-react'
 import { ProductCard } from '@/components/cards/product-card'
 import { BenefitCard } from '@/components/cards/benefit-card'
@@ -19,6 +19,26 @@ const SectionHeading = ({ children }: { children: React.ReactNode }) => (
 )
 
 const products = [
+  {
+    icon: Sparkles,
+    title: 'Cleaning & Hygiene Chemicals',
+    description:
+      'Professional cleaning and hygiene chemicals designed for hotels, resorts and hospitality facilities to maintain high standards of cleanliness and sanitation.',
+    features: ['Surface cleaning solutions', 'Floor cleaning chemicals', 'Bathroom sanitation', 'General hygiene maintenance'],
+    downloadLinks: [
+      { label: 'Download Brochure', href: '/pdfs/CLEANING & HYGIENE CHEMICALS (Regular Products Catalogue).pdf' },
+    ],
+  },
+  {
+    icon: ChefHat,
+    title: 'Kitchen Care Chemical Solutions',
+    description:
+      'Specialized kitchen care chemicals designed for hotel and resort kitchens to ensure food safety, grease removal and hygienic food preparation areas.',
+    features: ['Kitchen degreasers', 'Dishwashing chemicals', 'Food-safe surface cleaners', 'Kitchen hygiene maintenance'],
+    downloadLinks: [
+      { label: 'Download Brochure', href: '/pdfs/Portfolio 2024.pdf' },
+    ],
+  },
   {
     icon: Droplets,
     title: 'Water Park & Swimming Pool Cleaning Chemicals',

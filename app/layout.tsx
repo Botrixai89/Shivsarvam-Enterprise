@@ -44,8 +44,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${_geist.className} ${_geistMono.variable} font-sans antialiased`}>
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <body className={`${_geist.className} ${_geistMono.variable} font-sans antialiased`} suppressHydrationWarning>
         <ScrollProgress />
         <QuoteModalProvider>
           {children}
