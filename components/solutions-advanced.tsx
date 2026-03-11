@@ -7,43 +7,40 @@ import { ArrowRight } from 'lucide-react'
 
 const solutions = [
   {
-    title: "Industrial Segment",
-    href: "/solutions/hygiene",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop",
+    title: 'Industrial Segment',
+    href: '/solutions/hygiene',
+    image: '/images/industry segment.png',
     items: [
-      "Utility chemicals for boilers, cooling towers, chillers, RO systems & waste water management",
-      "Oil & gas industry chemicals",
-      "Solar panel cleaning chemicals"
-    ]
+      'Utility chemicals for boilers, cooling towers, chillers, RO systems & waste water management',
+      'Oil & gas industry chemicals',
+      'Solar panel cleaning chemicals',
+    ],
   },
   {
-    title: "Hospital Segment",
-    href: "/solutions/hospital",
-    image: "https://images.unsplash.com/photo-1584820927498-cafe8c108157?q=80&w=1470&auto=format&fit=crop",
-    items: [
-      "Hospital-grade disinfection chemicals",
-      "Cleaning & hygiene solutions"
-    ]
+    title: 'Hospital Segment',
+    href: '/solutions/hospital',
+    image: '/images/Hostpital.png',
+    items: ['Hospital-grade disinfection chemicals', 'Cleaning & hygiene solutions'],
   },
   {
-    title: "Hotels & Resorts Segment",
-    href: "/solutions/hygiene",
-    image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1470&auto=format&fit=crop",
+    title: 'Hotels & Resorts Segment',
+    href: '/solutions/water',
+    image: '/images/Hotel and resort.png',
     items: [
-      "Cleaning & hygiene chemicals",
-      "Kitchen care chemical solutions",
-      "Water park & swimming pool cleaning chemicals"
-    ]
+      'Cleaning & hygiene chemicals',
+      'Kitchen care chemical solutions',
+      'Water park & swimming pool cleaning chemicals',
+    ],
   },
   {
-    title: "Laundry Solutions",
-    href: "/solutions/laundry",
-    image: "https://images.unsplash.com/photo-1582735780517-573e8e16fdcf?q=80&w=1374&auto=format&fit=crop",
+    title: 'Laundry Solutions',
+    href: '/solutions/laundry',
+    image: '/images/Laundry Solutions.png',
     items: [
-      "Laundry chemicals for commercial laundries & dry cleaners",
-      "Laundry machines supplier / support for laundry machines and dosing systems"
-    ]
-  }
+      'Laundry chemicals for commercial laundries & dry cleaners',
+      'Laundry machines supplier / support for laundry machines and dosing systems',
+    ],
+  },
 ]
 
 export function SolutionsAdvanced() {
