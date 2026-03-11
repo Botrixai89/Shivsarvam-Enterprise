@@ -11,36 +11,44 @@ export const metadata: Metadata = {
   openGraph: { title: 'Solutions | Shivsarvam Enterprises', description: 'Chemical solutions for every sector — industrial, healthcare, commercial.' },
 }
 
-const solutionCategories = [
+const solutions = [
   {
-    title: 'Industrial Segment',
-    href: '/solutions/hygiene',
-    image: '/images/hygiene-hero.png',
-    desc: 'Utility chemicals for boilers, cooling towers, chillers, RO systems & waste water management. Oil & gas and solar panel cleaning solutions.'
+    title: "Industrial Segment",
+    href: "/solutions/hygiene",
+    image: "/images/industry segment.png",
+    items: [
+      "Utility chemicals for boilers, cooling towers, chillers, RO systems & waste water management",
+      "Oil & gas industry chemicals",
+      "Solar panel cleaning chemicals"
+    ]
   },
   {
-    title: 'Hospital Grade Disinfection',
-    href: '/solutions/hospital',
-    image: '/images/hospital-hero.png',
-    desc: 'Medical-grade disinfection and cleaning & hygiene chemicals for the highest standards of safety in healthcare environments.'
+    title: "Hospital Segment",
+    href: "/solutions/hospital",
+    image: "/images/Hostpital.png",
+    items: [
+      "Hospital-grade disinfection chemicals",
+      "Cleaning & hygiene solutions"
+    ]
   },
   {
-    title: 'Commercial Laundry Systems',
-    href: '/solutions/laundry',
-    image: '/images/laundry-hero.png',
-    desc: 'Laundry chemicals for commercial laundries & dry cleaners. Support for laundry machines and dosing systems.'
+    title: "Hotels & Resorts Segment",
+    href: "/solutions/water",
+    image: "/images/Hotel and resort.png",
+    items: [
+      "Cleaning & hygiene chemicals",
+      "Kitchen care chemical solutions",
+      "Water park & swimming pool cleaning chemicals"
+    ]
   },
   {
-    title: 'Swimming Pool & Water Treatment',
-    href: '/solutions/water',
-    image: '/images/water-hero.png',
-    desc: 'Water park and swimming pool cleaning chemicals for sparkling clean, safe and well-maintained water facilities.'
-  },
-  {
-    title: 'Solar Panel Maintenance',
-    href: '/solutions/solar',
-    image: '/images/solar-hero.png',
-    desc: 'Solar panel cleaning chemicals that help maintain output and protect installations.'
+    title: "Laundry Solutions",
+    href: "/solutions/laundry",
+    image: "/images/Laundry Solutions.png",
+    items: [
+      "Laundry chemicals for commercial laundries & dry cleaners",
+      "Laundry machines supplier / support for laundry machines and dosing systems"
+    ]
   }
 ]
 
@@ -81,106 +89,75 @@ export default function SolutionsLanding() {
         </div>
       </section>
 
-      {/* Core solutions text overview – aligned with brochure */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8 text-center">
-            Our Core Solutions
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 text-slate-700">
-            {/* Industrial Segment */}
-            <div>
-              <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-3">
-                Industrial Segment
-              </h3>
-              <ul className="space-y-2">
-                <li>Utility chemicals for boilers, cooling towers, chillers, RO systems &amp; waste water management.</li>
-                <li>Oil &amp; gas industry chemicals.</li>
-                <li>Solar panel cleaning chemicals.</li>
-              </ul>
-            </div>
-
-            {/* Hospital Segment */}
-            <div>
-              <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-3">
-                Hospital Segment
-              </h3>
-              <ul className="space-y-2">
-                <li>Hospital‑grade disinfection chemicals.</li>
-                <li>Cleaning &amp; hygiene solutions.</li>
-              </ul>
-            </div>
-
-            {/* Hotels & Resorts Segment */}
-            <div>
-              <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-3">
-                Hotels &amp; Resorts Segment
-              </h3>
-              <ul className="space-y-2">
-                <li>Cleaning &amp; hygiene chemicals.</li>
-                <li>Kitchen care chemical solutions.</li>
-                <li>Water park &amp; swimming pool cleaning chemicals.</li>
-              </ul>
-            </div>
-
-            {/* Laundry Solutions */}
-            <div>
-              <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-3">
-                Laundry Solutions
-              </h3>
-              <ul className="space-y-2">
-                <li>Laundry chemicals for commercial laundries &amp; dry cleaners.</li>
-                <li>Laundry machines supplier / support for laundry machines and dosing systems.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Cards Grid */}
-      <section className="py-20 px-4">
+      <section className="py-24 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-4">Our Core Solutions</h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Industrial Utility, Cleaning, Hygiene &amp; Disinfection Chemical Solutions
+            </p>
+            <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mt-4"></div>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {solutionCategories.map((cat, idx) => (
+            {solutions.map((sol, idx) => (
               <Link
                 key={idx}
-                href={cat.href}
-                className="group relative h-[420px] overflow-hidden rounded-[2rem] border border-slate-200 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-500"
+                href={sol.href}
+                className="group relative block aspect-[4/5] overflow-hidden rounded-2xl bg-slate-100 shadow-xl"
               >
+                {/* Background Image */}
                 <Image
-                  src={cat.image}
-                  alt={cat.title}
+                  src={sol.image}
+                  alt={sol.title}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
+                
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent transition-colors duration-500 group-hover:from-black/80 group-hover:via-black/30" />
+                
+                {/* Content at bottom */}
+                <div className="absolute bottom-0 left-0 p-6 w-full flex flex-col justify-end">
+                  <h3 className="text-xl font-semibold text-white mb-3">{sol.title}</h3>
+                  
+                  {/* Bullet list */}
+                  <ul className="mb-6 space-y-2">
+                    {sol.items.map((item, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
+                        <span className="text-sm text-gray-200 leading-snug">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
 
-                <div className="absolute bottom-0 left-0 p-8 w-full">
-                  <h3 className="text-2xl font-bold text-white mb-3">{cat.title}</h3>
-                  <p className="text-slate-300 text-sm mb-5 line-clamp-2">{cat.desc}</p>
-                  <div className="flex items-center gap-2 text-primary font-bold text-sm">
-                    View Products{' '}
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  {/* CTA */}
+                  <div className="flex items-center gap-2 text-xs uppercase tracking-wide text-white font-bold">
+                    <span>View Solutions</span>
+                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-2" />
                   </div>
                 </div>
               </Link>
             ))}
 
-            {/* 6th card: CTA to contact */}
+            {/* CTA to contact */}
             <Link
               href="/contact"
-              className="group relative h-[420px] overflow-hidden rounded-[2rem] border-2 border-dashed border-primary/30 bg-gradient-to-br from-primary/5 to-accent/5 hover:border-primary/60 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 flex flex-col items-center justify-center text-center p-10"
+              className="group relative block aspect-[4/5] overflow-hidden rounded-2xl border-2 border-dashed border-primary/30 bg-gradient-to-br from-primary/5 to-accent/5 hover:border-primary/60 hover:shadow-xl hover:-translate-y-1 transition-all duration-500"
             >
-              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-                <MessageSquare className="w-8 h-8 text-primary" />
-              </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">Need a Custom Solution?</h3>
-              <p className="text-slate-500 text-sm leading-relaxed mb-6">
-                Can&apos;t find what you&apos;re looking for? Talk to our chemical experts for a
-                tailored recommendation.
-              </p>
-              <div className="flex items-center gap-2 text-primary font-bold text-sm">
-                Contact Us <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              <div className="absolute inset-0 p-10 flex flex-col items-center justify-center text-center">
+                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
+                  <MessageSquare className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">Need a Custom Solution?</h3>
+                <p className="text-slate-500 text-sm leading-relaxed mb-6">
+                  Can&apos;t find what you&apos;re looking for? Talk to our chemical experts for a
+                  tailored recommendation.
+                </p>
+                <div className="flex items-center gap-2 text-primary font-bold text-sm">
+                  Contact Us <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </div>
               </div>
             </Link>
           </div>

@@ -85,7 +85,7 @@ export default function IndustrialSegment() {
 
       {/* 1. Hero */}
       <section className="relative min-h-[420px] md:min-h-[520px] flex flex-col pt-28 overflow-hidden">
-        <Image src="/images/hygiene-hero.png" alt="Industrial Segment" fill priority className="object-cover" />
+        <Image src="/images/industry segment.png" alt="Industrial Segment" fill priority className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20" />
         <div className="relative z-10 px-4 sm:px-6 lg:px-8 pt-4 shrink-0">
           <div className="max-w-6xl mx-auto">
