@@ -10,7 +10,7 @@ import { CTASection } from '@/components/sections/cta-section'
 import { SectionContainer } from '@/components/sections/section-container'
 
 const SectionHeading = ({ children }: { children: React.ReactNode }) => (
-  <h2 className="text-2xl md:text-3xl font-semibold text-slate-900 mb-12 border-l-4 border-primary pl-4">
+  <h2 className="text-2xl md:text-3xl font-semibold text-slate-900 mb-6 border-l-4 border-primary pl-4">
     {children}
   </h2>
 )
