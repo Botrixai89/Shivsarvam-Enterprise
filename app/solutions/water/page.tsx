@@ -26,7 +26,7 @@ const products = [
       'Professional cleaning and hygiene chemicals designed for hotels, resorts and hospitality facilities to maintain high standards of cleanliness and sanitation.',
     features: ['Surface cleaning solutions', 'Floor cleaning chemicals', 'Bathroom sanitation', 'General hygiene maintenance'],
     downloadLinks: [
-      { label: 'Download Brochure', href: '/pdfs/CLEANING & HYGIENE CHEMICALS (Regular Products Catalogue).pdf' },
+      { label: 'Download Brochure', href: '/pdfs/Chemtex Cleaning & Hygiene Chemicals_Brochure-1.pdf' },
     ],
   },
   {
@@ -35,9 +35,7 @@ const products = [
     description:
       'Specialized kitchen care chemicals designed for hotel and resort kitchens to ensure food safety, grease removal and hygienic food preparation areas.',
     features: ['Kitchen degreasers', 'Dishwashing chemicals', 'Food-safe surface cleaners', 'Kitchen hygiene maintenance'],
-    downloadLinks: [
-      { label: 'Download Brochure', href: '/pdfs/Portfolio 2024.pdf' },
-    ],
+    downloadLinks: [],
   },
   {
     icon: Droplets,

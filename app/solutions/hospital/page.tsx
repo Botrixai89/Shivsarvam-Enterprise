@@ -38,7 +38,6 @@ const products = [
     features: ['Hard surface cleaning', 'Glass & mirror care', 'Hygiene solutions', 'Clinical environment safe'],
     downloadLinks: [
       { label: 'Cleaning & Hygiene Catalogue', href: '/pdfs/CLEANING & HYGIENE CHEMICALS (Regular Products Catalogue).pdf' },
-      { label: 'Chemtex Hygiene Brochure', href: '/pdfs/Chemtex Cleaning & Hygiene Chemicals_Brochure-1.pdf' },
     ],
   },
 ]

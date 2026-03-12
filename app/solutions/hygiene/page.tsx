@@ -24,6 +24,7 @@ const products = [
     features: ['Boiler treatment', 'Cooling tower treatment', 'RO system treatment', 'Waste water management'],
     downloadLinks: [
       { label: 'Download Brochure', href: '/pdfs/Utility Chemicals D2 (24.03.2025).pdf' },
+      { label: 'Industrial Portfolio 2024', href: '/pdfs/Portfolio 2024.pdf' },
     ],
   },
   {
