@@ -31,7 +31,7 @@ export function HeroProfessional() {
 
           {/* Text Content */}
           <motion.div
-            className="flex flex-col justify-center max-w-xl relative z-10"
+            className="flex flex-col justify-center max-w-2xl relative z-10"
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
@@ -41,10 +41,10 @@ export function HeroProfessional() {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex flex-wrap items-center gap-2 md:gap-4 mb-6 self-start border border-[#0F2A44]/20 rounded-full px-3 py-1.5 md:px-5 md:py-2.5 bg-white/80 backdrop-blur-sm"
+              className="inline-flex flex-wrap items-center gap-2 md:gap-4 mb-6 self-start border border-[#0F2A44]/20 rounded-full px-3 py-1.5 md:px-5 md:py-2 bg-white/80 backdrop-blur-sm shadow-sm"
             >
               <span className="w-2 h-2 rounded-full bg-[#2F6BFF]" />
-              <span className="text-[9px] md:text-[10px] font-semibold tracking-[0.2em] text-[#0F2A44]/60">
+              <span className="text-[10px] md:text-[11px] font-semibold tracking-[0.2em] text-[#0F2A44]/60">
                 AUTHORIZED DISTRIBUTOR
               </span>
               <span className="w-px h-5 bg-[#0F2A44]/15" />
@@ -52,17 +52,17 @@ export function HeroProfessional() {
                 <Image
                   src="/images/chemtex.png"
                   alt="Chemtex"
-                  width={80}
-                  height={20}
-                  className="h-6 md:h-8 w-auto object-contain"
+                  width={160}
+                  height={44}
+                  className="h-16 md:h-20 w-auto object-contain"
                 />
                 <span className="w-px h-5 bg-[#0F2A44]/15" />
                 <Image
                   src="/images/indokem.png"
                   alt="Indokem"
-                  width={80}
-                  height={20}
-                  className="h-6 md:h-8 w-auto object-contain"
+                  width={160}
+                  height={44}
+                  className="h-10 md:h-12 w-auto object-contain"
                 />
               </span>
             </motion.div>
@@ -72,22 +72,11 @@ export function HeroProfessional() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="font-extrabold text-[#0F2A44] leading-tight mb-5 text-3xl md:text-5xl lg:text-6xl"
+              className="font-extrabold text-[#0F2A44] leading-tight mb-5 text-4xl md:text-5xl lg:text-[54px]"
             >
-              Industrial &amp; Hygiene Chemical
-              <br />
-              <span className="text-[#2F6BFF]">Solutions for Every Sector</span>
+              One Trusted Source for Utility Chemicals, Healthcare Hygiene,{' '}
+              <span className="text-[#2F6BFF]">Hospitality &amp; Laundry Solutions.</span>
             </motion.h1>
-
-            {/* Description */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.35 }}
-              className="text-[16px] text-slate-600 leading-relaxed max-w-md mb-8 italic"
-            >
-              One Trusted Source for Utility Chemicals, Healthcare Hygiene, Hospitality &amp; Laundry Solutions.
-            </motion.p>
 
             {/* CTA Buttons */}
             <motion.div
@@ -130,73 +119,11 @@ export function HeroProfessional() {
               ))}
             </motion.div>
 
-            {/* Stats row (mobile) */}
-            <div className="mt-4 pt-4 border-t border-gray-100 grid grid-cols-3 divide-x divide-gray-100 md:hidden">
-              <div className="text-center px-2">
-                <div className="text-xl font-bold text-[#0F2A44]">500+</div>
-                <div className="text-[10px] uppercase tracking-wide text-gray-400">Clients</div>
-              </div>
-              <div className="text-center px-2">
-                <div className="text-xl font-bold text-[#0F2A44]">6</div>
-                <div className="text-[10px] uppercase tracking-wide text-gray-400">Sectors</div>
-              </div>
-              <div className="text-center px-2">
-                <div className="text-xl font-bold text-[#0F2A44]">2</div>
-                <div className="text-[10px] uppercase tracking-wide text-gray-400">Brands</div>
-              </div>
-            </div>
+
           </motion.div>
 
-          {/* Floating glass stat cards on right (desktop only) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ delay: 0.75, duration: 0.6 }}
-            className="hidden md:flex flex-col gap-4 absolute right-8 top-1/3 z-10"
-          >
-            <div className="glass rounded-xl shadow-lg px-5 py-4">
-              <div className="text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">
-                Clients
-              </div>
-              <div className="text-3xl font-bold text-[#0F2A44]">500+</div>
-              <div className="text-xs text-slate-500 font-medium mt-0.5">Clients Served</div>
-            </div>
-            <div className="glass rounded-xl shadow-lg px-5 py-4">
-              <div className="text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">
-                Industry Sectors
-              </div>
-              <div className="text-3xl font-bold text-[#0F2A44]">6</div>
-              <div className="text-xs text-slate-500 font-medium mt-0.5">Industry Sectors</div>
-            </div>
-            <div className="glass rounded-xl shadow-lg px-5 py-4">
-              <div className="text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">
-                Authorized Brands
-              </div>
-              <div className="text-3xl font-bold text-[#0F2A44]">2</div>
-              <div className="text-xs text-slate-500 font-medium mt-0.5">Chemtex &amp; Indokem</div>
-            </div>
-          </motion.div>
 
-        </div>
-      </div>
 
-      {/* Bottom Stats Bar (desktop) */}
-      <div className="hidden md:block absolute bottom-0 left-0 right-0 bg-[#F8FAFC] border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-3 gap-0 divide-x divide-slate-200 py-5">
-            {[
-              { value: '500+', label: 'Clients Served' },
-              { value: '6', label: 'Industry Sectors' },
-              { value: '2', label: 'Authorized Brands' },
-            ].map((stat) => (
-              <div key={stat.label} className="flex flex-col items-center justify-center text-center px-3">
-                <span className="text-xl md:text-2xl font-bold text-[#0F2A44]">{stat.value}</span>
-                <span className="text-[11px] font-medium text-slate-500 uppercase tracking-[0.18em]">
-                  {stat.label}
-                </span>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>

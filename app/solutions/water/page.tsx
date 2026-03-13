@@ -106,17 +106,6 @@ export default function WaterTreatment() {
         </div>
       </section>
 
-      {/* 2. Segment Introduction */}
-      <SectionContainer>
-        <div className="max-w-3xl">
-          <SectionHeading>Pool &amp; Water Treatment Solutions</SectionHeading>
-          <p className="text-base text-gray-600 leading-relaxed">
-            We supply water park and swimming pool cleaning chemicals for hotels, resorts, water parks and residential
-            complexes. From disinfection and pH correction to algae control and equipment care, our programs keep pool
-            water crystal clear, compliant and safe for swimmers throughout the year.
-          </p>
-        </div>
-      </SectionContainer>
 
       {/* 3. Products */}
       <SectionContainer>

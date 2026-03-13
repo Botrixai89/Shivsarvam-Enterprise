@@ -24,13 +24,6 @@ import {
   ChevronRight,
 } from 'lucide-react'
 
-const stats = [
-  { value: '19+', label: 'Years', icon: History },
-  { value: '500+', label: 'Clients Served', icon: Users },
-  { value: '2', label: 'Authorized Brands', icon: Award },
-  { value: '6', label: 'Industry Sectors', icon: Layers },
-]
-
 const segments = [
   {
     title: 'Industrial Segment',
@@ -64,28 +57,8 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">About Us</h1>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-            Authorized Distributor & Trusted Chemical Solutions Provider for over 19 Years.
+            Authorized Distributor & Trusted Chemical Solutions Provider.
           </p>
-        </div>
-      </section>
-
-      {/* Stats */}
-      <section className="py-12 md:py-16 px-4 -mt-8 relative z-10">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            {stats.map((s, i) => {
-              const Icon = s.icon
-              return (
-                <Card key={i} className="p-6 md:p-8 flex flex-col items-center text-center rounded-xl shadow-lg border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                  <div className="w-12 h-12 md:w-14 md:h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 md:w-7 md:h-7 text-primary" />
-                  </div>
-                  <span className="text-2xl md:text-3xl font-bold text-slate-900">{s.value}</span>
-                  <span className="text-sm text-slate-500 font-medium">{s.label}</span>
-                </Card>
-              )
-            })}
-          </div>
         </div>
       </section>
 

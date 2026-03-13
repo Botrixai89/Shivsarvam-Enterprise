@@ -47,7 +47,7 @@ export function About() {
   return (
     <>
       {/* About Section */}
-      <section id="about" className="py-20 bg-[#F8FAFC] scroll-mt-[70px]">
+      <section id="about" className="py-10 bg-[#F8FAFC] scroll-mt-[70px]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 

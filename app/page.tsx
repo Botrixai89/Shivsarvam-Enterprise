@@ -1,7 +1,6 @@
 import { Navbar } from '@/components/navbar'
 import { HeroClient } from '@/components/hero-client'
 import { SolutionsAdvanced } from '@/components/solutions-advanced'
-import { Industries } from '@/components/industries'
 import { About } from '@/components/about'
 import { Brands } from '@/components/brands'
 import { CtaSection } from '@/components/cta-section'
@@ -13,7 +12,6 @@ export default function Home() {
       <Navbar />
       <HeroClient />
       <SolutionsAdvanced />
-      <Industries />
       <About />
       <Brands />
       <CtaSection />

@@ -24,16 +24,16 @@ export function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full h-20 bg-white border-b border-[#f0f0f0]">
-      <div className="max-w-7xl mx-auto h-full flex items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="max-w-8xl mx-auto h-full flex items-center justify-between px-4 sm:px-6 lg:px-8">
 
         {/* Logo */}
         <Link href="/" className="flex items-center shrink-0" aria-label="Shivsarvam Home">
           <Image
             src="/logo.png"
             alt="Shivsarvam Enterprises"
-            width={260}
-            height={56}
-            className="h-14 w-auto object-contain"
+            width={160}
+            height={64}
+            className="h-40 w-auto object-contain"
             priority
           />
         </Link>
@@ -49,15 +49,13 @@ export function Navbar() {
               <Link
                 key={link.label}
                 href={link.href}
-                className={`relative text-[14px] font-medium transition-colors duration-200 group py-1 ${
-                  isActive ? 'text-[#0F2A44]' : 'text-slate-600 hover:text-[#0F2A44]'
-                }`}
+                className={`relative text-[14px] font-medium transition-colors duration-200 group py-1 ${isActive ? 'text-[#0F2A44]' : 'text-slate-600 hover:text-[#0F2A44]'
+                  }`}
               >
                 {link.label}
                 <span
-                  className={`absolute left-0 -bottom-0.5 h-[1.5px] bg-[#0F2A44] transition-all duration-300 ${
-                    isActive ? 'w-full' : 'w-0 group-hover:w-full'
-                  }`}
+                  className={`absolute left-0 -bottom-0.5 h-[1.5px] bg-[#0F2A44] transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`}
                 />
               </Link>
             )

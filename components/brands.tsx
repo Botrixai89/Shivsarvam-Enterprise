@@ -9,6 +9,7 @@ const brands = [
   {
     logo: '/images/chemtex.png',
     name: 'Chemtex Specialty',
+    logoHeight: 'h-18',
     tagline: 'Your global partner for every industrial chemical need.',
     description: 'Authorized distributor of Chemtex\'s massive portfolio covering Thermal Power, Water Treatment, Food & Pharma, Hospitality, and more.',
     badges: ['All Industry Solutions', 'ISO Certified', 'MSDS Compliance'],
@@ -17,6 +18,7 @@ const brands = [
   {
     logo: '/images/indokem.png',
     name: 'Indokem Limited',
+    logoHeight: 'h-12',
     tagline: 'Specialized care for textiles and laundry.',
     description: 'High-performance chemicals dedicated to professional clothing washing, commercial laundry machines, and textile care operations.',
     badges: ['Laundry Specialist', 'Textile Care', 'Premium Washing'],
@@ -26,7 +28,7 @@ const brands = [
 
 export function Brands() {
   return (
-    <section id="brands" className="py-20 bg-[#F8FAFC] scroll-mt-[70px]">
+    <section id="brands" className="py-5 bg-[#F8FAFC] scroll-mt-[70px]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
@@ -56,7 +58,7 @@ export function Brands() {
               className="bg-white border border-slate-200 rounded-2xl p-8 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
             >
               {/* Logo */}
-              <div className="relative h-14 w-44 mb-6">
+              <div className={`relative ${brand.logoHeight} w-44 mb-6`}>
                 <Image src={brand.logo} alt={brand.name} fill className="object-contain object-left" />
               </div>
 
