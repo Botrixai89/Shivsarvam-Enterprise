@@ -1,9 +1,10 @@
 import { Navbar } from '@/components/navbar'
 import { HeroClient } from '@/components/hero-client'
-import { About } from '@/components/about'
 import { SolutionsAdvanced } from '@/components/solutions-advanced'
+import { Industries } from '@/components/industries'
+import { About } from '@/components/about'
 import { Brands } from '@/components/brands'
-import { Testimonials } from '@/components/testimonials'
+import { CtaSection } from '@/components/cta-section'
 import { Footer } from '@/components/footer'
 
 export default function Home() {
@@ -11,10 +12,11 @@ export default function Home() {
     <main className="min-h-screen">
       <Navbar />
       <HeroClient />
-      <About />
       <SolutionsAdvanced />
+      <Industries />
+      <About />
       <Brands />
-      <Testimonials />
+      <CtaSection />
       <Footer />
     </main>
   )

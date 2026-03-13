@@ -1,82 +1,59 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Card } from '@/components/ui/card'
-import { Factory, Heart, Hotel, Shirt, Droplets, Zap } from 'lucide-react'
+import { Factory, HeartPulse, Hotel, WashingMachine, Droplets, Zap } from 'lucide-react'
+
+const industries = [
+  { icon: Factory, name: 'Manufacturing & Power Plants', desc: 'Boiler, cooling tower & water treatment' },
+  { icon: HeartPulse, name: 'Hospitals & Healthcare', desc: 'Clinical-grade hygiene & disinfection' },
+  { icon: Hotel, name: 'Hotels & Resorts', desc: 'Housekeeping, kitchen & pool solutions' },
+  { icon: WashingMachine, name: 'Commercial Laundry', desc: 'Textile care & laundry chemicals' },
+  { icon: Droplets, name: 'Oil & Gas', desc: 'Specialty process & utility chemicals' },
+  { icon: Zap, name: 'Water Treatment Plants', desc: 'RO, ETP & sewage treatment chemicals' },
+]
 
 export function Industries() {
-  const industries = [
-    {
-      icon: Factory,
-      name: 'Manufacturing',
-      color: 'from-blue-600 to-cyan-500'
-    },
-    {
-      icon: Heart,
-      name: 'Hospitals',
-      color: 'from-red-600 to-pink-500'
-    },
-    {
-      icon: Hotel,
-      name: 'Hotels & Resorts',
-      color: 'from-amber-600 to-orange-500'
-    },
-    {
-      icon: Shirt,
-      name: 'Commercial Laundry',
-      color: 'from-emerald-600 to-teal-500'
-    },
-    {
-      icon: Droplets,
-      name: 'Oil & Gas',
-      color: 'from-slate-600 to-gray-500'
-    },
-    {
-      icon: Zap,
-      name: 'Water Treatment Plants',
-      color: 'from-green-600 to-emerald-500'
-    }
-  ]
-
   return (
-    <section id="industries" className="py-24 bg-white overflow-hidden">
+    <section id="industries" className="py-20 bg-white scroll-mt-[70px]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
+
+        {/* Header */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-12"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-6 font-display italic">Industries We Serve</h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-8 font-medium">
-            Delivering specialized chemical solutions across diverse sectors with precision and clinical safety.
+          <p className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#1e6aa7] mb-3">Sectors We Serve</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0F2A44] mb-3">Industries We Serve</h2>
+          <p className="text-[15px] text-slate-500 max-w-xl">
+            Delivering specialized chemical solutions across diverse sectors with precision and quality assurance.
           </p>
-          <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
+          <div className="w-12 h-[3px] bg-[#0F2A44] rounded-full mt-4" />
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
           {industries.map((industry, index) => {
             const Icon = industry.icon
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
+                transition={{ duration: 0.4, delay: index * 0.07 }}
+                className="group bg-[#F8FAFC] border border-slate-200 rounded-xl p-5 flex flex-col items-center text-center hover:bg-[#0F2A44] hover:border-[#0F2A44] hover:shadow-lg transition-all duration-300 cursor-default"
               >
-                <Card
-                  className="p-10 flex flex-col items-center text-center hover:shadow-2xl transition-all duration-500 group border-white/5 bg-slate-50/50 backdrop-blur-sm relative overflow-hidden"
-                >
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/5 to-transparent rounded-bl-full -z-10 transition-transform duration-700 group-hover:scale-150"></div>
-                  
-                  <div className={`w-20 h-20 bg-gradient-to-br ${industry.color} rounded-[1.5rem] flex items-center justify-center mb-8 shadow-xl shadow-slate-200 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}>
-                    <Icon className="w-10 h-10 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-slate-900 group-hover:text-primary transition-colors duration-300 mb-2">{industry.name}</h3>
-                  <div className="w-8 h-1 bg-slate-200 rounded-full group-hover:w-16 group-hover:bg-primary transition-all duration-500"></div>
-                </Card>
+                <div className="w-12 h-12 rounded-xl bg-[#0F2A44]/10 group-hover:bg-white/15 flex items-center justify-center mb-3 transition-colors duration-300">
+                  <Icon className="w-6 h-6 text-[#0F2A44] group-hover:text-white transition-colors duration-300" />
+                </div>
+                <h3 className="text-[13px] font-bold text-[#0F2A44] group-hover:text-white transition-colors duration-300 leading-tight mb-1.5">
+                  {industry.name}
+                </h3>
+                <p className="text-[11px] text-slate-500 group-hover:text-white/70 transition-colors duration-300 leading-snug">
+                  {industry.desc}
+                </p>
               </motion.div>
             )
           })}

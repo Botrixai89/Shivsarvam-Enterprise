@@ -256,12 +256,52 @@ html {
   }
 }
 
+/* Footer particles */
+.footer-particles {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 160px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.footer-particles span {
+  position: absolute;
+  bottom: -20px;
+  display: block;
+  width: 4px;
+  height: 4px;
+  background: #4fc3f7;
+  border-radius: 9999px;
+  opacity: 0.2;
+  animation-name: footerParticleFloat;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes footerParticleFloat {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.25;
+  }
+  100% {
+    transform: translateY(-120px);
+    opacity: 0;
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
+    overflow-x: hidden;
   }
 }
 

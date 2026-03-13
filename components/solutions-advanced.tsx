@@ -1,112 +1,142 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import Image from 'next/image'
+import { ArrowRight, FlaskConical, HeartPulse, Hotel, WashingMachine } from 'lucide-react'
 
 const solutions = [
   {
+    icon: FlaskConical,
     title: 'Industrial Segment',
     href: '/solutions/hygiene',
     image: '/images/industry segment.png',
+    description: 'Utility chemicals for boilers, cooling towers, chillers, RO systems & waste water management.',
     items: [
-      'Utility chemicals for boilers, cooling towers, chillers, RO systems & waste water management',
+      'Boiler & cooling tower treatment',
       'Oil & gas industry chemicals',
       'Solar panel cleaning chemicals',
+      'Water treatment & RO chemicals',
     ],
   },
   {
+    icon: HeartPulse,
     title: 'Hospital Segment',
     href: '/solutions/hospital',
     image: '/images/Hostpital.png',
-    items: ['Hospital-grade disinfection chemicals', 'Cleaning & hygiene solutions'],
-  },
-  {
-    title: 'Hotels & Resorts Segment',
-    href: '/solutions/water',
-    image: '/images/Hotel and resort.png',
+    description: 'Clinical-grade disinfection and hygiene chemicals for healthcare facilities.',
     items: [
-      'Cleaning & hygiene chemicals',
-      'Kitchen care chemical solutions',
-      'Water park & swimming pool cleaning chemicals',
+      'Hospital-grade disinfectants',
+      'Surgical & OT hygiene solutions',
+      'Surface & floor cleaning chemicals',
     ],
   },
   {
+    icon: Hotel,
+    title: 'Hotels & Resorts',
+    href: '/solutions/water',
+    image: '/images/Hotel and resort.png',
+    description: 'Complete hygiene and maintenance solutions for hospitality industry.',
+    items: [
+      'Housekeeping & cleaning chemicals',
+      'Kitchen care solutions',
+      'Swimming pool & water park chemicals',
+    ],
+  },
+  {
+    icon: WashingMachine,
     title: 'Laundry Solutions',
     href: '/solutions/laundry',
     image: '/images/Laundry Solutions.png',
+    description: 'High-performance laundry chemicals for commercial operations.',
     items: [
-      'Laundry chemicals for commercial laundries & dry cleaners',
-      'Laundry machines supplier / support for laundry machines and dosing systems',
+      'Commercial laundry chemicals',
+      'Dry cleaning solutions',
+      'Dosing system support',
     ],
   },
 ]
 
 export function SolutionsAdvanced() {
   return (
-    <section id="solutions" className="py-24 bg-white scroll-mt-20">
+    <section id="solutions" className="py-20 bg-[#F8FAFC] scroll-mt-[70px]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-          <div className="max-w-2xl">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Our Core Solutions</h2>
-            <p className="text-lg text-slate-600">
-              Industrial Utility, Cleaning, Hygiene &amp; Disinfection Chemical Solutions
-            </p>
-          </div>
-          <Link href="/solutions" className="flex items-center gap-2 font-bold text-primary group">
-            All Solutions <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </div>
 
-        {/* Responsive Grid: 3 cols desktop, 2 tablet, 1 mobile */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {solutions.map((sol, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-12"
+        >
+          <p className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#1e6aa7] mb-3">What We Offer</p>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0F2A44] max-w-md leading-tight">
+              Our Core Solutions
+            </h2>
+            <Link
+              href="/solutions"
+              className="flex items-center gap-2 text-[14px] font-semibold text-[#1e6aa7] hover:text-[#0F2A44] transition-colors group"
             >
-              <Link
-                href={sol.href}
-                className="group relative block aspect-[4/5] overflow-hidden rounded-2xl bg-slate-100 shadow-xl"
-              >
-                {/* Background Image */}
-                <Image
-                  src={sol.image}
-                  alt={sol.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent transition-colors duration-500 group-hover:from-black/80 group-hover:via-black/30" />
-                
-                {/* Content at bottom */}
-                <div className="absolute bottom-0 left-0 p-6 w-full flex flex-col justify-end">
-                  <h3 className="text-xl font-semibold text-white mb-3">{sol.title}</h3>
-                  
-                  {/* Bullet list */}
-                  <ul className="mb-6 space-y-2">
-                    {sol.items.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
-                        <span className="text-sm text-gray-200 leading-snug">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+              View All Solutions
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+          <div className="w-12 h-[3px] bg-[#0F2A44] rounded-full mt-4" />
+        </motion.div>
 
-                  {/* CTA */}
-                  <div className="flex items-center gap-2 text-xs uppercase tracking-wide text-white font-bold">
-                    <span>View Solutions</span>
-                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-2" />
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {solutions.map((sol, idx) => {
+            const Icon = sol.icon
+            return (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.08 }}
+                className="group"
+              >
+                <Link href={sol.href} className="flex flex-col h-full bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+                  {/* Image */}
+                  <div className="relative h-44 w-full overflow-hidden">
+                    <Image
+                      src={sol.image}
+                      alt={sol.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0F2A44]/50 to-transparent" />
+                    {/* Icon badge */}
+                    <div className="absolute top-3 left-3 w-9 h-9 bg-white/95 rounded-lg flex items-center justify-center shadow-sm">
+                      <Icon className="w-5 h-5 text-[#0F2A44]" />
+                    </div>
                   </div>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
+
+                  {/* Content */}
+                  <div className="p-5 flex flex-col flex-1">
+                    <h3 className="text-[15px] font-bold text-[#0F2A44] mb-2">{sol.title}</h3>
+                    <p className="text-[13px] text-slate-500 leading-relaxed mb-4 flex-1">{sol.description}</p>
+
+                    {/* Bullet items */}
+                    <ul className="space-y-1.5 mb-4">
+                      {sol.items.map((item, i) => (
+                        <li key={i} className="flex items-start gap-2 text-[12px] text-slate-600">
+                          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#1e6aa7] shrink-0" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="flex items-center gap-1 text-[12px] font-bold text-[#1e6aa7] group-hover:gap-2 transition-all">
+                      View Solutions <ArrowRight className="w-3.5 h-3.5" />
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
+            )
+          })}
         </div>
       </div>
     </section>

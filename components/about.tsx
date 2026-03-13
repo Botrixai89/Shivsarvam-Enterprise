@@ -1,131 +1,149 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Card } from '@/components/ui/card'
-import { CheckCircle, Target, Eye } from 'lucide-react'
+import { CheckCircle, Target, Users, Truck, Award, Headphones } from 'lucide-react'
+
+const WHY_US = [
+  {
+    icon: Award,
+    title: 'Authorized Distributor',
+    description: 'Official distributor for Chemtex & Indokem in Chhattisgarh — 100% authentic products.',
+  },
+  {
+    icon: Target,
+    title: 'Premium Quality',
+    description: 'Chemicals meeting international standards with full MSDS compliance.',
+  },
+  {
+    icon: Headphones,
+    title: 'Technical Support',
+    description: 'Expert guidance and on-site technical assistance for every application.',
+  },
+  {
+    icon: Truck,
+    title: 'Reliable Bulk Supply',
+    description: 'Dependable supply chain for large-scale industrial and commercial operations.',
+  },
+  {
+    icon: Users,
+    title: '500+ Satisfied Clients',
+    description: 'Trusted by hospitals, factories, hotels, and laundry businesses across the region.',
+  },
+  {
+    icon: CheckCircle,
+    title: '19+ Years Experience',
+    description: 'Decades of industry expertise ensuring the right chemical for every need.',
+  },
+]
+
+const CORE_SEGMENTS = [
+  'Industrial & Power Plants',
+  'Hospitality & Swimming Pools',
+  'Hospitals & Healthcare Sector',
+  'Commercial Laundry & Textile Care',
+]
 
 export function About() {
-  const whyChooseUs = [
-    {
-      icon: CheckCircle,
-      title: 'Authorized Distributor',
-      description: 'Official distributor for Chemtex & Indochem in Chhattisgarh region'
-    },
-    {
-      icon: Target,
-      title: 'High Quality Products',
-      description: 'Premium chemical solutions meeting international standards'
-    },
-    {
-      icon: CheckCircle,
-      title: 'Technical Support',
-      description: 'Expert guidance and technical support for all applications'
-    },
-    {
-      icon: CheckCircle,
-      title: 'Bulk Supply',
-      description: 'Reliable bulk supply capability for large-scale operations'
-    }
-  ]
-
   return (
-    <section id="about" className="py-24 bg-gradient-to-b from-background via-secondary/5 to-background overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">About Shivsarvam Enterprises</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto"></div>
-        </motion.div>
+    <>
+      {/* About Section */}
+      <section id="about" className="py-20 bg-[#F8FAFC] scroll-mt-[70px]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16 items-center">
-          {/* Content */}
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <h3 className="text-2xl font-bold text-primary mb-4 italic">“शिवसर्वम्-गुणवत्ता सर्वप्रथम “</h3>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              Shivsarvam Enterprises is a trusted supplier and distributor of high-quality industrial and specialty chemicals. With over 19 years of extensive experience in industrial chemical applications, we continuously work towards delivering reliable and effective chemical solutions across multiple sectors.
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              We are the authorized distributors of certified chemicals from <strong>Chemtex Specialty Private Limited</strong> and <strong>Indokem Limited</strong> in several regions of Chhattisgarh and Maharashtra. Our focus is not only on supplying premium products but also on ensuring their safe usage through training and technical support.
-            </p>
-          </motion.div>
+            {/* Left: Text */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <p className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#1e6aa7] mb-3">Who We Are</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#0F2A44] mb-5 leading-tight">
+                About Shivsarvam Enterprises
+              </h2>
+              <div className="w-12 h-[3px] bg-[#0F2A44] rounded-full mb-6" />
+              <p className="text-[15px] text-slate-600 leading-relaxed mb-4">
+                Shivsarvam Enterprises is a trusted supplier and distributor of high-quality industrial and specialty chemicals. With over <strong>19 years of experience</strong> in industrial chemical applications, we deliver reliable and effective chemical solutions across multiple sectors.
+              </p>
+              <p className="text-[15px] text-slate-600 leading-relaxed">
+                We are the authorized distributors of <strong>Chemtex Specialty Private Limited</strong> and <strong>Indokem Limited</strong> in Chhattisgarh. Our focus is on supplying premium products while ensuring safe usage through training and technical support.
+              </p>
+            </motion.div>
 
-          {/* Core Segments Summary */}
-          <motion.div 
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="space-y-6"
-          >
-            <Card className="p-6 border-l-4 border-l-primary bg-primary/5 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-              <h4 className="font-bold text-slate-900 mb-4">Core Business Segments</h4>
-              <ul className="space-y-4 text-sm text-slate-600">
-                {[
-                  'Industrial & Power Plants',
-                  'Hospitality & Swimming Pools',
-                  'Hospitals & Healthcare Sector',
-                  'Commercial Laundry & Textile care'
-                ].map((item, i) => (
-                  <motion.li 
+            {/* Right: Core segments card */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm"
+            >
+              <h4 className="text-[13px] font-bold uppercase tracking-widest text-slate-400 mb-6">Core Business Segments</h4>
+              <ul className="space-y-4">
+                {CORE_SEGMENTS.map((seg, i) => (
+                  <motion.li
                     key={i}
                     initial={{ opacity: 0, x: 10 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.5 + (i * 0.1) }}
+                    transition={{ delay: 0.2 + i * 0.1 }}
                     className="flex items-center gap-3"
                   >
-                    <CheckCircle className="w-5 h-5 text-primary" /> {item}
+                    <div className="w-8 h-8 rounded-lg bg-[#0F2A44]/8 flex items-center justify-center shrink-0">
+                      <CheckCircle className="w-4 h-4 text-[#0F2A44]" />
+                    </div>
+                    <span className="text-[15px] font-medium text-slate-700">{seg}</span>
                   </motion.li>
                 ))}
               </ul>
-            </Card>
-          </motion.div>
-        </div>
 
-        {/* Why Choose Us */}
-        <div className="mt-20">
-          <motion.h3 
+              {/* Tag */}
+              <div className="mt-8 pt-6 border-t border-slate-100">
+                <p className="text-[13px] text-slate-400 italic font-medium">"शिवसर्वम् — गुणवत्ता सर्वप्रथम"</p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl font-bold text-foreground mb-12 text-center"
+            className="mb-12"
           >
-            Why Choose Us
-          </motion.h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {whyChooseUs.map((item, index) => {
+            <p className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#1e6aa7] mb-3">Our Advantage</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0F2A44] mb-3">Why Choose Us?</h2>
+            <div className="w-12 h-[3px] bg-[#0F2A44] rounded-full" />
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {WHY_US.map((item, index) => {
               const Icon = item.icon
               return (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{ delay: index * 0.07 }}
+                  className="group bg-[#F8FAFC] border border-slate-200 rounded-xl p-6 hover:border-[#0F2A44]/30 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
                 >
-                  <Card className="p-6 h-full hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] hover:-translate-y-2 transition-all duration-500 group">
-                    <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 border border-primary/20 group-hover:bg-primary group-hover:rotate-[360deg] transition-all duration-700">
-                      <Icon className="w-7 h-7 text-primary group-hover:text-white transition-colors duration-700" />
-                    </div>
-                    <h4 className="font-bold text-foreground text-xl mb-3">{item.title}</h4>
-                    <p className="text-muted-foreground leading-relaxed">{item.description}</p>
-                  </Card>
+                  <div className="w-10 h-10 rounded-lg bg-[#0F2A44]/10 flex items-center justify-center mb-4 group-hover:bg-[#0F2A44] transition-colors duration-300">
+                    <Icon className="w-5 h-5 text-[#0F2A44] group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <h4 className="text-[15px] font-bold text-[#0F2A44] mb-2">{item.title}</h4>
+                  <p className="text-[13px] text-slate-500 leading-relaxed">{item.description}</p>
                 </motion.div>
               )
             })}
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   )
 }

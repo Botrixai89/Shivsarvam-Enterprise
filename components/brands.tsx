@@ -1,120 +1,100 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Card } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
 import Image from 'next/image'
+import { Badge } from '@/components/ui/badge'
+import { ShieldCheck } from 'lucide-react'
+
+const brands = [
+  {
+    logo: '/images/chemtex.png',
+    name: 'Chemtex Specialty',
+    tagline: 'Your global partner for every industrial chemical need.',
+    description: 'Authorized distributor of Chemtex\'s massive portfolio covering Thermal Power, Water Treatment, Food & Pharma, Hospitality, and more.',
+    badges: ['All Industry Solutions', 'ISO Certified', 'MSDS Compliance'],
+    accent: '#0F2A44',
+  },
+  {
+    logo: '/images/indokem.png',
+    name: 'Indokem Limited',
+    tagline: 'Specialized care for textiles and laundry.',
+    description: 'High-performance chemicals dedicated to professional clothing washing, commercial laundry machines, and textile care operations.',
+    badges: ['Laundry Specialist', 'Textile Care', 'Premium Washing'],
+    accent: '#1e6aa7',
+  },
+]
 
 export function Brands() {
   return (
-    <section id="brands" className="py-24 bg-gradient-to-b from-background via-secondary/5 to-background overflow-hidden font-display">
+    <section id="brands" className="py-20 bg-[#F8FAFC] scroll-mt-[70px]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
+
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="mb-12"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-6 italic">Our Partner Brands</h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-8 font-medium">
-            Authorized distributor of premium, trusted global leaders in industrial and clinical chemical solutions.
+          <p className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#1e6aa7] mb-3">Partners</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0F2A44] mb-3">Our Brand Partners</h2>
+          <p className="text-[15px] text-slate-500 max-w-lg">
+            Authorized distributor of globally trusted leaders in industrial and clinical chemical solutions.
           </p>
-          <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
+          <div className="w-12 h-[3px] bg-[#0F2A44] rounded-full mt-4" />
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          {/* Chemtex */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-          >
-            <Card className="p-10 text-center hover:shadow-2xl transition-all duration-500 border-t-8 border-t-primary bg-white/50 backdrop-blur-sm group hover:-translate-y-2 h-full">
-              <div className="mb-8">
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.4 }}
-                  className="w-48 h-20 relative mx-auto mb-6"
-                >
-                  <Image
-                    src="/images/chemtex.png"
-                    alt="Chemtex Specialty"
-                    fill
-                    className="object-contain"
-                  />
-                </motion.div>
-                <h3 className="text-3xl font-bold text-slate-900 group-hover:text-primary transition-colors duration-300">Chemtex Specialty</h3>
+        {/* Brand Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          {brands.map((brand, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+              className="bg-white border border-slate-200 rounded-2xl p-8 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+            >
+              {/* Logo */}
+              <div className="relative h-14 w-44 mb-6">
+                <Image src={brand.logo} alt={brand.name} fill className="object-contain object-left" />
               </div>
-              <p className="text-slate-600 text-lg mb-6 italic font-medium leading-relaxed">
-                "Your global partner for every industrial chemical need."
-              </p>
-              <p className="text-slate-500 mb-8 leading-relaxed">
-                Authorized distributor of Chemtex's massive portfolio covering Thermal Power, Water Treatment, Food & Pharma, Hospitality, and more.
-              </p>
-              <div className="flex flex-wrap gap-3 justify-center">
-                {['All Industry Solutions', 'ISO Certified', 'MSDS Compliance'].map((badge) => (
-                  <Badge key={badge} variant="secondary" className="bg-primary/5 text-primary border-primary/10 px-4 py-1 font-bold uppercase tracking-wider text-[10px]">
-                    {badge}
-                  </Badge>
-                ))}
-              </div>
-            </Card>
-          </motion.div>
 
-          {/* Indokem */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <Card className="p-10 text-center hover:shadow-2xl transition-all duration-500 border-t-8 border-t-accent bg-white/50 backdrop-blur-sm group hover:-translate-y-2 h-full">
-              <div className="mb-8">
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.4 }}
-                  className="w-48 h-20 relative mx-auto mb-6"
-                >
-                  <Image
-                    src="/images/indokem.png"
-                    alt="Indokem Limited"
-                    fill
-                    className="object-contain"
-                  />
-                </motion.div>
-                <h3 className="text-3xl font-bold text-slate-900 group-hover:text-accent transition-colors duration-300">Indokem Limited</h3>
-              </div>
-              <p className="text-slate-600 text-lg mb-6 italic font-medium leading-relaxed">
-                "Specialized care for textiles and laundry."
-              </p>
-              <p className="text-slate-500 mb-8 leading-relaxed">
-                Exclusive range of high-performance chemicals dedicated solely to professional clothing washing, laundry machines, and textile care.
-              </p>
-              <div className="flex flex-wrap gap-3 justify-center">
-                {['Laundry Specialist', 'Textile Care', 'Premium Washing'].map((badge) => (
-                  <Badge key={badge} variant="secondary" className="bg-accent/5 text-accent border-accent/10 px-4 py-1 font-bold uppercase tracking-wider text-[10px]">
+              <h3 className="text-xl font-bold text-[#0F2A44] mb-2">{brand.name}</h3>
+              <p className="text-[13px] text-[#1e6aa7] font-medium italic mb-3">{brand.tagline}</p>
+              <p className="text-[14px] text-slate-500 leading-relaxed mb-5">{brand.description}</p>
+
+              <div className="flex flex-wrap gap-2">
+                {brand.badges.map((badge) => (
+                  <Badge
+                    key={badge}
+                    variant="secondary"
+                    className="bg-[#0F2A44]/6 text-[#0F2A44] border-[#0F2A44]/15 text-[10px] font-bold uppercase tracking-wider px-3 py-1"
+                  >
                     {badge}
                   </Badge>
                 ))}
               </div>
-            </Card>
-          </motion.div>
+            </motion.div>
+          ))}
         </div>
 
-        {/* Brand Commitment */}
-        <motion.div 
-          initial={{ opacity: 0, y: 40 }}
+        {/* Partnership Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-20 bg-primary/5 border border-primary/20 rounded-3xl p-10 text-center shadow-xl shadow-primary/5"
+          className="flex items-start gap-4 bg-white border border-slate-200 rounded-2xl p-6"
         >
-          <h3 className="text-3xl font-bold text-primary mb-4 tracking-tight">Official Regional Partnership</h3>
-          <p className="text-slate-600 text-lg max-w-3xl mx-auto leading-relaxed font-medium">
-            As authorized distributor for Chhattisgarh region, we guarantee 100% authentic products, proper handling, technical support, and full warranty coverage on all items supplied through our company.
-          </p>
+          <div className="w-10 h-10 rounded-xl bg-[#0F2A44]/10 flex items-center justify-center shrink-0">
+            <ShieldCheck className="w-5 h-5 text-[#0F2A44]" />
+          </div>
+          <div>
+            <h4 className="text-[15px] font-bold text-[#0F2A44] mb-1">Official Regional Partnership — Chhattisgarh</h4>
+            <p className="text-[13px] text-slate-500 leading-relaxed">
+              As an authorized distributor, we guarantee 100% authentic products, proper handling, technical support, and full warranty coverage on all items supplied.
+            </p>
+          </div>
         </motion.div>
       </div>
     </section>
