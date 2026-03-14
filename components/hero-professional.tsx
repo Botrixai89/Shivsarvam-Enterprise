@@ -15,15 +15,20 @@ const TRUST_BADGES = [
 export function HeroProfessional() {
   return (
     <section
-      className="relative flex items-center overflow-hidden md:min-h-[640px]"
+      className="relative flex items-center overflow-hidden md:min-h-[640px] bg-cover bg-center pt-[80px]"
       style={{
-        paddingTop: '80px',
-        backgroundImage:
-          "linear-gradient(to right, rgba(255,255,255,0.88) 45%, rgba(255,255,255,0.25)), url('/images/new bacground image for header.png')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundImage: "url('/images/new bacground image for header.png')",
       }}
     >
+      {/* Responsive background overlays */}
+      <div className="absolute inset-0 bg-white/90 md:hidden" />
+      <div 
+        className="absolute inset-0 hidden md:block" 
+        style={{
+          backgroundImage: "linear-gradient(to right, rgba(255,255,255,0.88) 45%, rgba(255,255,255,0.25))"
+        }}
+      />
+
       <HeroCanvas />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -41,30 +46,33 @@ export function HeroProfessional() {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex flex-wrap items-center gap-2 md:gap-4 mb-6 self-start border border-[#0F2A44]/20 rounded-full px-3 py-1.5 md:px-5 md:py-2 bg-white/80 backdrop-blur-sm shadow-sm"
+              className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-6 self-start border border-[#0F2A44]/20 rounded-2xl sm:rounded-full px-4 py-3 sm:px-5 sm:py-2 bg-white/80 backdrop-blur-sm shadow-sm"
             >
-              <span className="w-2 h-2 rounded-full bg-[#2F6BFF]" />
-              <span className="text-[10px] md:text-[11px] font-semibold tracking-[0.2em] text-[#0F2A44]/60">
-                AUTHORIZED DISTRIBUTOR
-              </span>
-              <span className="w-px h-5 bg-[#0F2A44]/15" />
-              <span className="inline-flex items-center gap-3 md:gap-4">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#2F6BFF]" />
+                <span className="text-[11px] font-semibold tracking-[0.2em] text-[#0F2A44]/60">
+                  AUTHORIZED DISTRIBUTOR
+                </span>
+                <span className="hidden sm:block w-px h-5 bg-[#0F2A44]/15 ml-2" />
+              </div>
+              
+              <div className="flex items-center gap-4 pl-4 sm:pl-0">
                 <Image
                   src="/images/chemtex.png"
                   alt="Chemtex"
                   width={160}
                   height={44}
-                  className="h-16 md:h-20 w-auto object-contain"
+                  className="h-10 sm:h-14 md:h-20 w-auto object-contain"
                 />
-                <span className="w-px h-5 bg-[#0F2A44]/15" />
+                <span className="w-px h-6 bg-[#0F2A44]/15" />
                 <Image
                   src="/images/indokem.png"
                   alt="Indokem"
                   width={160}
                   height={44}
-                  className="h-10 md:h-12 w-auto object-contain"
+                  className="h-6 sm:h-8 md:h-12 w-auto object-contain"
                 />
-              </span>
+              </div>
             </motion.div>
 
             {/* Headline */}
@@ -72,7 +80,7 @@ export function HeroProfessional() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="font-extrabold text-[#0F2A44] leading-tight mb-5 text-4xl md:text-5xl lg:text-[54px]"
+              className="font-extrabold text-[#0F2A44] leading-tight mb-5 text-3xl sm:text-4xl md:text-5xl lg:text-[54px]"
             >
               One Trusted Source for Utility Chemicals, Healthcare Hygiene,{' '}
               <span className="text-[#2F6BFF]">Hospitality &amp; Laundry Solutions.</span>
