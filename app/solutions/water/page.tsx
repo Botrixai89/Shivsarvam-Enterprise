@@ -41,7 +41,7 @@ const products = [
     icon: Droplets,
     title: 'Water Park & Swimming Pool Cleaning Chemicals',
     description:
-      'Water park and swimming pool cleaning chemicals for sparkling clean, safe and well-maintained water facilities. Disinfection, pH correction and algae control.',
+      'Chemicals for water parks, kitchens, and hospitality ensuring hygiene, safety, sanitation, grease removal, balance optimal.',
     features: ['Pool disinfection', 'pH & water balance', 'Algae control', 'Water park maintenance'],
     downloadLinks: [
       { label: 'Download Brochure', href: '/pdfs/Swiming pool brochure_compressed.pdf' },
@@ -100,7 +100,7 @@ export default function WaterTreatment() {
           <div className="max-w-6xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Hotels &amp; Resorts Segment</h1>
             <p className="text-base md:text-lg text-slate-200 max-w-2xl leading-relaxed">
-              Water park and swimming pool cleaning chemicals for sparkling clean, safe and well-maintained water facilities.
+              Chemicals for water parks, kitchens, and hospitality ensuring hygiene, safety, sanitation, grease removal, balance optimal.
             </p>
           </div>
         </div>

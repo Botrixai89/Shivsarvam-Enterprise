@@ -70,14 +70,19 @@ export default function AboutPage() {
               <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 border-l-4 border-primary pl-4">Company Overview</h2>
               <div className="space-y-6 text-slate-600 text-base md:text-lg leading-relaxed">
                 <p>
-                  Shivsarvam Enterprises is a trusted supplier and distributor of high-quality industrial and specialty chemicals. With over <strong>19 years of experience</strong>, we deliver reliable chemical solutions across multiple sectors.
+                  Shivsarvam Enterprises is a trusted supplier and distributor of high-quality industrial and specialty chemicals. With over <strong>With over years of experience</strong>, we deliver reliable chemical solutions across multiple sectors.
                 </p>
                 <p>
                   We are the authorized distributors of certified chemicals from <strong>Chemtex Specialty Private Limited</strong> and <strong>Indokem Limited</strong> in Chhattisgarh and Maharashtra, with a focus on safe usage through training and technical support.
                 </p>
-                <div className="p-6 bg-white rounded-xl border border-slate-100 italic text-slate-700">
-                  &ldquo;शिवसर्वम्-गुणवत्ता सर्वप्रथम&rdquo;
-                </div>
+                <blockquote className="relative p-6 pl-8 bg-linear-to-r from-primary/5 to-transparent rounded-xl border-l-4 border-primary overflow-hidden">
+                  <span className="absolute top-2 left-3 text-6xl text-primary/20 font-serif leading-none select-none">&ldquo;</span>
+                  <p className="relative z-10 text-lg md:text-xl font-semibold italic text-slate-800 leading-relaxed">
+                    शिवसर्वम्-गुणवत्ता सर्वप्रथम
+                  </p>
+                  <span className="absolute bottom-1 right-4 text-6xl text-primary/20 font-serif leading-none select-none">&rdquo;</span>
+                  <footer className="mt-3 text-sm font-medium text-primary/80 not-italic tracking-wide">— Shivsarvam Enterprises</footer>
+                </blockquote>
               </div>
             </div>
 
@@ -91,7 +96,11 @@ export default function AboutPage() {
                   <h3 className="text-xl font-bold text-slate-900 mb-1">Founder</h3>
                   <p className="text-primary font-semibold mb-4">Shivsarvam Enterprises</p>
                   <p className="text-slate-600 text-sm leading-relaxed">
-                    Founded with a vision to bring certified, high-quality chemical solutions to industries and institutions across the region. Our mission is to combine product excellence with hands-on support—training, demos, and technical guidance—so every client can operate safely and efficiently.
+                    Laxmidatta Bajpayee, Founder of Shivsarvam Enterprises, brings over 18 years of extensive industrial experience, particularly in the Thermal Power, Cement, and Chemical industries. He holds a Master’s degree in Chemistry and an MBA in Operations Management from a renowned university, combining strong technical expertise with managerial insight.
+
+                    Leveraging his deep understanding of chemical composition and applied chemistry, he has introduced reliable chemical solutions for sectors such as Industrial Utilities, Hospitality, Healthcare, and Laundry services, ensuring the right chemical selection for the right application with optimal performance and safety.
+
+                    At Shivsarvam Enterprises, we are committed to delivering high-quality products, prompt service, and long-term customer satisfaction, while also upholding our responsibility towards human safety and environmental protection.
                   </p>
                 </div>
               </div>
