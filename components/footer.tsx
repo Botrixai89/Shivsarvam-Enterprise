@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Phone, Mail, MapPin } from 'lucide-react'
-import FooterCanvas from '@/components/FooterCanvas'
 
 const QUICK_LINKS = [
   { name: 'About', href: '/about' },
@@ -14,8 +13,8 @@ const QUICK_LINKS = [
 
 
 const CONTACT_INFO = [
-  { Icon: Phone, label: '+91-XXXXXXXXXX' },
-  { Icon: Mail, label: 'info@shivsarvam.com' },
+  { Icon: Phone, label: '+91 84129 09297' },
+  { Icon: Mail, label: 'info@shivsarvam.in' },
   { Icon: MapPin, label: 'Raipur, Chhattisgarh, India' },
 ]
 
@@ -25,21 +24,6 @@ export function Footer() {
       className="relative bg-white border-t border-slate-200 overflow-hidden"
       style={{ fontSize: '14px' }}
     >
-      <FooterCanvas />
-      {/* Footer particle field */}
-      <div className="footer-particles" aria-hidden="true">
-        {Array.from({ length: 20 }).map((_, index) => (
-          <span
-            key={index}
-            style={{
-              left: `${(index * 53) % 100}%`,
-              animationDelay: `${index * 1.1}s`,
-              animationDuration: `${20 + (index % 8)}s`,
-            }}
-          />
-        ))}
-      </div>
-
       <div
         className="relative z-10 max-w-7xl mx-auto"
         style={{ padding: '34px 32px 0 32px' }}

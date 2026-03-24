@@ -31,8 +31,8 @@ const WHY_US = [
   },
   {
     icon: CheckCircle,
-    title: '19+ Years Experience',
-    description: 'Decades of industry expertise ensuring the right chemical for every need.',
+    title: 'Years of Experience',
+    description: 'Industry expertise ensuring the right chemical for every need.',
   },
 ]
 
@@ -64,11 +64,25 @@ export function About() {
               </h2>
               <div className="w-12 h-[3px] bg-[#0F2A44] rounded-full mb-6" />
               <p className="text-[15px] text-slate-600 leading-relaxed mb-4">
-                Shivsarvam Enterprises is a trusted supplier and distributor of high-quality industrial and specialty chemicals. With over <strong>19 years of experience</strong> in industrial chemical applications, we deliver reliable and effective chemical solutions across multiple sectors.
+                Shivsarvam Enterprises is a trusted supplier and distributor of high-quality industrial and specialty chemicals. With over{' '}
+                <strong>years of experience</strong>, we deliver reliable chemical solutions across multiple sectors.
               </p>
-              <p className="text-[15px] text-slate-600 leading-relaxed">
-                We are the authorized distributors of <strong>Chemtex Specialty Private Limited</strong> and <strong>Indokem Limited</strong> in Chhattisgarh. Our focus is on supplying premium products while ensuring safe usage through training and technical support.
+              <p className="text-[15px] text-slate-600 leading-relaxed mb-6">
+                We are the authorized distributors of certified chemicals from <strong>Chemtex Specialty Private Limited</strong> and{' '}
+                <strong>Indokem Limited</strong> in Chhattisgarh and Maharashtra, with a focus on safe usage through training and technical support.
               </p>
+              <blockquote className="relative p-6 pl-8 bg-gradient-to-r from-primary/5 to-transparent rounded-xl border-l-4 border-primary overflow-hidden">
+                <span className="absolute top-2 left-3 text-6xl text-primary/20 font-serif leading-none select-none" aria-hidden>
+                  &ldquo;
+                </span>
+                <p className="relative z-10 text-base md:text-lg font-semibold italic text-[#0F2A44] leading-relaxed">
+                  शिवसर्वम्-गुणवत्ता सर्वप्रथम
+                </p>
+                <span className="absolute bottom-1 right-4 text-6xl text-primary/20 font-serif leading-none select-none" aria-hidden>
+                  &rdquo;
+                </span>
+                <footer className="mt-3 text-sm font-medium text-primary/80 not-italic tracking-wide">— Shivsarvam Enterprises</footer>
+              </blockquote>
             </motion.div>
 
             {/* Right: Core segments card */}
@@ -97,11 +111,6 @@ export function About() {
                   </motion.li>
                 ))}
               </ul>
-
-              {/* Tag */}
-              <div className="mt-8 pt-6 border-t border-slate-100">
-                <p className="text-[13px] text-slate-400 italic font-medium">"शिवसर्वम् — गुणवत्ता सर्वप्रथम"</p>
-              </div>
             </motion.div>
           </div>
         </div>

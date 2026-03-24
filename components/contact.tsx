@@ -9,6 +9,13 @@ import { Label } from '@/components/ui/label'
 import { Phone, Mail, MapPin, Send } from 'lucide-react'
 import { useState } from 'react'
 import { useToast } from '@/hooks/use-toast'
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter,
+} from '@/components/ui/dialog'
 
 type ContactProps = {
   showHeading?: boolean
@@ -19,6 +26,7 @@ type ContactProps = {
 export function Contact({ showHeading = true, variant = 'default' }: ContactProps) {
   const { toast } = useToast()
   const [loading, setLoading] = useState(false)
+  const [thankYouOpen, setThankYouOpen] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     company: '',
@@ -28,12 +36,17 @@ export function Contact({ showHeading = true, variant = 'default' }: ContactProp
     message: ''
   })
 
+  const APPS_SCRIPT_URL = process.env.NEXT_PUBLIC_GOOGLE_APPS_SCRIPT_URL || ''
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     })
   }
+
+  const isValidEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())
+  const normalizePhoneDigits = (value: string) => value.replace(/[^\d]/g, '')
 
   const interestOptions = [
     'Industrial Chemicals',
@@ -49,14 +62,60 @@ export function Contact({ showHeading = true, variant = 'default' }: ContactProp
     setLoading(true)
 
     try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 500))
-      
-      toast({
-        title: 'Message Sent Successfully!',
-        description: 'We will get back to you soon.',
+      if (!formData.name.trim()) {
+        toast({ title: 'Name is required', description: 'Please enter your name.', variant: 'destructive' })
+        return
+      }
+      if (!formData.company.trim()) {
+        toast({ title: 'Company is required', description: 'Please enter your company name.', variant: 'destructive' })
+        return
+      }
+      if (!formData.phone.trim() || normalizePhoneDigits(formData.phone).length < 10) {
+        toast({ title: 'Phone is required', description: 'Please enter a valid phone number.', variant: 'destructive' })
+        return
+      }
+      if (!formData.email.trim() || !isValidEmail(formData.email)) {
+        toast({ title: 'Email is required', description: 'Please enter a valid email address.', variant: 'destructive' })
+        return
+      }
+      if (!formData.interest.trim()) {
+        toast({ title: 'Interest is required', description: 'Please select what you are interested in.', variant: 'destructive' })
+        return
+      }
+      if (!formData.message.trim()) {
+        toast({ title: 'Message is required', description: 'Please enter your requirements.', variant: 'destructive' })
+        return
+      }
+
+      if (!APPS_SCRIPT_URL) {
+        toast({
+          title: 'Submission not configured',
+          description: 'Google Apps Script endpoint is missing. Set NEXT_PUBLIC_GOOGLE_APPS_SCRIPT_URL.',
+          variant: 'destructive',
+        })
+        return
+      }
+
+      const payloadTimestamp = new Date().toISOString()
+      const params = new URLSearchParams({
+        name: formData.name.trim(),
+        company: formData.company.trim(),
+        phone: formData.phone.trim(),
+        email: formData.email.trim(),
+        message: `Interest: ${formData.interest}\n\n${formData.message.trim()}`,
+        timestamp: payloadTimestamp,
       })
-      
+
+      const res = await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+        },
+        body: params.toString(),
+      })
+
+      if (!res.ok) throw new Error(`Request failed with status ${res.status}`)
+
       setFormData({
         name: '',
         company: '',
@@ -65,6 +124,7 @@ export function Contact({ showHeading = true, variant = 'default' }: ContactProp
         interest: '',
         message: ''
       })
+      setThankYouOpen(true)
     } catch (error) {
       toast({
         title: 'Error',
@@ -124,7 +184,7 @@ export function Contact({ showHeading = true, variant = 'default' }: ContactProp
               </div>
               <h3 className={`text-xl font-bold mb-3 ${isLight ? 'text-[#111827]' : 'text-white'}`}>Phone</h3>
               <p className={`text-lg font-medium mb-1 ${isLight ? 'text-[#111827]' : 'text-slate-200'}`}>
-                <a href="tel:+91XXXXXXXXXX" className={isLight ? 'hover:text-[#1a2744] transition' : 'hover:text-primary transition'}>+91-XXXXXXXXXX</a>
+                <a href="tel:+918412909297" className={isLight ? 'hover:text-[#1a2744] transition' : 'hover:text-primary transition'}>+91 84129 09297</a>
               </p>
               <p className={`text-sm font-semibold uppercase tracking-wider ${isLight ? 'text-[#6b7280]' : 'text-primary'}`}>Available 24/7</p>
             </Card>
@@ -137,7 +197,7 @@ export function Contact({ showHeading = true, variant = 'default' }: ContactProp
               </div>
               <h3 className={`text-xl font-bold mb-3 ${isLight ? 'text-[#111827]' : 'text-white'}`}>Email</h3>
               <p className={`text-lg font-medium mb-1 ${isLight ? 'text-[#111827]' : 'text-slate-200'}`}>
-                <a href="mailto:info@shivsarvam.com" className={isLight ? 'hover:text-[#1a2744] transition' : 'hover:text-accent transition'}>info@shivsarvam.com</a>
+                <a href="mailto:info@shivsarvam.in" className={isLight ? 'hover:text-[#1a2744] transition' : 'hover:text-accent transition'}>info@shivsarvam.in</a>
               </p>
               <p className={`text-sm font-semibold uppercase tracking-wider ${isLight ? 'text-[#6b7280]' : 'text-accent'}`}>Response within 24 hours</p>
             </Card>
@@ -181,7 +241,7 @@ export function Contact({ showHeading = true, variant = 'default' }: ContactProp
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 <div className="space-y-3">
                   <Label htmlFor="phone" className={`text-sm font-medium ${isLight ? 'text-[#374151]' : 'text-slate-100'}`}>Phone *</Label>
-                  <Input id="phone" name="phone" placeholder="+91-XXXXXXXXXX" value={formData.phone} onChange={handleChange} required className={isLight ? 'h-12 bg-white text-[#111827] placeholder:text-[#9ca3af] border-[#d1d5db] rounded-lg focus:ring-2 focus:ring-[#1a2744]/20 focus:border-[#1a2744]' : 'h-12 bg-white/80 text-slate-900 placeholder:text-slate-400 border-slate-200 focus:ring-4 focus:ring-primary/20 focus:border-primary rounded-xl'} />
+                  <Input id="phone" name="phone" placeholder="+91 84129 09297" value={formData.phone} onChange={handleChange} required className={isLight ? 'h-12 bg-white text-[#111827] placeholder:text-[#9ca3af] border-[#d1d5db] rounded-lg focus:ring-2 focus:ring-[#1a2744]/20 focus:border-[#1a2744]' : 'h-12 bg-white/80 text-slate-900 placeholder:text-slate-400 border-slate-200 focus:ring-4 focus:ring-primary/20 focus:border-primary rounded-xl'} />
                 </div>
                 <div className="space-y-3">
                   <Label htmlFor="email" className={`text-sm font-medium ${isLight ? 'text-[#374151]' : 'text-slate-100'}`}>Email *</Label>
@@ -208,6 +268,28 @@ export function Contact({ showHeading = true, variant = 'default' }: ContactProp
           </Card>
         </motion.div>
       </div>
+
+      <Dialog open={thankYouOpen} onOpenChange={setThankYouOpen}>
+        <DialogContent className="sm:max-w-md rounded-xl shadow-lg animate-fadeIn">
+          <DialogHeader>
+            <DialogTitle className="text-xl font-bold text-slate-900">Thank You!</DialogTitle>
+          </DialogHeader>
+
+          <div className="text-slate-600 text-base">
+            Your request has been submitted successfully. Our team will contact you shortly.
+          </div>
+
+          <DialogFooter className="gap-2 sm:gap-0 pt-2">
+            <Button
+              type="button"
+              onClick={() => setThankYouOpen(false)}
+              className="rounded-xl bg-[#1a2744] hover:bg-[#1a2744]/90 text-white w-full"
+            >
+              Close
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </section>
   )
 }

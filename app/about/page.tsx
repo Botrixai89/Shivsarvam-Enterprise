@@ -5,8 +5,8 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'About Us | Shivsarvam Enterprises',
-  description: '19+ years of trusted chemical distribution. Authorized distributor of Chemtex & Indokem serving Chhattisgarh and Maharashtra.',
-  openGraph: { title: 'About Us | Shivsarvam Enterprises', description: '19+ years of trusted chemical distribution. Authorized distributor of Chemtex & Indokem.' },
+  description: 'Trusted chemical distribution with years of experience. Authorized distributor of Chemtex & Indokem serving Chhattisgarh and Maharashtra.',
+  openGraph: { title: 'About Us | Shivsarvam Enterprises', description: 'Trusted chemical distribution with years of experience. Authorized distributor of Chemtex & Indokem.' },
 }
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -70,7 +70,8 @@ export default function AboutPage() {
               <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 border-l-4 border-primary pl-4">Company Overview</h2>
               <div className="space-y-6 text-slate-600 text-base md:text-lg leading-relaxed">
                 <p>
-                  Shivsarvam Enterprises is a trusted supplier and distributor of high-quality industrial and specialty chemicals. With over <strong>With over years of experience</strong>, we deliver reliable chemical solutions across multiple sectors.
+                  Shivsarvam Enterprises is a trusted supplier and distributor of high-quality industrial and specialty chemicals. With over{' '}
+                  <strong>years of experience</strong>, we deliver reliable chemical solutions across multiple sectors.
                 </p>
                 <p>
                   We are the authorized distributors of certified chemicals from <strong>Chemtex Specialty Private Limited</strong> and <strong>Indokem Limited</strong> in Chhattisgarh and Maharashtra, with a focus on safe usage through training and technical support.

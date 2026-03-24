@@ -10,8 +10,7 @@ export const metadata: Metadata = {
   openGraph: { title: 'Contact Us | Shivsarvam Enterprises', description: 'Get a quote or reach our team in Raipur, Chhattisgarh.' },
 }
 
-// TODO: Replace with real WhatsApp number (e.g. 917123456789)
-const WHATSAPP_NUMBER = '91XXXXXXXXXX'
+const WHATSAPP_NUMBER = '918412909297'
 const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=Hello%20Shivsarvam%20Enterprises`
 
 export default function ContactPage() {

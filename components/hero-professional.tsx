@@ -5,7 +5,6 @@ import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, CheckCircle, ShieldCheck, Award } from 'lucide-react'
-import { HeroCanvas } from './hero-canvas'
 
 const TRUST_BADGES = [
   { icon: ShieldCheck, text: 'Authorized Distributor' },
@@ -28,8 +27,6 @@ export function HeroProfessional() {
           backgroundImage: "linear-gradient(to right, rgba(255,255,255,0.88) 45%, rgba(255,255,255,0.25))"
         }}
       />
-
-      <HeroCanvas />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="relative flex flex-col lg:flex-row items-center md:min-h-[540px] pt-10 pb-8 md:py-16">
@@ -105,7 +102,7 @@ export function HeroProfessional() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-[#0F2A44] text-[#0F2A44] hover:border-[#0F2A44] hover:text-[#0F2A44] hover:bg-[#0F2A44]/5 rounded-lg px-5 py-3 text-[14px] font-semibold transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-xl"
+                className="bg-white text-[#0F2A44] border-[#0F2A44]/80 hover:bg-[#f3f7ff] hover:text-[#0F2A44] hover:border-[#0F2A44] dark:bg-white dark:text-[#0F2A44] dark:hover:bg-[#f3f7ff] rounded-lg px-5 py-3 text-[14px] font-semibold shadow-sm transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-xl"
                 asChild
               >
                 <Link href="/solutions">View Solutions</Link>

@@ -84,7 +84,7 @@ export default function SolutionsLanding() {
           </h1>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
             Comprehensive industrial, healthcare, and commercial chemical solutions tailored for
-            Chhattisgarh region — backed by 19+ years of expertise.
+            Chhattisgarh region — backed by years of expertise.
           </p>
         </div>
       </section>
