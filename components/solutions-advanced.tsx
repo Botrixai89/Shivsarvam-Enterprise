@@ -59,85 +59,117 @@ const solutions = [
 
 export function SolutionsAdvanced() {
   return (
-    <section id="solutions" className="py-20 bg-[#F8FAFC] scroll-mt-[70px]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="solutions"
+      className="relative py-24 bg-gradient-to-b from-background via-background to-muted/30 scroll-mt-[70px] overflow-hidden"
+    >
+      {/* Ambient orbs — echoes the hero */}
+      <div className="pointer-events-none absolute -top-24 right-0 w-[420px] h-[420px] bg-primary/5 rounded-full blur-3xl" />
+      <div className="pointer-events-none absolute bottom-0 left-0 w-[320px] h-[320px] bg-accent/5 rounded-full blur-3xl" />
 
-        {/* Section Header */}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-12"
+          className="mb-14"
         >
-          <p className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#1e6aa7] mb-3">What We Offer</p>
+          <div className="inline-flex items-center px-3 py-1 bg-primary/10 rounded-full border border-primary/20 mb-4">
+            <span className="text-primary font-semibold text-xs tracking-widest uppercase">What We Offer</span>
+          </div>
+
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0F2A44] max-w-md leading-tight">
-              Our Core Solutions
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground max-w-md leading-tight">
+              Our Core <span className="text-gradient">Solutions</span>
             </h2>
             <Link
               href="/solutions"
-              className="flex items-center gap-2 text-[14px] font-semibold text-[#1e6aa7] hover:text-[#0F2A44] transition-colors group"
+              className="group flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/70 transition-colors"
             >
               View All Solutions
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
-          <div className="w-12 h-[3px] bg-[#0F2A44] rounded-full mt-4" />
+
+          <div className="w-12 h-[3px] bg-gradient-to-r from-primary to-accent rounded-full mt-4" />
         </motion.div>
 
-        {/* Cards Grid */}
+        {/* Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {solutions.map((sol, idx) => {
             const Icon = sol.icon
             return (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.08 }}
+                transition={{ delay: idx * 0.1, duration: 0.45 }}
                 className="group"
               >
-                <Link href={sol.href} className="flex flex-col h-full bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 overflow-hidden">
-                  {/* Image */}
-                  <div className="relative h-44 w-full overflow-hidden">
-                    <Image
-                      src={sol.image}
-                      alt={sol.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0F2A44]/50 to-transparent" />
-                    {/* Icon badge */}
-                    <div className="absolute top-3 left-3 w-9 h-9 bg-white/95 rounded-lg flex items-center justify-center shadow-sm">
-                      <Icon className="w-5 h-5 text-[#0F2A44]" />
+                <Link
+                  href={sol.href}
+                  className="relative flex flex-col h-[400px] rounded-2xl overflow-hidden border border-border/40 shadow-lg hover:shadow-2xl hover:shadow-primary/15 hover:-translate-y-2 transition-all duration-400 block"
+                >
+                  {/* Full-bleed image */}
+                  <Image
+                    src={sol.image}
+                    alt={sol.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                  />
+
+                  {/* Base dark overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-black/10" />
+
+                  {/* Primary colour tint — fades in on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/75 via-primary/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                  {/* Top row: icon badge + ghost number */}
+                  <div className="absolute top-0 left-0 right-0 flex items-start justify-between p-4 z-10">
+                    <div className="w-10 h-10 rounded-xl bg-white/15 backdrop-blur-md border border-white/20 flex items-center justify-center">
+                      <Icon className="w-5 h-5 text-white" />
+                    </div>
+                    <span className="text-6xl font-black leading-none select-none text-white/10 group-hover:text-white/20 transition-colors duration-500">
+                      {String(idx + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+
+                  {/* Bottom content — anchored to bottom, grows upward */}
+                  <div className="absolute bottom-0 left-0 right-0 p-5 z-10">
+
+                    {/* Reveal block: hidden on desktop until hover; always visible on mobile */}
+                    <div className="mb-3 sm:translate-y-3 sm:opacity-0 sm:group-hover:translate-y-0 sm:group-hover:opacity-100 transition-all duration-300 ease-out">
+                      <p className="text-white/80 text-[13px] leading-relaxed mb-3 line-clamp-2">
+                        {sol.description}
+                      </p>
+                      <ul className="space-y-1.5">
+                        {sol.items.map((item, i) => (
+                          <li key={i} className="flex items-center gap-2 text-[11px] text-white/70">
+                            <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Always-visible title + CTA */}
+                    <h3 className="text-[16px] font-bold text-white mb-2 leading-snug">{sol.title}</h3>
+                    <div className="flex items-center gap-2 text-[12px] font-bold text-accent group-hover:gap-3 transition-all duration-200">
+                      Explore <ArrowRight className="w-3.5 h-3.5" />
                     </div>
                   </div>
 
-                  {/* Content */}
-                  <div className="p-5 flex flex-col flex-1">
-                    <h3 className="text-[15px] font-bold text-[#0F2A44] mb-2">{sol.title}</h3>
-                    <p className="text-[13px] text-slate-500 leading-relaxed mb-4 flex-1">{sol.description}</p>
-
-                    {/* Bullet items */}
-                    <ul className="space-y-1.5 mb-4">
-                      {sol.items.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2 text-[12px] text-slate-600">
-                          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#1e6aa7] shrink-0" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div className="flex items-center gap-1 text-[12px] font-bold text-[#1e6aa7] group-hover:gap-2 transition-all">
-                      View Solutions <ArrowRight className="w-3.5 h-3.5" />
-                    </div>
-                  </div>
+                  {/* Bottom sweep accent */}
+                  <span className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary to-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left z-20" />
                 </Link>
               </motion.div>
             )
           })}
         </div>
+
       </div>
     </section>
   )

@@ -2,179 +2,389 @@ import type { Metadata } from 'next'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import Link from 'next/link'
-
-export const metadata: Metadata = {
-  title: 'About Us | Shivsarvam Enterprises',
-  description: 'Trusted chemical distribution with years of experience. Authorized distributor of Chemtex & Indokem serving Chhattisgarh and Maharashtra.',
-  openGraph: { title: 'About Us | Shivsarvam Enterprises', description: 'Trusted chemical distribution with years of experience. Authorized distributor of Chemtex & Indokem.' },
-}
-import { Card } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
 import {
   Factory,
   Building2,
   HeartPulse,
   Shirt,
-  History,
-  Users,
-  Award,
-  Layers,
   Target,
   Eye,
-  ChevronRight,
+  Award,
+  Headphones,
+  Truck,
+  Users,
+  CheckCircle,
+  ArrowRight,
+  FlaskConical,
+  ShieldCheck,
+  Zap,
 } from 'lucide-react'
+
+export const metadata: Metadata = {
+  title: 'About Us | Shivsarvam Enterprises',
+  description: 'Trusted chemical distribution with years of experience. Authorized distributor of Chemtex & Indokem serving Chhattisgarh and Maharashtra.',
+  openGraph: {
+    title: 'About Us | Shivsarvam Enterprises',
+    description: 'Authorized distributor of Chemtex & Indokem. Trusted chemical solutions across Chhattisgarh.',
+  },
+}
+
+const stats = [
+  { value: '18+', label: 'Years Experience' },
+  { value: '500+', label: 'Satisfied Clients' },
+  { value: '2', label: 'Premium Brands' },
+  { value: '4', label: 'Industry Segments' },
+]
 
 const segments = [
   {
-    title: 'Industrial Segment',
     icon: Factory,
-    items: ['Thermal Power Plants', 'Cooling Tower & RO', 'DM/WTP/STP/ETP', 'Oil & Gas Process', 'Solar Panel Maintenance'],
+    number: '01',
+    title: 'Industrial Segment',
+    items: ['Thermal Power Plants', 'Cooling Tower & RO Systems', 'DM / WTP / STP / ETP', 'Oil & Gas Process', 'Solar Panel Maintenance'],
   },
   {
-    title: 'Hospitality & Commercial',
     icon: Building2,
-    items: ['Hotels & Resorts', 'Commercial Complexes', 'Kitchen Care', 'Swimming Pools & Water Parks'],
+    number: '02',
+    title: 'Hospitality & Commercial',
+    items: ['Hotels & Resorts', 'Commercial Complexes', 'Kitchen Care Solutions', 'Swimming Pools & Water Parks'],
   },
   {
-    title: 'Hospitals & Healthcare',
     icon: HeartPulse,
-    items: ['Certified Disinfection', 'Infection Control', 'MSDS Compliance', 'Healthcare Hygiene'],
+    number: '03',
+    title: 'Hospitals & Healthcare',
+    items: ['Certified Disinfection', 'Infection Control', 'MSDS Compliance', 'Healthcare Hygiene Protocols'],
   },
   {
-    title: 'Laundry Segment',
     icon: Shirt,
-    items: ['Commercial Laundries', 'Dry Cleaners', 'Laundry Machines', 'Technical Training & Support'],
+    number: '04',
+    title: 'Laundry Segment',
+    items: ['Commercial Laundries', 'Dry Cleaners', 'Laundry Machine Support', 'Technical Training'],
+  },
+]
+
+const advantages = [
+  {
+    icon: Award,
+    title: 'Authorized Distributor',
+    description: 'Official distributor for Chemtex & Indokem in Chhattisgarh — 100% authentic, certified products.',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Premium Quality',
+    description: 'Every chemical meets international standards with full MSDS compliance and safety documentation.',
+  },
+  {
+    icon: Headphones,
+    title: 'Technical Support',
+    description: 'Expert on-site guidance and technical assistance for every application and sector.',
+  },
+  {
+    icon: Truck,
+    title: 'Reliable Bulk Supply',
+    description: 'Dependable supply chain built for large-scale industrial and commercial operations.',
+  },
+  {
+    icon: Users,
+    title: '500+ Satisfied Clients',
+    description: 'Trusted by hospitals, factories, hotels, and laundry businesses across the region.',
+  },
+  {
+    icon: Zap,
+    title: 'Right Chemical, Right Use',
+    description: '18 years of expertise ensuring optimal chemical selection for maximum performance and safety.',
   },
 ]
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-background">
       <Navbar />
 
-      {/* Hero */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-slate-900 via-[#1a2744] to-slate-900 text-white px-4">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">About Us</h1>
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-            Authorized Distributor & Trusted Chemical Solutions Provider.
+      {/* ── Hero ── */}
+      <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-primary/5 via-background to-accent/5">
+        <div className="pointer-events-none absolute top-1/4 right-1/4 w-80 h-80 bg-accent/15 rounded-full blur-3xl animate-float" />
+        <div className="pointer-events-none absolute bottom-1/4 left-1/4 w-80 h-80 bg-primary/15 rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }} />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-flex items-center px-4 py-2 bg-accent/10 rounded-full border border-accent/20 mb-6 animate-slideDown">
+            <span className="text-accent font-medium text-sm">Authorized Distributor · Chhattisgarh & Maharashtra</span>
+          </div>
+
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-5 leading-tight animate-slideUp">
+            Trusted Chemical <span className="text-gradient block mt-1">Solutions Partner</span>
+          </h1>
+
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12 animate-slideUp" style={{ animationDelay: '0.15s' }}>
+            Shivsarvam Enterprises delivers certified industrial and specialty chemicals across four key sectors — backed by 18 years of expertise, technical support, and two premium brands.
           </p>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto animate-slideUp" style={{ animationDelay: '0.25s' }}>
+            {stats.map((s, i) => (
+              <div key={i} className="glass rounded-2xl px-5 py-4 border border-border/50">
+                <p className="text-2xl font-bold text-primary">{s.value}</p>
+                <p className="text-xs text-muted-foreground mt-0.5">{s.label}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Company Overview + Founder */}
-      <section className="py-16 md:py-20 px-4 bg-slate-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 border-l-4 border-primary pl-4">Company Overview</h2>
-              <div className="space-y-6 text-slate-600 text-base md:text-lg leading-relaxed">
-                <p>
-                  Shivsarvam Enterprises is a trusted supplier and distributor of high-quality industrial and specialty chemicals. With over{' '}
-                  <strong>years of experience</strong>, we deliver reliable chemical solutions across multiple sectors.
-                </p>
-                <p>
-                  We are the authorized distributors of certified chemicals from <strong>Chemtex Specialty Private Limited</strong> and <strong>Indokem Limited</strong> in Chhattisgarh and Maharashtra, with a focus on safe usage through training and technical support.
-                </p>
-                <blockquote className="relative p-6 pl-8 bg-linear-to-r from-primary/5 to-transparent rounded-xl border-l-4 border-primary overflow-hidden">
-                  <span className="absolute top-2 left-3 text-6xl text-primary/20 font-serif leading-none select-none">&ldquo;</span>
-                  <p className="relative z-10 text-lg md:text-xl font-semibold italic text-slate-800 leading-relaxed">
-                    शिवसर्वम्-गुणवत्ता सर्वप्रथम
+      {/* ── Company Overview + Founder ── */}
+      <section className="py-20 px-4">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
+
+          <div>
+            <div className="inline-flex items-center px-3 py-1 bg-primary/10 rounded-full border border-primary/20 mb-4">
+              <span className="text-primary font-semibold text-xs tracking-widest uppercase">Who We Are</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 leading-tight">
+              About <span className="text-gradient">Shivsarvam Enterprises</span>
+            </h2>
+            <div className="w-12 h-[3px] bg-gradient-to-r from-primary to-accent rounded-full mb-6" />
+
+            <div className="space-y-4 text-muted-foreground text-base leading-relaxed">
+              <p>
+                Shivsarvam Enterprises is a trusted supplier and distributor of high-quality industrial and specialty chemicals — delivering reliable solutions across industrial utilities, healthcare, hospitality, and laundry sectors.
+              </p>
+              <p>
+                We are the authorized distributors of <strong className="text-foreground">Chemtex Specialty Private Limited</strong> and{' '}
+                <strong className="text-foreground">Indokem Limited</strong> in Chhattisgarh and Maharashtra, with a firm focus on safe application through training and technical support.
+              </p>
+            </div>
+
+            <blockquote className="relative mt-8 p-6 pl-8 bg-gradient-to-r from-primary/8 to-transparent rounded-2xl border-l-4 border-primary overflow-hidden">
+              <span className="absolute top-1 left-3 text-6xl text-primary/15 font-serif leading-none select-none" aria-hidden>&ldquo;</span>
+              <p className="relative z-10 text-lg font-semibold italic text-foreground leading-relaxed">
+                शिवसर्वम् — गुणवत्ता सर्वप्रथम
+              </p>
+              <span className="absolute bottom-0 right-4 text-6xl text-primary/15 font-serif leading-none select-none" aria-hidden>&rdquo;</span>
+              <footer className="mt-2 text-sm font-medium text-primary/80 not-italic tracking-wide">— Shivsarvam Enterprises</footer>
+            </blockquote>
+          </div>
+
+          <div className="relative rounded-2xl border border-border bg-card shadow-sm overflow-hidden">
+            <div className="h-[3px] bg-gradient-to-r from-primary to-accent" />
+            <div className="p-8">
+              <div className="flex flex-col sm:flex-row gap-6 items-start">
+                <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/20 shrink-0 flex items-center justify-center">
+                  <span className="text-3xl font-black text-primary select-none">LB</span>
+                </div>
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-1">Founder & Director</p>
+                  <h3 className="text-xl font-bold text-foreground mb-0.5">Laxmidatta Bajpayee</h3>
+                  <span className="inline-flex items-center px-2.5 py-0.5 bg-accent/10 rounded-full border border-accent/20 text-accent text-xs font-semibold mb-4">
+                    18+ Years Industry Experience
+                  </span>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Holds a Master's degree in Chemistry and an MBA in Operations Management. His expertise spans Thermal Power, Cement, and Chemical industries — combining deep chemical knowledge with strategic business insight to deliver optimal, safe chemical solutions across every sector Shivsarvam serves.
                   </p>
-                  <span className="absolute bottom-1 right-4 text-6xl text-primary/20 font-serif leading-none select-none">&rdquo;</span>
-                  <footer className="mt-3 text-sm font-medium text-primary/80 not-italic tracking-wide">— Shivsarvam Enterprises</footer>
-                </blockquote>
+                </div>
+              </div>
+
+              <div className="mt-6 pt-6 border-t border-border grid grid-cols-3 gap-4 text-center">
+                <div>
+                  <p className="text-lg font-bold text-primary">M.Sc</p>
+                  <p className="text-[11px] text-muted-foreground">Chemistry</p>
+                </div>
+                <div>
+                  <p className="text-lg font-bold text-primary">MBA</p>
+                  <p className="text-[11px] text-muted-foreground">Operations Mgmt</p>
+                </div>
+                <div>
+                  <p className="text-lg font-bold text-primary">18+</p>
+                  <p className="text-[11px] text-muted-foreground">Years Exp.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Mission & Vision ── */}
+      <section className="py-20 px-4 bg-gradient-to-b from-muted/20 to-background">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center px-3 py-1 bg-primary/10 rounded-full border border-primary/20 mb-4">
+              <span className="text-primary font-semibold text-xs tracking-widest uppercase">Our Direction</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+              Mission &amp; <span className="text-gradient">Vision</span>
+            </h2>
+            <div className="w-12 h-[3px] bg-gradient-to-r from-primary to-accent rounded-full mx-auto mt-4" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="group relative rounded-2xl border border-border bg-card overflow-hidden shadow-sm hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1 transition-all duration-300">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <span className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary to-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+              <div className="relative p-8">
+                <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-300">
+                  <Target className="w-7 h-7 text-primary group-hover:text-white transition-colors duration-300" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-3">Our Mission</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  To be the most trusted regional partner for industrial and specialty chemicals — supplying only certified products from leading brands, backed by technical support and training that ensure safe, effective use across every sector we serve.
+                </p>
               </div>
             </div>
 
-            {/* Founder */}
-            <Card className="p-8 rounded-xl shadow-sm border-slate-100 overflow-hidden">
-              <div className="flex flex-col sm:flex-row gap-6 items-center sm:items-start">
-                <div className="w-28 h-28 rounded-xl bg-primary/10 shrink-0 flex items-center justify-center border-2 border-primary/20">
-                  <span className="text-4xl font-bold text-primary" aria-hidden>SE</span>
+            <div className="group relative rounded-2xl border border-border bg-card overflow-hidden shadow-sm hover:shadow-xl hover:shadow-accent/10 hover:-translate-y-1 transition-all duration-300">
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <span className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-accent to-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+              <div className="relative p-8">
+                <div className="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-accent transition-colors duration-300">
+                  <Eye className="w-7 h-7 text-accent group-hover:text-white transition-colors duration-300" />
                 </div>
-                <div className="text-center sm:text-left">
-                  <h3 className="text-xl font-bold text-slate-900 mb-1">Founder</h3>
-                  <p className="text-primary font-semibold mb-4">Shivsarvam Enterprises</p>
-                  <p className="text-slate-600 text-sm leading-relaxed">
-                    Laxmidatta Bajpayee, Founder of Shivsarvam Enterprises, brings over 18 years of extensive industrial experience, particularly in the Thermal Power, Cement, and Chemical industries. He holds a Master’s degree in Chemistry and an MBA in Operations Management from a renowned university, combining strong technical expertise with managerial insight.
-
-                    Leveraging his deep understanding of chemical composition and applied chemistry, he has introduced reliable chemical solutions for sectors such as Industrial Utilities, Hospitality, Healthcare, and Laundry services, ensuring the right chemical selection for the right application with optimal performance and safety.
-
-                    At Shivsarvam Enterprises, we are committed to delivering high-quality products, prompt service, and long-term customer satisfaction, while also upholding our responsibility towards human safety and environmental protection.
-                  </p>
-                </div>
+                <h3 className="text-xl font-bold text-foreground mb-3">Our Vision</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  To set the standard for chemical distribution in Chhattisgarh and beyond — where quality, safety, and customer success come first, and every industry has access to the right solutions and expertise.
+                </p>
               </div>
-            </Card>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Mission & Vision */}
-      <section className="py-16 md:py-20 px-4">
+      {/* ── Core Business Segments ── */}
+      <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-12 text-center">Mission & Vision</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card className="p-8 rounded-xl border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-6">
-                <Target className="w-7 h-7 text-accent" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Mission</h3>
-              <p className="text-slate-600 leading-relaxed">
-                To be the most trusted regional partner for industrial and specialty chemicals by supplying only certified products from leading brands, backed by technical support and training that ensure safe, effective use across every sector we serve.
-              </p>
-            </Card>
-            <Card className="p-8 rounded-xl border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
-                <Eye className="w-7 h-7 text-primary" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Vision</h3>
-              <p className="text-slate-600 leading-relaxed">
-                To set the standard for chemical distribution in Chhattisgarh and beyond—where quality, safety, and customer success come first, and every industry has access to the right solutions and expertise.
-              </p>
-            </Card>
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center px-3 py-1 bg-primary/10 rounded-full border border-primary/20 mb-4">
+              <span className="text-primary font-semibold text-xs tracking-widest uppercase">What We Serve</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+              Core Business <span className="text-gradient">Segments</span>
+            </h2>
+            <div className="w-12 h-[3px] bg-gradient-to-r from-primary to-accent rounded-full mx-auto mt-4" />
           </div>
-        </div>
-      </section>
 
-      {/* Core segments as icon cards */}
-      <section className="py-16 md:py-20 px-4 bg-slate-50">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-12 text-center">Our Core Business Segments</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {segments.map((seg, i) => {
               const Icon = seg.icon
               return (
-                <Card key={i} className="p-8 rounded-xl border-slate-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
-                  <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-300">
-                    <Icon className="w-8 h-8 text-primary group-hover:text-white transition-colors duration-300" />
+                <div
+                  key={i}
+                  className="group relative rounded-2xl border border-border bg-card overflow-hidden shadow-sm hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 transition-all duration-300"
+                >
+                  <span className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary to-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-left" />
+
+                  <div className="p-6">
+                    <div className="flex items-start justify-between mb-5">
+                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
+                        <Icon className="w-6 h-6 text-primary group-hover:text-white transition-colors duration-300" />
+                      </div>
+                      <span className="text-4xl font-black text-muted/60 leading-none select-none group-hover:text-primary/20 transition-colors duration-300">
+                        {seg.number}
+                      </span>
+                    </div>
+
+                    <h3 className="text-[15px] font-bold text-foreground mb-4">{seg.title}</h3>
+
+                    <ul className="space-y-2">
+                      {seg.items.map((item, j) => (
+                        <li key={j} className="flex items-center gap-2 text-[12px] text-muted-foreground">
+                          <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-4">{seg.title}</h3>
-                  <ul className="space-y-2">
-                    {seg.items.map((item, j) => (
-                      <li key={j} className="flex items-center gap-2 text-slate-600 text-sm">
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </Card>
+                </div>
               )
             })}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 md:py-24 px-4">
+      {/* ── Why Choose Us ── */}
+      <section className="py-20 px-4 bg-gradient-to-b from-muted/20 to-background">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center px-3 py-1 bg-primary/10 rounded-full border border-primary/20 mb-4">
+              <span className="text-primary font-semibold text-xs tracking-widest uppercase">Our Advantage</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+              Why Choose <span className="text-gradient">Us?</span>
+            </h2>
+            <div className="w-12 h-[3px] bg-gradient-to-r from-primary to-accent rounded-full mx-auto mt-4" />
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {advantages.map((item, i) => {
+              const Icon = item.icon
+              return (
+                <div
+                  key={i}
+                  className="group relative rounded-2xl border border-border bg-card p-6 hover:shadow-lg hover:shadow-primary/8 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/4 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <span className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary to-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+
+                  <div className="relative">
+                    <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary transition-colors duration-300">
+                      <Icon className="w-5 h-5 text-primary group-hover:text-white transition-colors duration-300" />
+                    </div>
+                    <h4 className="text-[15px] font-bold text-foreground mb-2">{item.title}</h4>
+                    <p className="text-[13px] text-muted-foreground leading-relaxed">{item.description}</p>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Authorized Brands Strip ── */}
+      <section className="py-16 px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="relative rounded-2xl overflow-hidden border border-border bg-gradient-to-r from-primary/8 via-card to-accent/8 p-8 text-center">
+            <div className="pointer-events-none absolute top-0 left-0 w-48 h-48 bg-primary/10 rounded-full blur-2xl -translate-x-1/2 -translate-y-1/2" />
+            <div className="pointer-events-none absolute bottom-0 right-0 w-48 h-48 bg-accent/10 rounded-full blur-2xl translate-x-1/2 translate-y-1/2" />
+
+            <div className="relative">
+              <div className="inline-flex items-center gap-2 mb-4">
+                <FlaskConical className="w-5 h-5 text-primary" />
+                <span className="text-xs font-bold uppercase tracking-widest text-primary">Authorized Brands</span>
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
+                Official Distributor of <span className="text-gradient">Premium Brands</span>
+              </h3>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <div className="flex items-center gap-3 px-6 py-3 bg-card rounded-xl border border-border shadow-sm">
+                  <CheckCircle className="w-4 h-4 text-accent shrink-0" />
+                  <span className="font-bold text-foreground text-sm">Chemtex Specialty Pvt. Ltd.</span>
+                </div>
+                <div className="flex items-center gap-3 px-6 py-3 bg-card rounded-xl border border-border shadow-sm">
+                  <CheckCircle className="w-4 h-4 text-accent shrink-0" />
+                  <span className="font-bold text-foreground text-sm">Indokem Limited</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section className="py-20 px-4 bg-gradient-to-br from-primary/8 via-background to-accent/8">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">Ready to work with us?</h2>
-          <p className="text-slate-600 mb-8">Get a tailored quote or speak to our team for your chemical and hygiene needs.</p>
-          <Button size="lg" className="rounded-xl bg-[#1a2744] hover:bg-[#1a2744]/90 text-white px-8 py-6 text-lg font-bold shadow-lg" asChild>
-            <Link href="/contact">
-              Get a Quote <ChevronRight className="w-5 h-5 ml-2 inline" />
+          <div className="inline-flex items-center px-3 py-1 bg-accent/10 rounded-full border border-accent/20 mb-5">
+            <span className="text-accent font-semibold text-xs tracking-widest uppercase">Let's Work Together</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Ready to Partner <span className="text-gradient">With Us?</span>
+          </h2>
+          <p className="text-muted-foreground mb-8 text-base max-w-xl mx-auto">
+            Get a tailored quote or speak with our team about your industrial, hygiene, or specialty chemical requirements.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/contact" className="btn-primary inline-flex items-center justify-center gap-2 px-8 py-3 rounded-xl text-sm font-bold shadow-lg shadow-primary/25 hover-lift">
+              Get a Quote <ArrowRight className="w-4 h-4" />
             </Link>
-          </Button>
+            <Link href="/solutions" className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-xl text-sm font-semibold border border-border bg-card text-foreground hover:bg-muted transition-colors">
+              View Solutions <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
