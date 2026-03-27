@@ -71,7 +71,7 @@ export function Footer() {
                 alt="Shivsarvam Enterprises"
                 width={180}
                 height={60}
-                className="h-28 w-auto object-contain transition-transform group-hover:scale-105 duration-300"
+                className="h-34 sm:h-42 w-auto object-contain transition-transform group-hover:scale-105 duration-300"
               />
             </Link>
             

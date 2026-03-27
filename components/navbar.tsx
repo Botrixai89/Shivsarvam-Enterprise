@@ -118,7 +118,7 @@ export function Navbar() {
               alt="Shivsarvam Enterprises"
               width={140}
               height={60}
-              className="h-28 sm:h-32 w-auto object-contain relative z-10"
+              className="h-34 sm:h-42 w-auto object-contain relative z-10"
               priority
             />
             <motion.div
