@@ -1,6 +1,7 @@
+// components/quote-modal.tsx
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {
   Dialog,
   DialogContent,
@@ -14,14 +15,15 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { useToast } from '@/hooks/use-toast'
-import { Send } from 'lucide-react'
+import { Send, Sparkles, CheckCircle, X } from 'lucide-react'
 
 type QuoteModalProps = {
   open: boolean
   onOpenChange: (open: boolean) => void
+  productName?: string
 }
 
-export function QuoteModal({ open, onOpenChange }: QuoteModalProps) {
+export function QuoteModal({ open, onOpenChange, productName }: QuoteModalProps) {
   const { toast } = useToast()
   const [loading, setLoading] = useState(false)
   const [thankYouOpen, setThankYouOpen] = useState(false)
@@ -30,8 +32,15 @@ export function QuoteModal({ open, onOpenChange }: QuoteModalProps) {
     company: '',
     phone: '',
     email: '',
+    product: productName || '',
     message: '',
   })
+
+  useEffect(() => {
+    if (productName) {
+      setFormData(prev => ({ ...prev, product: productName }))
+    }
+  }, [productName])
 
   const APPS_SCRIPT_URL = process.env.NEXT_PUBLIC_GOOGLE_APPS_SCRIPT_URL || ''
 
@@ -88,6 +97,7 @@ export function QuoteModal({ open, onOpenChange }: QuoteModalProps) {
         company: formData.company.trim(),
         phone: formData.phone.trim(),
         email: formData.email.trim(),
+        product: formData.product.trim(),
         message: formData.message.trim(),
         timestamp: payloadTimestamp,
       })
@@ -102,8 +112,7 @@ export function QuoteModal({ open, onOpenChange }: QuoteModalProps) {
 
       if (!res.ok) throw new Error(`Request failed with status ${res.status}`)
 
-      // Close current form modal and show the thank you popup.
-      setFormData({ name: '', company: '', phone: '', email: '', message: '' })
+      setFormData({ name: '', company: '', phone: '', email: '', product: '', message: '' })
       onOpenChange(false)
       setThankYouOpen(true)
     } catch {
@@ -120,126 +129,189 @@ export function QuoteModal({ open, onOpenChange }: QuoteModalProps) {
   return (
     <>
       <Dialog open={open} onOpenChange={handleQuoteOpenChange}>
-      <DialogContent className="sm:max-w-2xl rounded-3xl gap-6 border border-slate-700/80 bg-slate-950/95 text-slate-100 p-8 shadow-2xl">
-        <DialogHeader>
-          <DialogTitle className="text-3xl font-semibold tracking-tight text-slate-100">Get a Quote</DialogTitle>
-          <DialogDescription className="text-lg text-slate-300">
-            Share your details and we&apos;ll get back with a tailored quote.
-          </DialogDescription>
-        </DialogHeader>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label htmlFor="quote-name" className="text-base text-slate-100">Name *</Label>
-              <Input
-                id="quote-name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Your name"
-                required
-                className="h-12 rounded-2xl border-slate-700 bg-slate-900/70 text-slate-100 placeholder:text-slate-400 focus-visible:border-sky-500 focus-visible:ring-sky-500/30"
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="quote-company" className="text-base text-slate-100">Company *</Label>
-              <Input
-                id="quote-company"
-                name="company"
-                value={formData.company}
-                onChange={handleChange}
-                placeholder="Company name"
-                required
-                className="h-12 rounded-2xl border-slate-700 bg-slate-900/70 text-slate-100 placeholder:text-slate-400 focus-visible:border-sky-500 focus-visible:ring-sky-500/30"
-              />
-            </div>
+        <DialogContent className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] max-w-[95vw] sm:max-w-lg md:max-w-2xl rounded-2xl border-border bg-background p-0 shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
+          {/* Header with gradient - fixed */}
+          <div className="sticky top-0 bg-gradient-to-r from-primary/5 to-secondary/5 px-4 sm:px-6 py-4 sm:py-5 border-b border-border z-10">
+            <DialogHeader>
+              <div className="flex items-start justify-between">
+                <div className="flex-1 pr-4">
+                  <div className="flex items-center gap-2 mb-1 sm:mb-2">
+                    <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                    <DialogTitle className="text-lg sm:text-2xl font-bold text-foreground">
+                      Request a Quote
+                    </DialogTitle>
+                  </div>
+                  {productName && (
+                    <p className="text-xs sm:text-sm text-primary font-medium mt-1 break-words">
+                      For: {productName}
+                    </p>
+                  )}
+                  <DialogDescription className="text-xs sm:text-sm text-muted-foreground mt-1 sm:mt-2">
+                    Fill in your details and our team will get back to you with a tailored quote.
+                  </DialogDescription>
+                </div>
+                <button
+                  onClick={() => handleQuoteOpenChange(false)}
+                  className="p-1.5 sm:p-2 rounded-lg hover:bg-muted transition-colors shrink-0"
+                  aria-label="Close"
+                >
+                  <X className="w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground" />
+                </button>
+              </div>
+            </DialogHeader>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label htmlFor="quote-phone" className="text-base text-slate-100">Phone *</Label>
-              <Input
-                id="quote-phone"
-                name="phone"
-                type="tel"
-                value={formData.phone}
-                onChange={handleChange}
-                placeholder="+91 84129 09297"
-                required
-                className="h-12 rounded-2xl border-slate-700 bg-slate-900/70 text-slate-100 placeholder:text-slate-400 focus-visible:border-sky-500 focus-visible:ring-sky-500/30"
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="quote-email" className="text-base text-slate-100">Email *</Label>
-              <Input
-                id="quote-email"
-                name="email"
-                type="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="you@example.com"
-                required
-                className="h-12 rounded-2xl border-slate-700 bg-slate-900/70 text-slate-100 placeholder:text-slate-400 focus-visible:border-sky-500 focus-visible:ring-sky-500/30"
-              />
-            </div>
+
+          {/* Scrollable Form Area */}
+          <div className="overflow-y-auto flex-1 px-4 sm:px-6 py-4 sm:py-6">
+            <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                <div className="space-y-1.5 sm:space-y-2">
+                  <Label htmlFor="quote-name" className="text-xs sm:text-sm font-semibold text-foreground">
+                    Full Name <span className="text-primary">*</span>
+                  </Label>
+                  <Input
+                    id="quote-name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="John Doe"
+                    required
+                    className="h-9 sm:h-11 text-sm rounded-xl border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary/30"
+                  />
+                </div>
+                <div className="space-y-1.5 sm:space-y-2">
+                  <Label htmlFor="quote-company" className="text-xs sm:text-sm font-semibold text-foreground">
+                    Company Name <span className="text-primary">*</span>
+                  </Label>
+                  <Input
+                    id="quote-company"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleChange}
+                    placeholder="Your Company"
+                    required
+                    className="h-9 sm:h-11 text-sm rounded-xl border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary/30"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                <div className="space-y-1.5 sm:space-y-2">
+                  <Label htmlFor="quote-phone" className="text-xs sm:text-sm font-semibold text-foreground">
+                    Phone Number <span className="text-primary">*</span>
+                  </Label>
+                  <Input
+                    id="quote-phone"
+                    name="phone"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="+91 84129 09297"
+                    required
+                    className="h-9 sm:h-11 text-sm rounded-xl border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary/30"
+                  />
+                </div>
+                <div className="space-y-1.5 sm:space-y-2">
+                  <Label htmlFor="quote-email" className="text-xs sm:text-sm font-semibold text-foreground">
+                    Email Address <span className="text-primary">*</span>
+                  </Label>
+                  <Input
+                    id="quote-email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="you@company.com"
+                    required
+                    className="h-9 sm:h-11 text-sm rounded-xl border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary/30"
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-1.5 sm:space-y-2">
+                <Label htmlFor="quote-product" className="text-xs sm:text-sm font-semibold text-foreground">
+                  Product / Solution
+                </Label>
+                <Input
+                  id="quote-product"
+                  name="product"
+                  value={formData.product}
+                  onChange={handleChange}
+                  placeholder="Specific product or solution you're interested in"
+                  className="h-9 sm:h-11 text-sm rounded-xl border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary/30"
+                />
+              </div>
+
+              <div className="space-y-1.5 sm:space-y-2">
+                <Label htmlFor="quote-message" className="text-xs sm:text-sm font-semibold text-foreground">
+                  Requirements / Message <span className="text-primary">*</span>
+                </Label>
+                <Textarea
+                  id="quote-message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Please describe your requirements, quantity, or any specific details..."
+                  rows={3}
+                  required
+                  className="text-sm rounded-xl resize-none border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary/30 min-h-[80px] sm:min-h-[100px]"
+                />
+              </div>
+            </form>
           </div>
-          <div className="space-y-2">
-            <Label htmlFor="quote-message" className="text-base text-slate-100">Message *</Label>
-            <Textarea
-              id="quote-message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              placeholder="Tell us about your requirements..."
-              rows={3}
-              required
-              className="rounded-2xl resize-none border-slate-700 bg-slate-900/70 text-slate-100 placeholder:text-slate-400 focus-visible:border-sky-500 focus-visible:ring-sky-500/30"
-            />
+
+          {/* Footer - fixed at bottom */}
+          <div className="sticky bottom-0 bg-background border-t border-border px-4 sm:px-6 py-3 sm:py-4">
+            <DialogFooter className="gap-2 sm:gap-3">
+              <Button
+                type="button"
+                variant="outline"
+                onClick={() => handleQuoteOpenChange(false)}
+                className="rounded-xl border-border bg-background text-foreground hover:bg-muted hover:text-foreground text-sm px-4 py-2 h-9 sm:h-10"
+              >
+                Cancel
+              </Button>
+              <Button
+                type="submit"
+                disabled={loading}
+                onClick={handleSubmit}
+                className="rounded-xl bg-primary px-4 sm:px-6 text-primary-foreground font-semibold hover:bg-primary/90 transition-all hover:-translate-y-0.5 shadow-lg shadow-primary/25 disabled:opacity-50 disabled:cursor-not-allowed text-sm py-2 h-9 sm:h-10"
+              >
+                {loading ? (
+                  'Sending...'
+                ) : (
+                  <>
+                    <Send className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
+                    Request Quote
+                  </>
+                )}
+              </Button>
+            </DialogFooter>
           </div>
-          <DialogFooter className="gap-3 sm:gap-3 pt-2">
-            <Button
-              type="button"
-              variant="outline"
-              onClick={() => handleQuoteOpenChange(false)}
-              className="rounded-2xl border-slate-600 bg-transparent text-slate-100 hover:bg-slate-800 hover:text-white"
-            >
-              Cancel
-            </Button>
-            <Button
-              type="submit"
-              disabled={loading}
-              className="rounded-2xl bg-sky-500 px-6 text-slate-950 font-semibold hover:bg-sky-400 disabled:bg-sky-500/60"
-            >
-              {loading ? 'Sending...' : (
-                <>
-                  <Send className="w-4 h-4 mr-2" />
-              Request Quote
-                </>
-              )}
-            </Button>
-          </DialogFooter>
-        </form>
-      </DialogContent>
+        </DialogContent>
       </Dialog>
 
+      {/* Thank You Modal - Mobile Responsive */}
       <Dialog open={thankYouOpen} onOpenChange={setThankYouOpen}>
-        <DialogContent className="sm:max-w-md rounded-2xl border border-slate-700/80 bg-slate-950/95 text-slate-100 shadow-xl animate-fadeIn">
-          <DialogHeader>
-            <DialogTitle className="text-xl font-semibold text-slate-100">Thank You!</DialogTitle>
-          </DialogHeader>
-
-          <div className="text-slate-300 text-base">
-            Your request has been submitted successfully. Our team will contact you shortly.
+        <DialogContent className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] max-w-[90vw] sm:max-w-md rounded-2xl border-border bg-background p-0 shadow-2xl overflow-hidden">
+          <div className="bg-gradient-to-r from-primary/5 to-secondary/5 px-4 sm:px-6 py-6 sm:py-8 text-center">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-3 sm:mb-4">
+              <CheckCircle className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
+            </div>
+            <DialogTitle className="text-xl sm:text-2xl font-bold text-foreground mb-2">Thank You!</DialogTitle>
+            <DialogDescription className="text-sm sm:text-base text-muted-foreground">
+              Your request has been submitted successfully. Our team will contact you shortly.
+            </DialogDescription>
           </div>
-
-          <DialogFooter className="gap-2 sm:gap-0 pt-2">
+          <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-3 sm:pt-4">
             <Button
               type="button"
               onClick={() => setThankYouOpen(false)}
-              className="w-full rounded-xl bg-sky-500 text-slate-950 font-semibold hover:bg-sky-400"
+              className="w-full rounded-xl bg-primary text-primary-foreground font-semibold hover:bg-primary/90 text-sm py-2 h-9 sm:h-10"
             >
               Close
             </Button>
-          </DialogFooter>
+          </div>
         </DialogContent>
       </Dialog>
     </>
