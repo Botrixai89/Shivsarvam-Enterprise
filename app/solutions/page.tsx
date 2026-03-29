@@ -162,7 +162,7 @@ export default function SolutionsLanding() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed"
+            className="text-sm md:text-lg text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed"
           >
             Comprehensive industrial, healthcare, and commercial chemical solutions tailored for Chhattisgarh
             backed by certified brands.

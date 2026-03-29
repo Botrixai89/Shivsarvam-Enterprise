@@ -264,7 +264,7 @@ export function HeroProfessional() {
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.75, delay: 0.15, ease: 'easeOut' }}
   className="font-extrabold leading-[1.15] tracking-tight mb-5
-             text-4xl sm:text-5xl lg:text-[3rem] xl:text-[3.3rem]"
+             text-3xl sm:text-5xl lg:text-[3rem] xl:text-[3.3rem]"
   style={{
     background: 'linear-gradient(135deg, var(--primary), var(--secondary))',
     WebkitBackgroundClip: 'text',
@@ -273,7 +273,7 @@ export function HeroProfessional() {
 >
   Trusted source
   <br className="hidden lg:block" />
-  for industrial utility chemicals, cleaning, hygiene & disinfection Solutions
+  <span className="sm:hidden md:block">  </span>for industrial utility chemicals, cleaning, hygiene & disinfection solutions
 </motion.h1>
 
             {/* Sub */}
@@ -281,7 +281,7 @@ export function HeroProfessional() {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.28, ease: 'easeOut' }}
-              className="text-base sm:text-lg leading-relaxed max-w-lg mb-8"
+              className="text-sm sm:text-lg leading-relaxed max-w-lg mb-8"
               style={{ color: 'var(--muted-foreground)' }}
             >
               Supplying high-performance chemicals and cleaning systems for{' '}

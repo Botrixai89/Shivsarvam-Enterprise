@@ -82,7 +82,7 @@ export function Footer() {
             
             <p className="text-muted-foreground leading-relaxed text-sm max-w-sm">
               Trusted source for industrial utility chemicals, cleaning, hygiene & disinfection solutions. 
-              Serving Chhattisgarh with excellence since 2005.
+              Serving Chhattisgarh with excellence.
             </p>
             
             {/* Trust Badges */}

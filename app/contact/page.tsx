@@ -86,7 +86,7 @@ export default function ContactPage() {
             <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
               Let's Connect
             </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-sm sm:text-lg text-muted-foreground max-w-2xl mx-auto">
               Ready to elevate your operations with premium chemical solutions? Our team is here to help.
             </p>
           </motion.div>
