@@ -38,8 +38,8 @@ const WHY_US = [
 
 const CORE_SEGMENTS = [
   { icon: Factory,    label: 'Industrial & Power Plants' },
-  { icon: Building2,  label: 'Hospitality & Swimming Pools' },
   { icon: HeartPulse, label: 'Hospitals & Healthcare Sector' },
+  { icon: Building2,  label: 'Hospitality & Swimming Pools' },
   { icon: Shirt,      label: 'Commercial Laundry & Textile Care' },
 ]
 
