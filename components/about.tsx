@@ -44,7 +44,8 @@ const CORE_SEGMENTS = [
 ]
 
 const STATS = [
-  { value: '18+', label: 'Years Experience' },
+  // { value: '18+', label: 'Years Experience' },
+  { value: '24/7', label: 'Support Availability' },
   { value: '500+', label: 'Clients Served' },
   { value: '2', label: 'Premium Brands' },
   { value: '4', label: 'Sectors Covered' },
@@ -78,9 +79,8 @@ export function About() {
 
               <div className="space-y-4 text-[15px] text-muted-foreground leading-relaxed mb-6">
                 <p>
-                  Shivsarvam Enterprises is a trusted supplier and distributor of high-quality industrial and specialty chemicals — delivering reliable solutions across multiple sectors with over{' '}
-                  <strong className="text-foreground">18 years of industry experience</strong>.
-                </p>
+                Shivsarvam Enterprises is a trusted supplier and distributor of high-quality industrial and specialty chemicals delivering reliable, efficient, and customized solutions across multiple sectors.
+              </p>
                 <p>
                   We are the authorized distributors of certified chemicals from{' '}
                   <strong className="text-foreground">Chemtex Specialty Private Limited</strong> and{' '}

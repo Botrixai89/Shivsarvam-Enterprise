@@ -6,7 +6,7 @@ import { Footer } from '@/components/footer'
 import { Contact } from '@/components/contact'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { MapPin, Phone, Mail, Clock, MessageCircle, ArrowRight, Building2, ShieldCheck, Award } from 'lucide-react'
+import { MapPin, Phone, Mail, Clock, MessageCircle, ArrowRight, Building2, ShieldCheck, Award, Headphones } from 'lucide-react'
 
 const WHATSAPP_NUMBER = '918412909297'
 const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=Hello%20Shivsarvam%20Enterprises`
@@ -44,10 +44,15 @@ const TRUST_FEATURES = [
     title: 'ISO Certified',
     description: 'Quality assured products'
   },
+  // {
+  //   icon: Award,
+  //   title: '20+ Years',
+  //   description: 'Industry experience'
+  // },
   {
-    icon: Award,
-    title: '20+ Years',
-    description: 'Industry experience'
+    icon: Headphones,
+    title: '24/7',
+    description:'Support Availibility'
   },
   {
     icon: Building2,
