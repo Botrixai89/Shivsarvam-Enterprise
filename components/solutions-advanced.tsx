@@ -7,19 +7,6 @@ import { ArrowRight, FlaskConical, HeartPulse, Hotel, WashingMachine } from 'luc
 
 const solutions = [
   {
-    icon: FlaskConical,
-    title: 'Industrial Segment',
-    href: '/solutions/hygiene',
-    image: '/images/industry segment.png',
-    description: 'Utility chemicals for boilers, cooling towers, chillers, RO systems & waste water management.',
-    items: [
-      'Boiler & cooling tower treatment',
-      'Oil & gas industry chemicals',
-      'Solar panel cleaning chemicals',
-      'Water treatment & RO chemicals',
-    ],
-  },
-  {
     icon: HeartPulse,
     title: 'Hospital Segment',
     href: '/solutions/hospital',
@@ -41,6 +28,19 @@ const solutions = [
       'Housekeeping & cleaning chemicals',
       'Kitchen care solutions',
       'Swimming pool & water park chemicals',
+    ],
+  },
+  {
+    icon: FlaskConical,
+    title: 'Industrial Segment',
+    href: '/solutions/hygiene',
+    image: '/images/industry segment.png',
+    description: 'Utility chemicals for boilers, cooling towers, chillers, RO systems & waste water management.',
+    items: [
+      'Boiler & cooling tower treatment',
+      'Oil & gas industry chemicals',
+      'Solar panel cleaning chemicals',
+      'Water treatment & RO chemicals',
     ],
   },
   {

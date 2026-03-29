@@ -3,14 +3,16 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { ShieldCheck, BadgeCheck, Headphones, PackageCheck, Award, ArrowRight } from 'lucide-react'
+import Link from 'next/link'
 
 const brands = [
   {
     number: '01',
     logo: '/images/chemtex.png',
+    link:'https://www.chemtexlimited.com/',
     name: 'Chemtex Specialty Pvt. Ltd.',
     tagline: 'Your global partner for every industrial chemical need.',
-    description: 'Authorized distributor covering Thermal Power, Water Treatment, Food & Pharma, Hospitality, Oil & Gas, and more — every product certified and compliant.',
+    description: 'Authorized distributor covering Thermal Power, Water Treatment, Food & Pharma, Hospitality, Oil & Gas, and more every product certified and compliant.',
     badges: ['All Industry Solutions', 'ISO Certified', 'MSDS Compliance'],
     gradientFrom: 'from-primary/12',
     gradientTo: 'to-primary/3',
@@ -22,9 +24,10 @@ const brands = [
   {
     number: '02',
     logo: '/images/indokem.png',
+    link: 'https://www.indokem.co.in/',
     name: 'Indokem Limited',
     tagline: 'Specialized care for textiles, laundry & commercial operations.',
-    description: 'Precision laundry and textile care formulations for commercial machines and professional operations — maximum efficiency, fabric-safe chemistry.',
+    description: 'Precision laundry and textile care formulations for commercial machines and professional operations maximum efficiency, fabric-safe chemistry.',
     badges: ['Laundry Specialist', 'Textile Care', 'Premium Washing'],
     gradientFrom: 'from-accent/12',
     gradientTo: 'to-accent/3',
@@ -70,7 +73,7 @@ export function Brands() {
               Authorized <span className="text-gradient">Brand Partners</span>
             </h2>
             <p className="text-muted-foreground mt-2 max-w-md text-[14px]">
-              Globally trusted chemical leaders — exclusively distributed across Chhattisgarh.
+              Globally trusted chemical leaders exclusively distributed across Chhattisgarh.
             </p>
           </div>
           <motion.div
@@ -119,7 +122,7 @@ export function Brands() {
 
                   <div className="relative flex flex-col items-center gap-3">
                     <motion.div
-                      className="relative w-40 h-14"
+                      className={`relative ${idx === 0 ? 'w-64 h-20' : 'w-40 h-14'}`}
                       animate={floatAnim.animate}
                       transition={floatAnim.transition}
                       whileHover={{ scale: 1.08 }}
@@ -167,6 +170,7 @@ export function Brands() {
                     ))}
                   </div>
 
+                  <Link href={brand.link} target="_blank">
                   <motion.div
                     className="flex items-center gap-1.5 text-[12px] font-bold text-primary w-fit cursor-pointer"
                     whileHover={{ gap: '10px', x: 2 }}
@@ -174,6 +178,7 @@ export function Brands() {
                   >
                     Learn More <ArrowRight className="w-3 h-3" />
                   </motion.div>
+                </Link>
                 </div>
 
               </div>

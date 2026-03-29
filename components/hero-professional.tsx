@@ -245,7 +245,7 @@ export function HeroProfessional() {
                 <img 
                   src="/images/chemtex.png" 
                   alt="Chemtex" 
-                  className="h-8 sm:h-10 w-auto object-contain"
+                  className="h-6 sm:h-7 w-auto object-contain"
                   onError={(e) => { e.currentTarget.style.display = 'none' }}
                 />
                 <span className="text-border font-light">·</span>
@@ -266,7 +266,7 @@ export function HeroProfessional() {
               className="font-extrabold leading-[1.15] tracking-tight mb-5 text-foreground
                          text-4xl sm:text-5xl lg:text-[3rem] xl:text-[3.3rem]"
             >
-              One Trusted Source{' '}
+              Trusted source{' '}
               <br className="hidden lg:block" />
               for{' '}
               <span
@@ -276,7 +276,7 @@ export function HeroProfessional() {
                   WebkitTextFillColor: 'transparent',
                 }}
               >
-                Hygiene &amp; Industrial
+                industrial utility chemicals, cleaning, hygiene &amp; disinfection
               </span>{' '}
               Solutions
             </motion.h1>

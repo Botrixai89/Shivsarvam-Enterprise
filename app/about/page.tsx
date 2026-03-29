@@ -19,6 +19,7 @@ import {
   ShieldCheck,
   Zap,
 } from 'lucide-react'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'About Us | Shivsarvam Enterprises',
@@ -30,7 +31,8 @@ export const metadata: Metadata = {
 }
 
 const stats = [
-  { value: '18+', label: 'Years Experience' },
+  // { value: '18+', label: 'Years Experience' },
+  { value: '24/7', label: 'Support Availability' },
   { value: '500+', label: 'Satisfied Clients' },
   { value: '2', label: 'Premium Brands' },
   { value: '4', label: 'Industry Segments' },
@@ -96,6 +98,11 @@ const advantages = [
   },
 ]
 
+const brandLogos = [
+  { name: 'Chemtex', logo: '/images/chemtex.png' },
+  { name: 'Indokem Limited', logo: '/images/indokem.png' },
+];
+
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-background">
@@ -116,7 +123,7 @@ export default function AboutPage() {
           </h1>
 
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12 animate-slideUp" style={{ animationDelay: '0.15s' }}>
-            Shivsarvam Enterprises delivers certified industrial and specialty chemicals across four key sectors — backed by 18 years of expertise, technical support, and two premium brands.
+            Shivsarvam Enterprises delivers certified industrial and specialty chemicals across four key sectors backed by two premium brands.
           </p>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto animate-slideUp" style={{ animationDelay: '0.25s' }}>
@@ -145,7 +152,7 @@ export default function AboutPage() {
 
             <div className="space-y-4 text-muted-foreground text-base leading-relaxed">
               <p>
-                Shivsarvam Enterprises is a trusted supplier and distributor of high-quality industrial and specialty chemicals — delivering reliable solutions across industrial utilities, healthcare, hospitality, and laundry sectors.
+                Shivsarvam Enterprises is a trusted supplier and distributor of high-quality industrial and specialty chemicals delivering reliable solutions across industrial utilities, healthcare, hospitality, and laundry sectors.
               </p>
               <p>
                 We are the authorized distributors of <strong className="text-foreground">Chemtex Specialty Private Limited</strong> and{' '}
@@ -224,7 +231,7 @@ export default function AboutPage() {
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-3">Our Mission</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  To be the most trusted regional partner for industrial and specialty chemicals — supplying only certified products from leading brands, backed by technical support and training that ensure safe, effective use across every sector we serve.
+                  To be the most trusted regional partner for industrial and specialty chemicals supplying only certified products from leading brands, backed by technical support and training that ensure safe, effective use across every sector we serve.
                 </p>
               </div>
             </div>
@@ -238,7 +245,7 @@ export default function AboutPage() {
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-3">Our Vision</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  To set the standard for chemical distribution in Chhattisgarh and beyond — where quality, safety, and customer success come first, and every industry has access to the right solutions and expertise.
+                  To set the standard for chemical distribution in Chhattisgarh and beyond where quality, safety, and customer success come first, and every industry has access to the right solutions and expertise.
                 </p>
               </div>
             </div>
@@ -351,14 +358,20 @@ export default function AboutPage() {
                 Official Distributor of <span className="text-gradient">Premium Brands</span>
               </h3>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <div className="flex items-center gap-3 px-6 py-3 bg-card rounded-xl border border-border shadow-sm">
-                  <CheckCircle className="w-4 h-4 text-accent shrink-0" />
-                  <span className="font-bold text-foreground text-sm">Chemtex Specialty Pvt. Ltd.</span>
-                </div>
-                <div className="flex items-center gap-3 px-6 py-3 bg-card rounded-xl border border-border shadow-sm">
-                  <CheckCircle className="w-4 h-4 text-accent shrink-0" />
-                  <span className="font-bold text-foreground text-sm">Indokem Limited</span>
-                </div>
+                {brandLogos.map((brand, idx) => (
+                  <div
+                    key={idx}
+                    className="flex items-center gap-3 px-6 py-3 bg-card rounded-xl border border-border shadow-sm"
+                  >
+                    <Image
+                      src={brand.logo}
+                      alt={brand.name}
+                      width={90}
+                      height={28}
+                      className="object-contain"
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </div>

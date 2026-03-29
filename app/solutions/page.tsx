@@ -18,29 +18,15 @@ import {
   Award,
   CheckCircle2,
   Sparkles,
-  ChevronRight
+  ChevronRight,
+  Headphones
 } from 'lucide-react'
 
 const solutions = [
   {
     number: '01',
-    icon: FlaskConical,
-    title: 'Industrial Segment',
-    href: '/solutions/hygiene',
-    image: '/images/industry segment.png',
-    tag: 'Utilities & Process',
-    gradient: 'from-orange-500/20 to-red-500/20',
-    color: 'text-orange-500',
-    items: [
-      'Utility chemicals for boilers, cooling towers, chillers, RO systems & waste water management',
-      'Oil & gas industry chemicals',
-      'Solar panel cleaning chemicals',
-    ],
-  },
-  {
-    number: '02',
-    icon: HeartPulse,
     title: 'Hospital Segment',
+    icon: HeartPulse,
     href: '/solutions/hospital',
     image: '/images/Hostpital.png',
     tag: 'Healthcare & Hygiene',
@@ -52,7 +38,7 @@ const solutions = [
     ],
   },
   {
-    number: '03',
+    number: '02',
     icon: Hotel,
     title: 'Hotels & Resorts Segment',
     href: '/solutions/water',
@@ -64,6 +50,21 @@ const solutions = [
       'Cleaning & hygiene chemicals',
       'Kitchen care chemical solutions',
       'Water park & swimming pool cleaning chemicals',
+    ],
+  },
+  {
+    number: '03',
+    icon: FlaskConical,
+    title: 'Industrial Segment',
+    href: '/solutions/hygiene',
+    image: '/images/industry segment.png',
+    tag: 'Utilities & Process',
+    gradient: 'from-orange-500/20 to-red-500/20',
+    color: 'text-orange-500',
+    items: [
+      'Utility chemicals for boilers, cooling towers, chillers, RO systems & waste water management',
+      'Oil & gas industry chemicals',
+      'Solar panel cleaning chemicals',
     ],
   },
   {
@@ -84,7 +85,8 @@ const solutions = [
 
 const stats = [
   { value: '500+', label: 'Clients Served', icon: ShieldCheck },
-  { value: '20+', label: 'Years Experience', icon: Award },
+  // { value: '20+', label: 'Years Experience', icon: Award },
+  {value:'24/7',label:'support Availability',icon:Headphones},
   { value: '100%', label: 'Quality Guaranteed', icon: CheckCircle2 },
 ]
 
@@ -117,7 +119,7 @@ export default function SolutionsLanding() {
     <main className="min-h-screen bg-background overflow-x-hidden">
       <Navbar />
 
-      <section ref={targetRef} className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+      <section ref={targetRef} className="relative min-h-[100vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10" />
           <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-primary/20 blur-[120px] animate-pulse" />
@@ -162,8 +164,8 @@ export default function SolutionsLanding() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed"
           >
-            Comprehensive industrial, healthcare, and commercial chemical solutions tailored for Chhattisgarh — 
-            backed by certified brands and years of expertise.
+            Comprehensive industrial, healthcare, and commercial chemical solutions tailored for Chhattisgarh
+            backed by certified brands.
           </motion.p>
 
           <motion.div
@@ -365,14 +367,15 @@ export default function SolutionsLanding() {
                     <div className="text-3xl font-bold text-primary mb-1">500+</div>
                     <div className="text-xs text-muted-foreground">Happy Clients</div>
                   </div>
-                  <div className="text-center p-4 bg-primary/5 rounded-xl">
-                    <div className="text-3xl font-bold text-primary mb-1">20+</div>
-                    <div className="text-xs text-muted-foreground">Years Experience</div>
-                  </div>
-                  <div className="text-center p-4 bg-primary/5 rounded-xl">
-                    <div className="text-3xl font-bold text-primary mb-1">50+</div>
-                    <div className="text-xs text-muted-foreground">Product Lines</div>
-                  </div>
+              <div className="text-center p-4 bg-primary/5 rounded-xl">
+                <div className="text-3xl font-bold text-primary mb-1">4</div>
+                <div className="text-xs text-muted-foreground">Industrial Segments</div>
+              </div>
+
+              <div className="text-center p-4 bg-primary/5 rounded-xl">
+                <div className="text-3xl font-bold text-primary mb-1">2</div>
+                <div className="text-xs text-muted-foreground">Premium Brand Partnerships</div>
+              </div>
                   <div className="text-center p-4 bg-primary/5 rounded-xl">
                     <div className="text-3xl font-bold text-primary mb-1">24/7</div>
                     <div className="text-xs text-muted-foreground">Support</div>

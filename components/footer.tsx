@@ -20,6 +20,11 @@ const SERVICES = [
   { name: 'Solar Maintenance', href: '/solutions/solar' },
 ]
 
+const brandLogos = [
+  { name: 'Chemtex', logo: '/images/chemtex.png' },
+  { name: 'Indokem Limited', logo: '/images/indokem.png' },
+];
+
 const CONTACT_INFO = [
   { Icon: Phone, label: '+91 84129 09297', href: 'tel:+918412909297' },
   { Icon: Mail, label: 'info@shivsarvam.in', href: 'mailto:info@shivsarvam.in' },
@@ -76,7 +81,7 @@ export function Footer() {
             </Link>
             
             <p className="text-muted-foreground leading-relaxed text-sm max-w-sm">
-              One trusted source for utility chemicals, healthcare hygiene, hospitality and laundry solutions. 
+              Trusted source for industrial utility chemicals, cleaning, hygiene & disinfection solutions. 
               Serving Chhattisgarh with excellence since 2005.
             </p>
             
@@ -231,12 +236,22 @@ export function Footer() {
             © {new Date().getFullYear()} Shivsarvam Enterprises. All rights reserved.
           </p>
           
+       
+
           <div className="flex items-center gap-4 text-xs text-muted-foreground">
             <span>Authorized Distributor for</span>
-            <div className="flex items-center gap-2">
-              <span className="font-semibold text-foreground">Chemtex</span>
-              <span className="text-border">•</span>
-              <span className="font-semibold text-foreground">Indokem Limited</span>
+
+            <div className="flex items-center gap-6">
+              {brandLogos.map((brand, idx) => (
+                <Image
+                  key={idx}
+                  src={brand.logo}
+                  alt={brand.name}
+                  width={60}
+                  height={24}
+                  className="object-contain opacity-80 hover:opacity-100 transition"
+                />
+              ))}
             </div>
           </div>
           
