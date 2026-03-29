@@ -122,7 +122,7 @@ export default function AboutPage() {
             Trusted Chemical <span className="text-gradient block mt-1">Solutions Partner</span>
           </h1>
 
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12 animate-slideUp" style={{ animationDelay: '0.15s' }}>
+          <p className="text-sm sm:text-lg text-muted-foreground max-w-2xl mx-auto mb-12 animate-slideUp" style={{ animationDelay: '0.15s' }}>
             Shivsarvam Enterprises delivers certified industrial and specialty chemicals across four key sectors backed by two premium brands.
           </p>
 
