@@ -25,6 +25,21 @@ import {
 const solutions = [
   {
     number: '01',
+    icon: FlaskConical,
+    title: 'Industrial Segment',
+    href: '/solutions/hygiene',
+    image: '/images/industry segment.png',
+    tag: 'Utilities & Process',
+    gradient: 'from-orange-500/20 to-red-500/20',
+    color: 'text-orange-500',
+    items: [
+      'Utility chemicals for boilers, cooling towers, chillers, RO systems & waste water management',
+      'Oil & gas industry chemicals',
+      'Solar panel cleaning chemicals',
+    ],
+  },
+  {
+    number: '02',
     title: 'Hospital Segment',
     icon: HeartPulse,
     href: '/solutions/hospital',
@@ -38,7 +53,7 @@ const solutions = [
     ],
   },
   {
-    number: '02',
+    number: '03',
     icon: Hotel,
     title: 'Hotels & Resorts Segment',
     href: '/solutions/water',
@@ -50,21 +65,6 @@ const solutions = [
       'Cleaning & hygiene chemicals',
       'Kitchen care chemical solutions',
       'Water park & swimming pool cleaning chemicals',
-    ],
-  },
-  {
-    number: '03',
-    icon: FlaskConical,
-    title: 'Industrial Segment',
-    href: '/solutions/hygiene',
-    image: '/images/industry segment.png',
-    tag: 'Utilities & Process',
-    gradient: 'from-orange-500/20 to-red-500/20',
-    color: 'text-orange-500',
-    items: [
-      'Utility chemicals for boilers, cooling towers, chillers, RO systems & waste water management',
-      'Oil & gas industry chemicals',
-      'Solar panel cleaning chemicals',
     ],
   },
   {

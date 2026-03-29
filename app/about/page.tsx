@@ -170,41 +170,64 @@ export default function AboutPage() {
             </blockquote>
           </div>
 
-          <div className="relative rounded-2xl border border-border bg-card shadow-sm overflow-hidden">
-            <div className="h-[3px] bg-gradient-to-r from-primary to-accent" />
-            <div className="p-8">
-              <div className="flex flex-col sm:flex-row gap-6 items-start">
-                <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/20 shrink-0 flex items-center justify-center">
-                  <span className="text-3xl font-black text-primary select-none">LB</span>
-                </div>
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-1">Founder & Director</p>
-                  <h3 className="text-xl font-bold text-foreground mb-0.5">Laxmidatta Bajpayee</h3>
-                  <span className="inline-flex items-center px-2.5 py-0.5 bg-accent/10 rounded-full border border-accent/20 text-accent text-xs font-semibold mb-4">
-                    18+ Years Industry Experience
-                  </span>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    Holds a Master's degree in Chemistry and an MBA in Operations Management. His expertise spans Thermal Power, Cement, and Chemical industries — combining deep chemical knowledge with strategic business insight to deliver optimal, safe chemical solutions across every sector Shivsarvam serves.
-                  </p>
-                </div>
-              </div>
+         <div className="relative rounded-2xl border border-border bg-card shadow-sm overflow-hidden">
+  
+  {/* Top gradient line */}
+  <div className="h-[4px] bg-gradient-to-r from-primary to-accent" />
 
-              <div className="mt-6 pt-6 border-t border-border grid grid-cols-3 gap-4 text-center">
-                <div>
-                  <p className="text-lg font-bold text-primary">M.Sc</p>
-                  <p className="text-[11px] text-muted-foreground">Chemistry</p>
-                </div>
-                <div>
-                  <p className="text-lg font-bold text-primary">MBA</p>
-                  <p className="text-[11px] text-muted-foreground">Operations Mgmt</p>
-                </div>
-                <div>
-                  <p className="text-lg font-bold text-primary">18+</p>
-                  <p className="text-[11px] text-muted-foreground">Years Exp.</p>
-                </div>
-              </div>
-            </div>
-          </div>
+  <div className="p-6 sm:p-8">
+
+    {/* Layout */}
+    <div className="flex flex-col md:flex-row gap-6 items-center md:items-start">
+
+      {/* Image (Bigger + Better visibility) */}
+    <div className="w-40 h-48 sm:w-44 sm:h-52 md:w-48 md:h-60 rounded-xl overflow-hidden border border-primary/20 shrink-0 shadow-md bg-muted">
+      <img
+        src="/images/founder.jpg"
+        alt="Founder"
+        className="w-full h-full object-cover"
+        style={{ objectPosition: "center 15%" }}
+      />
+    </div>
+
+      {/* Content */}
+      <div className="text-center md:text-left">
+        <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-1">
+          Founder & Director
+        </p>
+
+        <h3 className="text-2xl font-bold text-foreground mb-1">
+          Laxmidatta Bajpayee
+        </h3>
+
+        <span className="inline-flex items-center px-3 py-1 bg-accent/10 rounded-full border border-accent/20 text-accent text-xs font-semibold mb-4">
+          18+ Years Industry Experience
+        </span>
+
+        <p className="text-sm text-muted-foreground leading-relaxed max-w-xl">
+          Holds a Master's degree in Chemistry and an MBA in Operations Management. His expertise spans Thermal Power, Cement, and Chemical industries — combining deep chemical knowledge with strategic business insight to deliver optimal, safe chemical solutions.
+        </p>
+      </div>
+    </div>
+
+    {/* Stats */}
+    <div className="mt-8 pt-6 border-t border-border grid grid-cols-3 gap-4 text-center">
+      <div>
+        <p className="text-xl font-bold text-primary">M.Sc</p>
+        <p className="text-xs text-muted-foreground">Chemistry</p>
+      </div>
+      <div>
+        <p className="text-xl font-bold text-primary">MBA</p>
+        <p className="text-xs text-muted-foreground">Operations Mgmt</p>
+      </div>
+      <div>
+        <p className="text-xl font-bold text-primary">18+</p>
+        <p className="text-xs text-muted-foreground">Years Exp.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
         </div>
       </section>
 

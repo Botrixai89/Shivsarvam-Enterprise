@@ -16,6 +16,16 @@ const TRUST_BADGES = [
 const SERVICES = [
   {
     id:       0,
+    icon:     Zap,
+    label:    'Industrial Chemicals',
+    sub:      'Heavy-duty formulations for demanding environments',
+    image:    '/images/industry segment.png',
+    gradient: 'from-slate-950/85 via-slate-900/40 to-transparent',
+    chip:     'Industrial Strength',
+    chipColor:'bg-slate-400/20 text-slate-200 border-slate-400/30',
+  },
+  {
+    id:       1,
     icon:     Droplets,
     label:    'Healthcare Hygiene',
     sub:      'Clinical-grade disinfectants & sterile solutions',
@@ -25,7 +35,7 @@ const SERVICES = [
     chipColor:'bg-blue-500/20 text-blue-200 border-blue-400/30',
   },
   {
-    id:       1,
+    id:       2,
     icon:     Building2,
     label:    'Hospitality Cleaning',
     sub:      'Premium care for hotels, resorts & dining',
@@ -33,16 +43,6 @@ const SERVICES = [
     gradient: 'from-teal-950/85 via-teal-900/40 to-transparent',
     chip:     '5-Star Standard',
     chipColor:'bg-teal-500/20 text-teal-200 border-teal-400/30',
-  },
-  {
-    id:       2,
-    icon:     Zap,
-    label:    'Industrial Chemicals',
-    sub:      'Heavy-duty formulations for demanding environments',
-    image:    '/images/industry segment.png',
-    gradient: 'from-slate-950/85 via-slate-900/40 to-transparent',
-    chip:     'Industrial Strength',
-    chipColor:'bg-slate-400/20 text-slate-200 border-slate-400/30',
   },
   {
     id:       3,
@@ -260,26 +260,21 @@ export function HeroProfessional() {
 
             {/* Heading */}
             <motion.h1
-              initial={{ opacity: 0, y: 22 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.75, delay: 0.15, ease: 'easeOut' }}
-              className="font-extrabold leading-[1.15] tracking-tight mb-5 text-foreground
-                         text-4xl sm:text-5xl lg:text-[3rem] xl:text-[3.3rem]"
-            >
-              Trusted source{' '}
-              <br className="hidden lg:block" />
-              for{' '}
-              <span
-                style={{
-                  background: 'linear-gradient(135deg, var(--primary) 0%, var(--secondary) 60%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                }}
-              >
-                industrial utility chemicals, cleaning, hygiene &amp; disinfection
-              </span>{' '}
-              Solutions
-            </motion.h1>
+  initial={{ opacity: 0, y: 22 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.75, delay: 0.15, ease: 'easeOut' }}
+  className="font-extrabold leading-[1.15] tracking-tight mb-5
+             text-4xl sm:text-5xl lg:text-[3rem] xl:text-[3.3rem]"
+  style={{
+    background: 'linear-gradient(135deg, var(--primary), var(--secondary))',
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
+  }}
+>
+  Trusted source
+  <br className="hidden lg:block" />
+  for industrial utility chemicals, cleaning, hygiene & disinfection Solutions
+</motion.h1>
 
             {/* Sub */}
             <motion.p
