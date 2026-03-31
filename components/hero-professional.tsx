@@ -347,10 +347,10 @@ export function HeroProfessional() {
                   <img
                     src="/images/bni.png"   
                     alt="BNI"
-                    className="w-8 h-8 sm:w-10 sm:h-10 mr-2 object-contain"
+                    className="w-12 h-12 sm:w-20 sm:h-20 mr-2 object-contain"
                   />
 
-                  <span className="text-xs sm:text-sm font-medium text-muted-foreground">
+                  <span className="text-sm sm:text-lg font-medium text-muted-foreground">
                     BNI Member
                   </span>
 
