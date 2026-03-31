@@ -165,7 +165,7 @@ export default function AboutPage() {
                 <img
                   src="/images/bni.png"   // your logo path
                   alt="BNI Logo"
-                  className="w-6 h-6 object-contain"
+                  className="w-8 h-8 object-contain"
                 />
                 <h4 className="text-sm font-semibold text-foreground">
                   BNI Membership
@@ -230,7 +230,7 @@ export default function AboutPage() {
     </div>
 
     {/* Stats */}
-    <div className="mt-8 pt-6 border-t border-border grid grid-cols-3 gap-4 text-center">
+    {/* <div className="mt-8 pt-6 border-t border-border grid grid-cols-3 gap-4 text-center">
       <div>
         <p className="text-xl font-bold text-primary">M.Sc</p>
         <p className="text-xs text-muted-foreground">Chemistry</p>
@@ -243,7 +243,7 @@ export default function AboutPage() {
         <p className="text-xl font-bold text-primary">18+</p>
         <p className="text-xs text-muted-foreground">Years Exp.</p>
       </div>
-    </div>
+    </div> */}
 
   </div>
 </div>
