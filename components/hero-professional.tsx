@@ -328,7 +328,7 @@ export function HeroProfessional() {
               className="flex flex-wrap gap-4 justify-center lg:justify-start pt-6 border-t"
               style={{ borderColor: 'var(--border)' }}
             >
-              {TRUST_BADGES.map(({ icon: Icon, text }) => (
+              {/* {TRUST_BADGES.map(({ icon: Icon, text }) => (
                 <>
                 <div key={text} className="flex items-center gap-2 text-sm" style={{ color: 'var(--muted-foreground)' }}>
                   <Icon className="w-4 h-4" style={{ color: 'var(--primary)' }} />
@@ -341,12 +341,39 @@ export function HeroProfessional() {
 
                 </>
                 
-              ))}
+              ))} */}
+              
               <div className="inline-flex items-center px-4 py-2 rounded-full backdrop-blur-sm">
                   
                   <span className="text-sm sm:text-lg font-medium text-muted-foreground">
                     Proud Member of 
                   </span>
+                  <img
+                    src="/images/auth.png"   
+                    alt="BNI"
+                    className="w-20 h-20 sm:w-28 sm:h-28 mr-2 object-contain"
+                  />
+
+                  {/* <span className="text-xs sm:text-sm font-medium text-muted-foreground">
+                    BNI Member
+                  </span> */}
+
+                </div>
+              <div className="inline-flex items-center px-4 py-2 rounded-full backdrop-blur-sm">
+                  
+                  <img
+                    src="/images/iso2.png"   
+                    alt="BNI"
+                    className="w-14 h-14 sm:w-20 sm:h-20 mr-2 object-contain"
+                  />
+
+                  {/* <span className="text-xs sm:text-sm font-medium text-muted-foreground">
+                    BNI Member
+                  </span> */}
+
+                </div>
+                <div className="inline-flex items-center px-4 py-2 rounded-full backdrop-blur-sm">
+                  
                   <img
                     src="/images/bni.png"   
                     alt="BNI"
