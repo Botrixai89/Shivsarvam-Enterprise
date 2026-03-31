@@ -285,8 +285,8 @@ export function HeroProfessional() {
               style={{ color: 'var(--muted-foreground)' }}
             >
               Supplying high-performance chemicals and cleaning systems for{' '}
-              <span className="font-semibold text-foreground">healthcare, hospitality,</span> and{' '}
-              <span className="font-semibold text-foreground">industrial sectors</span> across the region.
+              <span className="font-semibold text-foreground">industrial, healthcare</span> and{' '}
+              <span className="font-semibold text-foreground">hospitality sectors</span> across the region.
             </motion.p>
 
             {/* CTA Row */}
@@ -329,11 +329,32 @@ export function HeroProfessional() {
               style={{ borderColor: 'var(--border)' }}
             >
               {TRUST_BADGES.map(({ icon: Icon, text }) => (
+                <>
                 <div key={text} className="flex items-center gap-2 text-sm" style={{ color: 'var(--muted-foreground)' }}>
                   <Icon className="w-4 h-4" style={{ color: 'var(--primary)' }} />
                   <span>{text}</span>
+                  
                 </div>
+
+
+                
+
+                </>
+                
               ))}
+              <div className="inline-flex items-center px-4 py-2 rounded-full backdrop-blur-sm">
+                  
+                  <img
+                    src="/images/bni.png"   
+                    alt="BNI"
+                    className="w-4 h-4 mr-2 object-contain"
+                  />
+
+                  <span className="text-xs sm:text-sm font-medium text-muted-foreground">
+                    BNI Member
+                  </span>
+
+                </div>
             </motion.div>
           </div>
 
