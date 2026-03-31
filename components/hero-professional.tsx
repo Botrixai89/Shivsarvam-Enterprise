@@ -345,9 +345,9 @@ export function HeroProfessional() {
               
               <div className="inline-flex items-center px-4 py-2 rounded-full backdrop-blur-sm">
                   
-                  <span className="text-sm sm:text-lg font-medium text-muted-foreground">
+                 /* <span className="text-sm sm:text-lg font-medium text-muted-foreground">
                     Proud Member of 
-                  </span>
+                  </span> */
                   <img
                     src="/images/auth.png"   
                     alt="BNI"
