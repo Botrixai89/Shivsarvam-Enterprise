@@ -159,6 +159,25 @@ export default function AboutPage() {
                 <strong className="text-foreground">Indokem Limited</strong> in Chhattisgarh and Maharashtra, with a firm focus on safe application through training and technical support.
               </p>
             </div>
+            <div className="mt-6 p-5 rounded-2xl border border-border bg-muted/30 backdrop-blur-sm">
+
+              <div className="flex items-center gap-3 mb-3">
+                <img
+                  src="/images/bni.png"   // your logo path
+                  alt="BNI Logo"
+                  className="w-6 h-6 object-contain"
+                />
+                <h4 className="text-sm font-semibold text-foreground">
+                  BNI Membership
+                </h4>
+              </div>
+
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Shivsarvam Enterprises is a proud member of BNI (Business Network International), 
+                building strong business relationships through trusted referrals and a global professional network.
+              </p>
+
+            </div>
 
             <blockquote className="relative mt-8 p-6 pl-8 bg-gradient-to-r from-primary/8 to-transparent rounded-2xl border-l-4 border-primary overflow-hidden">
               <span className="absolute top-1 left-3 text-6xl text-primary/15 font-serif leading-none select-none" aria-hidden>&ldquo;</span>
