@@ -345,6 +345,9 @@ export function HeroProfessional() {
               
               <div className="inline-flex items-center px-4 py-2 rounded-full backdrop-blur-sm">
                   
+                  <span className="text-sm sm:text-lg font-medium text-muted-foreground">
+                    Proud Member of 
+                  </span>
                   <img
                     src="/images/auth.png"   
                     alt="BNI"
@@ -374,12 +377,9 @@ export function HeroProfessional() {
                   <img
                     src="/images/bni.png"   
                     alt="BNI"
-                    className="w-20 h-20 sm:w-28 sm:h-28 mr-2 object-contain"
+                    className="w-14 h-14 sm:w-20 sm:h-20 mr-2 object-contain"
                   />
 
-                  {/* <span className="text-xs sm:text-sm font-medium text-muted-foreground">
-                    BNI Member
-                  </span> */}
 
                 </div>
             </motion.div>
