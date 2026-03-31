@@ -28,7 +28,7 @@ const brandLogos = [
 const CONTACT_INFO = [
   { Icon: Phone, label: '+91 84129 09297', href: 'tel:+918412909297' },
   { Icon: Mail, label: 'info@shivsarvam.in', href: 'mailto:info@shivsarvam.in' },
-  { Icon: MapPin, label: 'Raipur, Chhattisgarh, India', href: null },
+  { Icon: MapPin, label: 'C-6, Sector 3, Jagriti Nagar, Devendra Nagar, Raipur, Chhattisgarh, India 492009', href: null },
 ]
 
 // const SOCIAL_LINKS = [
@@ -213,8 +213,8 @@ export function Footer() {
                 </div>
                 <div>
                   <p className="text-sm font-medium text-foreground">Business Hours</p>
-                  <p className="text-xs text-muted-foreground">Mon - Sat: 9:00 AM - 7:00 PM</p>
-                  <p className="text-xs text-muted-foreground">Sunday:9:00 AM - 4:00 PM </p>
+                  <p className="text-xs text-muted-foreground">Mon - Sat: 11:00 AM - 6:00 PM</p>
+                  <p className="text-xs text-muted-foreground">Sunday:Closed</p>
                 </div>
               </div>
             </motion.div>
