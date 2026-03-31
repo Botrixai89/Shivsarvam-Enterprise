@@ -15,13 +15,13 @@ const CONTACT_INFO = [
   {
     icon: MapPin,
     title: 'Visit Us',
-    details: ['Raipur, Chhattisgarh', 'India - 492001'],
+    details: ['C-6','Sector 3,','Jagriti Nagar, Devendra Nagar','Raipur, Chhattisgarh', 'India - 492009'],
     action: null
   },
   {
     icon: Phone,
     title: 'Call Us',
-    details: ['+91 84129 09297', '+91 771 123 4567'],
+    details: ['+91 84129 09297'],
     action: 'tel:+918412909297'
   },
   {
@@ -33,7 +33,7 @@ const CONTACT_INFO = [
   {
     icon: Clock,
     title: 'Business Hours',
-    details: ['Mon - Sat: 9:00 AM - 7:00 PM', 'Sunday: Closed'],
+    details: ['Mon - Sat: 11:00 AM - 6:00 PM', 'Sunday: Closed'],
     action: null
   }
 ]
@@ -205,7 +205,7 @@ export default function ContactPage() {
                 <div className="aspect-[4/3] w-full">
                   <iframe
                     title="Shivsarvam Enterprises Location - Raipur, Chhattisgarh"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3718.750251963!2d81.6331!3d21.2514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28dda23d383aad%3A0x779671eef04dcb2e!2sRaipur%2C%20Chhattisgarh!5e0!3m2!1sen!2sin!4v1635000000000!5m2!1sen!2sin"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118987.14267799263!2d81.48779339726562!3d21.257679900000014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28dd345913f6ff%3A0x113121e85a4d92f9!2sShivsarvam%20Enterprises!5e0!3m2!1sen!2sin!4v1774940207266!5m2!1sen!2sin"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
