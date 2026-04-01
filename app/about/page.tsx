@@ -287,7 +287,7 @@ export default function AboutPage() {
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-3">Our Vision</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  To set the standard for chemical distribution in Chhattisgarh and beyond where quality, safety, and customer success come first, and every industry has access to the right solutions and expertise.
+                  To set the standard for chemical distribution in Chhattisgarh and beyond where quality, safety, and customer satisfaction come first, and every industry has access to the right solutions and expertise.
                 </p>
               </div>
             </div>
